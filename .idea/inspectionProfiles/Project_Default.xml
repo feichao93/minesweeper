@@ -8,7 +8,7 @@
     <inspection_tool class="JSMethodCanBeStatic" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="NpmUsedModulesInstalled" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
     <inspection_tool class="RequiredAttributes" enabled="true" level="WARNING" enabled_by_default="true">
-      <option name="myAdditionalRequiredHtmlAttributes" value="pieces,side" />
+      <option name="myAdditionalRequiredHtmlAttributes" value="pieces,side,exploded" />
     </inspection_tool>
     <inspection_tool class="SpellCheckingInspection" enabled="false" level="TYPO" enabled_by_default="false">
       <option name="processCode" value="true" />

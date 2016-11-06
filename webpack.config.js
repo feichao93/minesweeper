@@ -15,7 +15,19 @@ module.exports = {
         test: /\.(jsx?)$/,
         exclude: /node_modules/,
         loaders: ['react-hot-loader/webpack', 'babel']
-      }
+      },
+      {
+        test: /\.css$/,
+        loader: "style!css"
+      },
+      {
+        test: /\.styl$/,
+        loaders: [
+          'style?sourceMap',
+          'css',
+          'stylus'
+        ]
+      },
     ],
     preLoaders: [
       {

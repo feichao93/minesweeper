@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: __dirname + "/app/main.jsx",
@@ -15,6 +16,14 @@ module.exports = {
         test: /\.(jsx?)$/,
         exclude: /node_modules/,
         loader: 'babel'
+      },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract('style', 'css')
+      },
+      {
+        test: /\.styl$/,
+        loader: ExtractTextPlugin.extract('style', 'css!stylus')
       },
     ]
   },
@@ -32,6 +41,7 @@ module.exports = {
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin(),
+    new ExtractTextPlugin("/[name]-[hash].css"),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify("production")

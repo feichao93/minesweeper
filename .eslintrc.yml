@@ -36,3 +36,4 @@ rules:
   no-else-return: off
   jsx-a11y/no-static-element-interactions: off
   react/forbid-prop-types: off
+  jsx-a11y/aria-role: off
