@@ -1,7 +1,7 @@
 import React from 'react'
 import { BD_COLOR } from 'constants'
 
-export const Mine = ({ row, col, exploded }) => (
+export const Mine = ({ row, col, exploded, cross }) => (
   <g role="mine" transform={`translate(${16 * col}, ${16 * row})`}>
     {exploded ?
       <rect x="1" y="1" width="15" height="15" fill="red" />
@@ -19,12 +19,27 @@ export const Mine = ({ row, col, exploded }) => (
     <rect x="12" y="4" width="1" height="1" fill="black" />
     <rect x="4" y="12" width="1" height="1" fill="black" />
     <rect x="12" y="12" width="1" height="1" fill="black" />
+    {cross ?
+      <path
+        d="M2,3
+            h2 v1 h1 v1 h1 v1 h1 v1 h1 v1 h1
+            v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h2
+            v1 h-1 v1 h-1 v1 h-1 v1 h-1 v1 h-1 v2
+            h1 v1 h1 v1 h1 v1 h1 v1 h1 v1
+            h-2 v-1 h-1 v-1 h-1 v-1 h-1 v-1 h-1 v-1 h-1
+            v1 h-1 v1 h-1 v1 h-1 v1 h-1 v1 h-2
+            v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-2
+            h-1 v-1 h-1 v-1 h-1 v-1 h-1 v-1 h-1 v-1"
+        fill="red"
+      />
+      : null}
   </g>
 )
 Mine.propTypes = {
   row: React.PropTypes.number.isRequired,
   col: React.PropTypes.number.isRequired,
   exploded: React.PropTypes.bool,
+  cross: React.PropTypes.bool,
 }
 
 export const Flag = ({ row, col }) => (
