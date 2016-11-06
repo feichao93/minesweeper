@@ -6,7 +6,7 @@ import Number from 'components/Number'
 import { Mine, Flag, QuestionMark, Cover } from 'components/elements'
 import { Grid, View } from 'components/layouts'
 import { ROWS, COLS, COVERED, UNCOVERED, FLAG, QUESTIONED } from 'constants'
-import { CLICK } from 'actions'
+import { CLICK, RIGHT_CLICK } from 'actions'
 
 function mapStateToProps(state) {
   return state.toObject()
@@ -15,18 +15,30 @@ function mapStateToProps(state) {
 @connect(mapStateToProps)
 export default class App extends React.Component {
   static propTypes = {
-    mines: ImmutablePropTypes.listOf(React.PropTypes.bool).isRequired,
+    mines: ImmutablePropTypes.listOf(React.PropTypes.number).isRequired,
     modes: ImmutablePropTypes.list.isRequired,
     // callbacks
     dispatch: React.PropTypes.func.isRequired,
   }
 
   onClick = (event) => {
+    // todo 计算坐标的时候 还需要算上svg的clientX和clientY
     const row = Math.floor((event.clientY - 51) / 16)
     const col = Math.floor((event.clientX - 8) / 16)
     if (row >= 0 && row < ROWS && col >= 0 && col <= COLS) {
-      console.log('user click row:', row, ' col:', col) // eslint-disable-line
+      // console.log('user click row:', row, ' col:', col) // eslint-disable-line
       this.props.dispatch({ type: CLICK, t: row * COLS + col })
+    }
+  }
+
+  onRightClick = (event) => {
+    event.preventDefault()
+    // todo 计算坐标的时候 还需要算上svg的clientX和clientY
+    const row = Math.floor((event.clientY - 51) / 16)
+    const col = Math.floor((event.clientX - 8) / 16)
+    if (row >= 0 && row < ROWS && col >= 0 && col <= COLS) {
+      // console.log('user click row:', row, ' col:', col) // eslint-disable-line
+      this.props.dispatch({ type: RIGHT_CLICK, t: row * COLS + col })
     }
   }
 
@@ -66,7 +78,13 @@ export default class App extends React.Component {
     })
 
     return (
-      <svg className="svg" width="496" height="315" onClick={this.onClick}>
+      <svg
+        className="svg"
+        width="496"
+        height="315"
+        onClick={this.onClick}
+        onContextMenu={this.onRightClick}
+      >
         <View border={2} x={5} y={5} width={486} height={37}>
           {Range(0, 8).map(x =>
             <Number key={10000 + x} row={0} col={x} number={x + 1} />
@@ -79,12 +97,8 @@ export default class App extends React.Component {
         </View>
         <View border={3} x={5} y={48} width={486} height={262}>
           <Grid />
-          <Cover row={1} col={1} />
-          <Cover row={1} col={2} />
-          <Cover row={1} col={3} />
-          <Cover row={1} col={4} />
-          <Mine row={2} col={4} />
-          <Mine row={2} col={3} exploded />
+          {covers}
+          {elements}
         </View>
       </svg>
     )
