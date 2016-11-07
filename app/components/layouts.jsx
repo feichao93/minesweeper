@@ -2,18 +2,22 @@ import React from 'react'
 import { Range } from 'immutable'
 import { ROWS, COLS, BD_COLOR, BG_COLOR } from 'constants'
 
-const BitMap = ({ x = 0, y = 0, rows, cols, getColor }) => (
+export const BitMap = ({ x = 0, y = 0, rows, cols, getColor }) => (
   <g transform={`translate(${x}, ${y})`}>
-    {Range(0, rows * cols).map(t =>
-      <rect
-        key={t}
-        x={t % cols}
-        y={Math.floor(t / cols)}
-        fill={getColor(t)}
-        width="1"
-        height="1"
-      />
-    )}
+    {Range(0, rows * cols).map((t) => {
+      const row = Math.floor(t / cols)
+      const col = t % cols
+      return (
+        <rect
+          key={t}
+          x={col}
+          y={row}
+          fill={getColor(row, col)}
+          width="1"
+          height="1"
+        />
+      )
+    })}
   </g>
 )
 BitMap.propTypes = {
@@ -25,12 +29,7 @@ BitMap.propTypes = {
 }
 
 const BorderCorner = ({ x = 0, y = 0, border }) => {
-  const rows = border
-  const cols = border
-
-  function getColor(t) {
-    const row = Math.floor(t / cols)
-    const col = t % cols
+  function getColor(row, col) {
     if (row + col === border - 1) {
       return BG_COLOR
     } else if (row + col < border - 1) {
@@ -40,7 +39,7 @@ const BorderCorner = ({ x = 0, y = 0, border }) => {
     }
   }
 
-  return <BitMap x={x} y={y} rows={rows} cols={cols} getColor={getColor} />
+  return <BitMap x={x} y={y} rows={border} cols={border} getColor={getColor} />
 }
 BorderCorner.propTypes = {
   x: React.PropTypes.number.isRequired,
@@ -48,25 +47,22 @@ BorderCorner.propTypes = {
   border: React.PropTypes.number.isRequired,
 }
 
-export const View = ({ border, x = 0, y = 0, width, height, children }) => {
-  const borders = [
-    <rect key="left" width={border} height={height} fill={BD_COLOR} />,
-    <rect key="top" width={width} height={border} fill={BD_COLOR} />,
-    <rect key="right" x={width - border} width={border} height={height} fill="white" />,
-    <rect key="bottom" y={height - border} width={width} height={border} fill="white" />,
-    <BorderCorner key="bottom-left" x={0} y={height - border} border={border} />,
-    <BorderCorner key="top-right" x={width - border} y={0} border={border} />,
-  ]
-
-  return (
-    <g transform={`translate(${x}, ${y})`}>
-      {borders}
-      <g transform={`translate(${border}, ${border})`}>
-        {children}
-      </g>
+export const View = ({ border, x = 0, y = 0, width, height, children }) => (
+  <g transform={`translate(${x}, ${y})`}>
+    <g role="borders">
+      <rect role="border-left" width={border} height={height} fill={BD_COLOR} />
+      <rect role="border-top" width={width} height={border} fill={BD_COLOR} />
+      <rect role="border-right" x={width - border} width={border} height={height} fill="white" />
+      <rect role="border-bottom" y={height - border} width={width} height={border} fill="white" />
+      <BorderCorner key="bottom-left" x={0} y={height - border} border={border} />
+      <BorderCorner key="top-right" x={width - border} y={0} border={border} />
     </g>
-  )
-}
+
+    <g transform={`translate(${border}, ${border})`}>
+      {children}
+    </g>
+  </g>
+)
 View.propTypes = {
   x: React.PropTypes.number.isRequired,
   y: React.PropTypes.number.isRequired,

@@ -3,7 +3,7 @@ import { Range } from 'immutable'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import { connect } from 'react-redux'
 import Number from 'components/Number'
-import { Mine, Flag, QuestionMark, Cover } from 'components/elements'
+import { Face, Mine, Flag, QuestionMark, Cover } from 'components/elements'
 import { Grid, View } from 'components/layouts'
 import { ROWS, COLS, COVERED, UNCOVERED, FLAG, QUESTIONED } from 'constants'
 import { CLICK, RIGHT_CLICK } from 'actions'
@@ -94,6 +94,11 @@ export default class App extends React.Component {
           <Mine row={1} col={2} cross />
           <Flag row={1} col={3} />
           <QuestionMark row={1} col={4} />
+          <Face type="smiling" x={168} y={4} pressed />
+          <Face type="sunglasses" x={198} y={4} />
+          <Face type="smiling" x={228} y={4} />
+          <Face type="surprised" x={258} y={4} />
+          <Face type="sad" x={288} y={4} />
         </View>
         <View border={3} x={5} y={48} width={486} height={262}>
           <Grid />
