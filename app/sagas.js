@@ -1,64 +1,41 @@
-import { List } from 'immutable'
+import { Seq } from 'immutable'
 import { takeEvery } from 'redux-saga'
 import { select, put } from 'redux-saga/effects'
-import { CLICK, RIGHT_CLICK, UNCOVER, UNCOVER_MULTIPLE, MARK } from 'actions'
-import { COVERED, UNCOVERED, COLS, ROWS, QUESTIONED, FLAG } from 'constants'
+import { neighbors, find } from 'common'
+import { LEFT_CLICK, MIDDLE_CLICK, RIGHT_CLICK, UNCOVER, UNCOVER_MULTIPLE, MARK } from 'actions'
+import { COVERED, UNCOVERED, QUESTIONED, FLAG } from 'constants'
 
-function* neighbors(t) {
-  const row = Math.floor(t / COLS)
-  const col = t % COLS
-  for (const deltaRow of [-1, 0, 1]) {
-    for (const deltaCol of [-1, 0, 1]) {
-      const row2 = row + deltaRow
-      const col2 = col + deltaCol
-      if (row2 >= 0 && row2 < ROWS && col2 >= 0 && col2 < COLS) {
-        yield row2 * COLS + col2
-      }
-    }
-  }
-}
-
-// todo 函数名字不太对. 这个函数找的不止是大于0的格子
-function findConnected0s(mines, start) {
-  // todo 已经加了flag的点 能否加入到result中?
-  // 注意这里使用的是原生的Set
-  const result = new Set()
-  let visited = new Set([start])
-
-  while (visited.size > 0) {
-    const newVisited = new Set()
-    for (const t of visited) {
-      result.add(t)
-      if (mines.get(t) === 0) {
-        for (const neighbor of neighbors(t)) {
-          if (!result.has(neighbor) && mines.get(neighbor) >= 0) {
-            newVisited.add(neighbor)
-          }
-        }
-      }
-      visited = newVisited
-    }
-  }
-  return List(result)
-}
-
-export function* handleClick({ t }) {
+export function* handleLeftClick({ t }) {
   const { modes, mines } = (yield select()).toObject()
   if (modes.get(t) === COVERED) {
     const mine = mines.get(t)
     if (mine === -1) {
       // 用户点到了炸弹
-      // todo GAME_OVER ? lose
+      // todo GAME_OVER lose
       yield put({ type: UNCOVER, t })
-    } else if (mine === 0) {
-      yield put({ type: UNCOVER_MULTIPLE, ts: findConnected0s(mines, t) })
-    } else {
-      yield put({ type: UNCOVER, t })
+    } else { // mine >= 0
+      yield put({ type: UNCOVER_MULTIPLE, ts: find(modes, mines, t) })
+      // todo Dose the player win the game?
     }
   } else {
     console.warn('用户点击了 棋子/问号/已打开 的格子')
   }
-  // todo GAME_OVER ? win
+}
+
+export function* handleMiddleClick({ t }) {
+  const { modes, mines } = (yield select()).toObject()
+  const mode = modes.get(t)
+  const mine = mines.get(t)
+  if (mode === UNCOVERED && mine > 0) {
+    const neighborSeq = Seq(neighbors(t))
+    const flagCount = neighborSeq.filter(neighbor => modes.get(neighbor) === FLAG).count()
+    if (flagCount === mine) { // 周围旗子的数量和该位置上的数字相等 (过多/过少都不能触发点击)
+      const nearbyCovered = neighborSeq.filter(neighbor => modes.get(neighbor) === COVERED)
+      const ts = nearbyCovered.flatMap(covered => find(modes, mines, covered)).toSet()
+      yield put({ type: UNCOVER_MULTIPLE, ts })
+      // todo GAME_OVER  lose / win ?
+    }
+  }
 }
 
 export function* handleRightClick({ t }) {
@@ -80,6 +57,7 @@ export function* handleRightClick({ t }) {
 }
 
 export default function* rootSaga() {
-  yield takeEvery(CLICK, handleClick)
+  yield takeEvery(LEFT_CLICK, handleLeftClick)
+  yield takeEvery(MIDDLE_CLICK, handleMiddleClick)
   yield takeEvery(RIGHT_CLICK, handleRightClick)
 }

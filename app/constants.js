@@ -1,7 +1,8 @@
-// 扫雷高级配置
+// 扫雷配置
 export const ROWS = 16
 export const COLS = 30
 export const MINE_COUNT = 99
+export const CELL_SIZE = 16 // 格子的大小
 
 // 样式
 export const BG_COLOR = '#c0c0c0'

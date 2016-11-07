@@ -1,5 +1,8 @@
-// { type: CLICK, t: <point> }
-export const CLICK = 'CLICK'
+// { type: LEFT_CLICK, t: <point> }
+export const LEFT_CLICK = 'LEFT_CLICK'
+
+// { type: MIDDLE_CLICK, t: <point> }
+export const MIDDLE_CLICK = 'MIDDLE_CLICK'
 
 // { type: RIGHT_CLICK, t: <point> }
 export const RIGHT_CLICK = 'RIGHT_CLICK'

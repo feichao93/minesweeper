@@ -8,7 +8,7 @@ const initialState = Map({
 
   // >=0 表示没有地雷, -1 表示有地雷
   mines: calculateMines(Range(0, ROWS * COLS).map(() => (
-    Math.random() < 0.15 ? -1 : 0)).toList()),
+    Math.random() < 0.05 ? -1 : 0)).toList()),
 
   // 一开始均为"未点开的"
   modes: Repeat(COVERED, ROWS * COLS).toList(),
