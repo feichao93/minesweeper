@@ -50,6 +50,7 @@ export default class App extends React.Component {
         this.setState({ btn1: true, btn2: false, point: result.t })
       }
     } else if (event.button === 1) { // middle-button
+      event.preventDefault()
       if (this.isGameOn() && !btn2) {
         this.setState({ btn1: false, btn2: true, point: result.t })
       }

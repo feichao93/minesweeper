@@ -56,7 +56,7 @@ export default function reducer(state = initialState, action) {
         return MODES.EXPLODED
       } else if (mode === MODES.FLAG && mines.get(t) !== -1) {
         return MODES.CROSS
-      } else if (mines.get(t) === -1) {
+      } else if (mines.get(t) === -1 && modes.get(t) === MODES.COVERED) {
         return MODES.UNCOVERED
       }
       return mode
