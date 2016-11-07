@@ -15,3 +15,12 @@ export const MARK = 'MARK'
 
 // { type: UNCOVER_MULTIPLE, ts: <point-list> }
 export const UNCOVER_MULTIPLE = 'UNCOVER_MULTIPLE'
+
+// { type: RESTART }
+export const RESTART = 'RESTART'
+
+// { type: GAME_OVER_WIN }
+export const GAME_OVER_WIN = 'GAME_OVER_WIN'
+
+// { type: GAME_OVER_LOSE, failTs: <set-of-failed-points> }
+export const GAME_OVER_LOSE = 'GAME_OVER_LOSE'

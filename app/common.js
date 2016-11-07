@@ -1,5 +1,15 @@
 import { List } from 'immutable'
-import { COLS, ROWS, COVERED } from 'constants'
+import { COLS, ROWS, MODES } from 'constants'
+
+export function win(modes, mines) {
+  // mine对应>= 0(即没有地雷)的点对应的mode均为UNCOVERED的时候, 玩家获胜
+  return mines.every((mine, t) => {
+    if (mine >= 0) {
+      return modes.get(t) === MODES.UNCOVERED
+    }
+    return true
+  })
+}
 
 export function calculateMines(mines) {
   return mines.map((mine, t) => {
@@ -56,7 +66,7 @@ export function find(modes, mines, start) {
       if (mines.get(t) === 0) {
         for (const neighbor of neighbors(t)) {
           if (!result.has(neighbor)
-            && modes.get(neighbor) === COVERED
+            && modes.get(neighbor) === MODES.COVERED
             && mines.get(neighbor) >= 0) {
             newVisited.add(neighbor)
           }
