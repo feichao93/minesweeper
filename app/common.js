@@ -1,8 +1,12 @@
-import { List } from 'immutable'
+import { Seq, Range, List, Repeat } from 'immutable'
 import { COLS, ROWS, MODES } from 'constants'
 
 export function identity(x) {
   return x
+}
+
+function cmp(x, y) {
+  return x - y
 }
 
 // 判断当前玩家是否获胜
@@ -13,34 +17,6 @@ export function win(modes, mines) {
       return modes.get(t) === MODES.UNCOVERED
     }
     return true
-  })
-}
-
-export function calculateMines(mines) {
-  return mines.map((mine, t) => {
-    const hasMine = mine === -1
-    if (!hasMine) {
-      const row = Math.floor(t / COLS)
-      const col = t % COLS
-      let count = 0
-      for (const deltaRow of [-1, 0, 1]) {
-        for (const deltaCol of [-1, 0, 1]) {
-          if (!(deltaRow === 0 && deltaCol === 0)) {
-            const row2 = row + deltaRow
-            const col2 = col + deltaCol
-            if (row2 >= 0 && row2 < ROWS && col2 >= 0 && col2 < COLS) {
-              const t2 = row2 * COLS + col2
-              if (mines.get(t2) === -1) {
-                count += 1
-              }
-            }
-          }
-        }
-      }
-      return count
-    } else {
-      return -1
-    }
   })
 }
 
@@ -56,6 +32,49 @@ export function* neighbors(t) {
       }
     }
   }
+}
+
+// 用来快速生成stage为IDLE时的地雷布局
+export function defaultMines(size, count) {
+  return Repeat(-1, count).concat(Repeat(0, size - count)).toList()
+}
+
+// 随机生成地雷. 在[0...size-1]的范围中选出count个点放置地雷, 但在excluded处不放置地雷
+export function generateMines(size, count, excluded = []) {
+  const sortedExcluded = Array.from(excluded).sort(cmp)
+  // size >= count + sortedExcluded.size
+  const array = []
+  for (let i = 0; i < size - sortedExcluded.length; i += 1) {
+    if (i < count) {
+      array.push(i)
+    } else {
+      const r = Math.floor(Math.random() * (i + 1)) // r的范围为: [0, i]
+      if (r < count) {
+        array[r] = i
+      }
+    }
+  }
+  array.sort(cmp)
+  let k = 0
+  for (let i = 0; i < array.length; i += 1) {
+    while (array[i] + k >= sortedExcluded[k]) {
+      k += 1
+    }
+    array[i] += k
+  }
+  const ts = new Set(array)
+  const mines = Range(0, size).map((t) => {
+    if (ts.has(t)) {
+      return -1
+    } else {
+      return 0
+    }
+  })
+
+  return mines.map((mine, t) => (mine === -1
+      ? -1
+      : Seq(neighbors(t)).filter(neighbor => mines.get(neighbor) === -1).count()
+  )).toList()
 }
 
 // todo 函数名字不太对. 重新命名一下吧. 这个函数找的不止是大于0的格子

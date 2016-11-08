@@ -1,8 +1,8 @@
 import { Seq, Set } from 'immutable'
 import { takeEvery } from 'redux-saga'
 import { select, put } from 'redux-saga/effects'
-import { neighbors, find, win } from 'common'
-import { MODES } from 'constants'
+import { neighbors, find, win, generateMines } from 'common'
+import { MODES, ROWS, COLS, STAGES, MINE_COUNT } from 'constants'
 import {
   LEFT_CLICK,
   MIDDLE_CLICK,
@@ -11,11 +11,23 @@ import {
   MARK,
   GAME_OVER_WIN,
   GAME_OVER_LOSE,
+  GAME_ON,
+  TICK,
 } from 'actions'
 
 export function* handleLeftClick({ t }) {
-  const { modes, mines } = (yield select()).toObject()
+  const state = yield select()
+  const stage = state.get('stage')
+  const modes = state.get('modes')
+  let mines = state.get('mines')
   if (modes.get(t) === MODES.COVERED) {
+    // 如果目前stage为IDLE, 那么先生成地雷布局
+    if (stage === STAGES.IDLE) {
+      mines = generateMines(ROWS * COLS, MINE_COUNT, [t])
+      // 游戏stage跳转到ON, 计时开始
+      yield put({ type: GAME_ON, mines })
+    }
+
     const mine = mines.get(t)
     if (mine === -1) { // 用户点到了炸弹
       yield put({ type: GAME_OVER_LOSE, failTs: Set([t]) })

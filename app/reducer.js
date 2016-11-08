@@ -1,21 +1,35 @@
-import { Map, Repeat, Range } from 'immutable'
-import { ROWS, COLS, STAGES, MODES } from 'constants'
-import { UNCOVER, UNCOVER_MULTIPLE, MARK, GAME_OVER_WIN, GAME_OVER_LOSE, RESTART } from 'actions'
-import { calculateMines } from 'common'
+import { Map, Repeat } from 'immutable'
+import { ROWS, COLS, STAGES, MODES, MINE_COUNT } from 'constants'
+import {
+  UNCOVER,
+  UNCOVER_MULTIPLE,
+  MARK,
+  GAME_OVER_WIN,
+  GAME_OVER_LOSE,
+  RESTART,
+  GAME_ON,
+  TICK,
+  RESET_TIMER,
+} from 'actions'
+import { defaultMines } from 'common'
 
 const initialState = Map({
   stage: STAGES.IDLE,
 
   // >=0 表示没有地雷, -1 表示有地雷
-  mines: calculateMines(Range(0, ROWS * COLS).map(() => (
-    Math.random() < 0.03 ? -1 : 0)).toList()),
+  mines: defaultMines(ROWS * COLS, MINE_COUNT),
 
   // 一开始均为"未点开的"
   modes: Repeat(MODES.COVERED, ROWS * COLS).toList(),
+
+  // 计时器数值[0-999]
+  timer: 0,
 })
 
 export default function reducer(state = initialState, action) {
-  if (action.type === UNCOVER) {
+  if (action.type === GAME_ON) {
+    return state.set('stage', STAGES.ON).set('mines', action.mines)
+  } else if (action.type === UNCOVER) {
     return state.setIn(['modes', action.t], MODES.UNCOVERED)
   } else if (action.type === UNCOVER_MULTIPLE) {
     return state.update('modes', modes => modes.withMutations((ms) => {
@@ -37,10 +51,8 @@ export default function reducer(state = initialState, action) {
     })
     return state.merge({ stage: STAGES.WIN, modes: newModes })
   } else if (action.type === RESTART) {
-    // todo 需要在用户点开第一个点的时候生成mines, 而不是在一开始
     return state.set('stage', STAGES.IDLE)
-      .set('mines', calculateMines(Range(0, ROWS * COLS).map(() => (
-        Math.random() < 0.15 ? -1 : 0)).toList()))
+      .set('mines', defaultMines(ROWS * COLS, MINE_COUNT))
       .set('modes', Repeat(MODES.COVERED, ROWS * COLS).toList())
   } else if (action.type === GAME_OVER_LOSE) {
     // 游戏失败的时候需要做以下几件事情:
@@ -62,6 +74,10 @@ export default function reducer(state = initialState, action) {
       return mode
     })
     return state.merge({ stage: STAGES.LOSE, modes: newModes })
+  } else if (action.type === TICK) {
+    return state.update('timer', timer => (timer === 999 ? timer + 1 : timer))
+  } else if (action.type === RESET_TIMER) {
+    return state.set('timer', 0)
   } else {
     return state
   }

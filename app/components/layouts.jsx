@@ -3,11 +3,12 @@ import { Range } from 'immutable'
 import { ROWS, COLS, BD_COLOR, BG_COLOR } from 'constants'
 import { identity } from 'common'
 
-export const BitMap = ({ x = 0, y = 0, rows, cols, getColor }) => (
+// todo rows, cols 改为 width, height
+export const BitMap = ({ x = 0, y = 0, height, width, getColor }) => (
   <g transform={`translate(${x}, ${y})`}>
-    {Range(0, rows * cols).map((t) => {
-      const row = Math.floor(t / cols)
-      const col = t % cols
+    {Range(0, height * width).map((t) => {
+      const row = Math.floor(t / width)
+      const col = t % width
       const color = getColor(row, col)
       return color ? (
         <rect
@@ -25,8 +26,8 @@ export const BitMap = ({ x = 0, y = 0, rows, cols, getColor }) => (
 BitMap.propTypes = {
   x: React.PropTypes.number.isRequired,
   y: React.PropTypes.number.isRequired,
-  rows: React.PropTypes.number.isRequired,
-  cols: React.PropTypes.number.isRequired,
+  height: React.PropTypes.number.isRequired,
+  width: React.PropTypes.number.isRequired,
   getColor: React.PropTypes.func.isRequired,
 }
 
@@ -41,7 +42,7 @@ const BorderCorner = ({ x = 0, y = 0, border }) => {
     }
   }
 
-  return <BitMap x={x} y={y} rows={border} cols={border} getColor={getColor} />
+  return <BitMap x={x} y={y} width={border} height={border} getColor={getColor} />
 }
 BorderCorner.propTypes = {
   x: React.PropTypes.number.isRequired,

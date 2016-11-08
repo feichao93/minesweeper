@@ -24,3 +24,12 @@ export const GAME_OVER_WIN = 'GAME_OVER_WIN'
 
 // { type: GAME_OVER_LOSE, failTs: <set-of-failed-points> }
 export const GAME_OVER_LOSE = 'GAME_OVER_LOSE'
+
+// { type: GAME_ON, mines: <generated-mines> }
+export const GAME_ON = 'GAME_ON'
+
+// { type: TICK }
+export const TICK = 'TICK'
+
+// { type: RESET_TIMER }
+export const RESET_TIMER = 'RESET_TIMER'

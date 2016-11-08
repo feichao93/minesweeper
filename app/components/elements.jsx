@@ -113,8 +113,8 @@ function getColor1(row, col) {
 }
 const surprisedEyesAndMouth = (
   <g>
-    <BitMap x={9} y={9} rows={3} cols={3} getColor={getColor1} />
-    <BitMap x={15} y={9} rows={3} cols={3} getColor={getColor1} />
+    <BitMap x={9} y={9} width={3} height={3} getColor={getColor1} />
+    <BitMap x={15} y={9} width={3} height={3} getColor={getColor1} />
     <g transform="translate(11,14)">
       <rect x="0" y="1" width="5" height="3" fill="#808000" />
       <rect x="1" y="0" width="3" height="5" fill="black" />
@@ -130,8 +130,8 @@ function getColor2(row, col) {
 }
 const sadEyesAndMouth = (
   <g>
-    <BitMap x={9} y={9} rows={3} cols={3} getColor={getColor2} />
-    <BitMap x={15} y={9} rows={3} cols={3} getColor={getColor2} />
+    <BitMap x={9} y={9} width={3} height={3} getColor={getColor2} />
+    <BitMap x={15} y={9} width={3} height={3} getColor={getColor2} />
     <path
       d="M11,15
        h5 v1 h1 v1 h1 v1 h-1 v-1 h-1 v-1 h-5 v1 h-1 v1 h-1 v-1 h1 v-1 h1"
@@ -237,6 +237,16 @@ function segmentBackgroundForG(row, col) {
 function getBit(x, t) {
   return x & (1 << t) // eslint-disable-line no-bitwise
 }
+
+// Positions of the 7 segments:
+//     a
+//   -----
+// f|     |b
+//  |  g  |
+//   -----
+// e|     |c
+//  |  d  |
+//   -----
 export const SevenSegmentDisplay = ({ x, y, number }) => {
   // number为-1的话, 显示一个负号. number在[0-9]之间的话, 显示正常的数字
   const bits = number === -1 ? 0x40 :
@@ -253,37 +263,37 @@ export const SevenSegmentDisplay = ({ x, y, number }) => {
       {a ? (
         <path d="M1,0 h9 v1 h-1 v1 h-1 v1 h-5 v-1 h-1 v-1 h-1 v-1" fill="red" />
       ) : (
-        <BitMap x={2} y={0} rows={3} cols={7} getColor={segmentBackgroundForA} />
+        <BitMap x={2} y={0} width={7} height={3} getColor={segmentBackgroundForA} />
       )}
       {b ? (
         <path d="M10,1 h1 v9 h-1 v-1 h-1 v-1 h-1 v-5 h1 v-1 h1 v-1" fill="red" />
       ) : (
-        <BitMap x={8} y={1} rows={9} cols={3} getColor={segmentBackgroundForBC} />
+        <BitMap x={8} y={1} width={3} height={9} getColor={segmentBackgroundForBC} />
       )}
       {c ? (
         <path d="M10,11 h1 v9 h-1 v-1 h-1 v-1 h-1 v-5 h1 v-1 h1 v-1" fill="red" />
       ) : (
-        <BitMap x={8} y={11} rows={9} cols={3} getColor={segmentBackgroundForBC} />
+        <BitMap x={8} y={11} width={3} height={9} getColor={segmentBackgroundForBC} />
       )}
       {d ? (
         <path d="M3,18 h5 v1 h1 v1 h1 v1 h-9 v-1 h1 v-1 h1 v-1" fill="red" />
       ) : (
-        <BitMap x={2} y={18} rows={3} cols={7} getColor={segmentBackgroundForD} />
+        <BitMap x={2} y={18} width={7} height={3} getColor={segmentBackgroundForD} />
       )}
       {e ? (
         <path d="M0,11 h1 v1 h1 v1 h1 v5 h-1 v1 h-1 v1 h-1 v-9" fill="red" />
       ) : (
-        <BitMap x={0} y={11} rows={9} cols={3} getColor={segmentBackgroundForEF} />
+        <BitMap x={0} y={11} width={3} height={9} getColor={segmentBackgroundForEF} />
       )}
       {f ? (
         <path d="M0,1 h1 v1 h1 v1 h1 v5 h-1 v1 h-1 v1 h-1 v-9" fill="red" />
       ) : (
-        <BitMap x={0} y={1} rows={9} cols={3} getColor={segmentBackgroundForEF} />
+        <BitMap x={0} y={1} width={3} height={9} getColor={segmentBackgroundForEF} />
       )}
       {g ? (
         <path d="M3,9 h5 v1 h1 v1 h-1 v1 h-5 v-1 h-1 v-1 h1 v-1" fill="red" />
       ) : (
-        <BitMap x={2} y={9} rows={3} cols={7} getColor={segmentBackgroundForG} />
+        <BitMap x={2} y={9} width={7} height={3} getColor={segmentBackgroundForG} />
       )}
     </g>
   )

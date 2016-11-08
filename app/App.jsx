@@ -19,6 +19,7 @@ export default class App extends React.Component {
     stage: React.PropTypes.string.isRequired,
     mines: ImmutablePropTypes.listOf(React.PropTypes.number).isRequired,
     modes: ImmutablePropTypes.list.isRequired,
+    timer: React.PropTypes.number.isRequired,
     // callbacks
     dispatch: React.PropTypes.func.isRequired,
   }
@@ -119,7 +120,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { stage, mines, modes } = this.props
+    const { stage, mines, modes, timer } = this.props
     const { btn1, btn2, point, pressFace } = this.state
 
     let faceType = 'smiling'
@@ -194,7 +195,7 @@ export default class App extends React.Component {
         <View border={2} x={5} y={5} width={486} height={37}>
           <LED x={5} y={4} number={mineCount - flagCount} />
           <Face type={faceType} x={228} y={4} pressed={pressFace} />
-          <LED x={434} y={4} number={0} />
+          <LED x={434} y={4} number={timer} />
         </View>
         <View border={3} x={5} y={48} width={486} height={262}>
           <Grid />
