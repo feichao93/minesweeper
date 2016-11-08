@@ -1,6 +1,11 @@
 import { List } from 'immutable'
 import { COLS, ROWS, MODES } from 'constants'
 
+export function identity(x) {
+  return x
+}
+
+// 判断当前玩家是否获胜
 export function win(modes, mines) {
   // mine对应>= 0(即没有地雷)的点对应的mode均为UNCOVERED的时候, 玩家获胜
   return mines.every((mine, t) => {

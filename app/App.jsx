@@ -3,7 +3,7 @@ import { Range, Set } from 'immutable'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import { connect } from 'react-redux'
 import Number from 'components/Number'
-import { Face, Mine, Flag, QuestionMark, Cover } from 'components/elements'
+import { Face, Mine, Flag, QuestionMark, Cover, LED } from 'components/elements'
 import { Grid, View } from 'components/layouts'
 import { neighbors } from 'common'
 import { LEFT_CLICK, MIDDLE_CLICK, RIGHT_CLICK, RESTART } from 'actions'
@@ -122,8 +122,6 @@ export default class App extends React.Component {
     const { stage, mines, modes } = this.props
     const { btn1, btn2, point, pressFace } = this.state
 
-    // console.log('game-stage:', stage)
-
     let faceType = 'smiling'
     if (stage === STAGES.WIN) {
       faceType = 'sunglasses'
@@ -132,6 +130,9 @@ export default class App extends React.Component {
     } else if (btn1 || btn2) {
       faceType = 'surprised'
     }
+
+    const mineCount = mines.filter(mine => mine === -1).count()
+    const flagCount = modes.filter(mode => mode === MODES.FLAG).count()
 
     let dontNeedCover = Set()
     if (point !== -1) {
@@ -191,15 +192,9 @@ export default class App extends React.Component {
         onMouseUp={this.onMouseUp}
       >
         <View border={2} x={5} y={5} width={486} height={37}>
-          {Range(0, 8).map(x =>
-            <Number key={x} row={0} col={x} number={x + 1} />
-          )}
-          <Mine row={1} col={0} />
-          <Mine row={1} col={1} exploded />
-          <Mine row={1} col={2} cross />
-          <Flag row={1} col={3} />
-          <QuestionMark row={1} col={4} />
+          <LED x={5} y={4} number={mineCount - flagCount} />
           <Face type={faceType} x={228} y={4} pressed={pressFace} />
+          <LED x={434} y={4} number={0} />
         </View>
         <View border={3} x={5} y={48} width={486} height={262}>
           <Grid />

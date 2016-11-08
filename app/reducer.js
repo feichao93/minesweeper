@@ -44,7 +44,7 @@ export default function reducer(state = initialState, action) {
       .set('modes', Repeat(MODES.COVERED, ROWS * COLS).toList())
   } else if (action.type === GAME_OVER_LOSE) {
     // 游戏失败的时候需要做以下几件事情:
-    // 1. 先用find展开uncover (这个在失败之后已经执行)
+    // 1. 先用find展开uncover (这个在失败之前应该已经执行)
     // 2. 将出错的点标位红地雷 (action.failTs <Mine type="exploded" />)
     // 3. 原来错误的旗子的地方需要显示 <Mine type="cross" />
     // 4. 原来正确的旗子保持不变

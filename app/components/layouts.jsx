@@ -1,13 +1,15 @@
 import React from 'react'
 import { Range } from 'immutable'
 import { ROWS, COLS, BD_COLOR, BG_COLOR } from 'constants'
+import { identity } from 'common'
 
 export const BitMap = ({ x = 0, y = 0, rows, cols, getColor }) => (
   <g transform={`translate(${x}, ${y})`}>
     {Range(0, rows * cols).map((t) => {
       const row = Math.floor(t / cols)
       const col = t % cols
-      return (
+      const color = getColor(row, col)
+      return color ? (
         <rect
           key={t}
           x={col}
@@ -16,8 +18,8 @@ export const BitMap = ({ x = 0, y = 0, rows, cols, getColor }) => (
           width="1"
           height="1"
         />
-      )
-    })}
+      ) : null
+    }).filter(identity)}
   </g>
 )
 BitMap.propTypes = {
