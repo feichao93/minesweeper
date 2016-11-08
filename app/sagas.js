@@ -1,6 +1,7 @@
+/* eslint-disable no-constant-condition */
 import { Seq, Set } from 'immutable'
-import { takeEvery } from 'redux-saga'
-import { select, put } from 'redux-saga/effects'
+import { takeEvery, delay } from 'redux-saga'
+import { select, put, take, fork } from 'redux-saga/effects'
 import { neighbors, find, win, generateMines } from 'common'
 import { MODES, ROWS, COLS, STAGES, MINE_COUNT } from 'constants'
 import {
@@ -13,6 +14,8 @@ import {
   GAME_OVER_LOSE,
   GAME_ON,
   TICK,
+  RESET_TIMER,
+  RESTART,
 } from 'actions'
 
 export function* handleLeftClick({ t }) {
@@ -86,8 +89,35 @@ export function* handleRightClick({ t }) {
   }
 }
 
+function* tickEmitter() {
+  while (true) {
+    yield put({ type: TICK })
+    yield delay(1000)
+  }
+}
+
+// 计时器逻辑: take到GAME_ON之后, 开始计时(每隔1秒钟put一个TICK)
+// take到GAME_OVER_WIN或GAME_OVER_LOSE则暂停计时
+// take到RESTART暂停计时且put一个RESET_TIMER
+export function* timerHandler() {
+  while (true) {
+    const action1 = yield take([GAME_ON, RESTART])
+    if (action1.type === GAME_ON) {
+      const task = yield fork(tickEmitter)
+      const action2 = yield take([GAME_OVER_WIN, GAME_OVER_LOSE, RESTART])
+      task.cancel()
+      if (action2.type === RESTART) {
+        yield put({ type: RESET_TIMER })
+      }
+    } else { // action1.type === RESTART
+      yield put({ type: RESET_TIMER })
+    }
+  }
+}
+
 export default function* rootSaga() {
   yield takeEvery(LEFT_CLICK, handleLeftClick)
   yield takeEvery(MIDDLE_CLICK, handleMiddleClick)
   yield takeEvery(RIGHT_CLICK, handleRightClick)
+  yield fork(timerHandler)
 }

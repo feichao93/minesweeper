@@ -75,7 +75,7 @@ export default function reducer(state = initialState, action) {
     })
     return state.merge({ stage: STAGES.LOSE, modes: newModes })
   } else if (action.type === TICK) {
-    return state.update('timer', timer => (timer === 999 ? timer + 1 : timer))
+    return state.update('timer', timer => (timer === 999 ? timer : timer + 1))
   } else if (action.type === RESET_TIMER) {
     return state.set('timer', 0)
   } else {
