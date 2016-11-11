@@ -4,6 +4,7 @@ import { takeEvery, delay } from 'redux-saga'
 import { select, put, take, fork } from 'redux-saga/effects'
 import { neighbors, find, win, generateMines } from 'common'
 import { MODES, ROWS, COLS, STAGES, MINE_COUNT } from 'constants'
+import workerSaga from 'workerSaga'
 import {
   LEFT_CLICK,
   MIDDLE_CLICK,
@@ -120,4 +121,5 @@ export default function* rootSaga() {
   yield takeEvery(MIDDLE_CLICK, handleMiddleClick)
   yield takeEvery(RIGHT_CLICK, handleRightClick)
   yield fork(timerHandler)
+  yield fork(workerSaga)
 }
