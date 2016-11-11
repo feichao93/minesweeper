@@ -1,6 +1,10 @@
 import { Seq, Range, List, Repeat } from 'immutable'
 import { COLS, ROWS, MODES } from 'constants'
 
+export function strip(min, value, max) {
+  return Math.min(max, Math.max(min, value))
+}
+
 export function identity(x) {
   return x
 }
@@ -44,6 +48,7 @@ export function generateMines(size, count, excluded = []) {
   const sortedExcluded = Array.from(excluded).sort(cmp)
   // size >= count + sortedExcluded.size
   const array = []
+  // 第1步: 首先在 [0, size - sortedExcluded.length)的范围中随机取count个数字(蓄水池抽样)
   for (let i = 0; i < size - sortedExcluded.length; i += 1) {
     if (i < count) {
       array.push(i)
@@ -55,6 +60,7 @@ export function generateMines(size, count, excluded = []) {
     }
   }
   array.sort(cmp)
+  // 第2步. 根据excluded数组处理第1步中生成的数字, 使得array不包含excluded中的数字
   let k = 0
   for (let i = 0; i < array.length; i += 1) {
     while (array[i] + k >= sortedExcluded[k]) {
@@ -63,6 +69,8 @@ export function generateMines(size, count, excluded = []) {
     array[i] += k
   }
   const ts = new Set(array)
+
+  // 第3步. 计算周围雷的数量, 生成mines
   const mines = Range(0, size).map((t) => {
     if (ts.has(t)) {
       return -1
@@ -77,7 +85,8 @@ export function generateMines(size, count, excluded = []) {
   )).toList()
 }
 
-// todo 函数名字不太对. 重新命名一下吧. 这个函数找的不止是大于0的格子
+// 从start位置开始, uncover周围的点(一般为8个), 如果周围的点中存在mine = 0的点P, 则从点P处执行同样的操作.
+// 该函数用于计算 uncover start的时候应当同时uncover的点的集合
 export function find(modes, mines, start) {
   // 注意这里使用的是原生的Set
   const result = new Set()

@@ -1,8 +1,35 @@
-// 扫雷配置 TODO 变为可配置的, 而不是固定的
-export const ROWS = 16
-export const COLS = 30
-export const MINE_COUNT = 99
-export const CELL_SIZE = 16 // 格子的大小
+/* eslint-disable import/no-mutable-exports */
+import queryString from 'query-string'
+import { strip } from 'common'
+
+const { rows, cols, mines } = queryString.parse(document.location.search)
+
+let ROWS
+let COLS
+let MINE_COUNT
+if (rows === '' || isNaN(rows)) {
+  ROWS = 16
+} else {
+  ROWS = strip(5, rows, 40)
+}
+
+if (cols === '' || isNaN(cols)) {
+  COLS = 30
+} else {
+  COLS = strip(8, cols, 60)
+}
+
+if (mines === '' || isNaN(mines)) {
+  MINE_COUNT = ROWS * COLS * 0.2
+} else {
+  MINE_COUNT = Math.floor(strip(0.05, mines / (ROWS * COLS), 0.3) * ROWS * COLS)
+}
+
+history.replaceState(null, null, `?rows=${ROWS}&cols=${COLS}&mines=${MINE_COUNT}`)
+
+export { ROWS, COLS, MINE_COUNT }
+
+export const CELL = 16 // 格子的大小
 
 // 样式
 export const BG_COLOR = '#c0c0c0'

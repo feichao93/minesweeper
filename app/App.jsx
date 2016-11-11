@@ -7,7 +7,7 @@ import { Face, Mine, Flag, QuestionMark, Cover, LED } from 'components/elements'
 import { Grid, View } from 'components/layouts'
 import { neighbors } from 'common'
 import { LEFT_CLICK, MIDDLE_CLICK, RIGHT_CLICK, RESTART } from 'actions'
-import { ROWS, COLS, CELL_SIZE, STAGES, MODES } from 'constants'
+import { ROWS, COLS, CELL, STAGES, MODES } from 'constants'
 
 function mapStateToProps(state) {
   return state.toObject()
@@ -38,8 +38,6 @@ export default class App extends React.Component {
   onContextMenu = (event) => {
     event.preventDefault()
   }
-
-  // todo 在stage不是IDLE/ON的情况下 禁用鼠标事件
 
   onMouseDown = (event) => {
     const { btn1, btn2 } = this.state
@@ -102,16 +100,21 @@ export default class App extends React.Component {
     const x = clientX - svgRect.left
     const y = clientY - svgRect.top
 
-    // 对应face
-    if (x >= 235 && x <= 261 && y >= 11 && y <= 37) {
-      return { row: 0, col: 0, valid: false, t: -1, isFace: true } // todo 去掉valid字段
+    // 判断是否点击到了face
+    const faceSize = 26
+    const faceOffsetX = 7
+    const faceOffsetY = 7
+    const faceLeft = CELL / 2 * COLS - 12 + faceSize / 2
+    if (faceLeft <= x + faceOffsetX && x + faceOffsetX <= faceLeft + faceSize
+      && y >= 4 + faceOffsetY && y <= 4 + faceOffsetY + faceSize) {
+      return { row: 0, col: 0, valid: false, t: -1, isFace: true }
     }
 
-    const row = Math.floor((y - 51) / CELL_SIZE)
-    const col = Math.floor((x - 8) / CELL_SIZE)
+    const row = Math.floor((y - 51) / CELL)
+    const col = Math.floor((x - 8) / CELL)
     const valid = row >= 0 && row < ROWS && col >= 0 && col <= COLS
     const t = row * COLS + col
-    return { row, col, valid, t: valid ? t : -1 } // todo 返回值中去掉valid
+    return { row, col, valid, t: valid ? t : -1 }
   }
 
   isGameOn() {
@@ -185,19 +188,19 @@ export default class App extends React.Component {
       <svg
         className="svg"
         ref={node => (this.svgNode = node)}
-        width="496"
-        height="315"
+        width={COLS * CELL + 16}
+        height={59 + 16 * ROWS}
         onContextMenu={this.onContextMenu}
         onMouseDown={this.onMouseDown}
         onMouseMove={this.onMouseMove}
         onMouseUp={this.onMouseUp}
       >
-        <View border={2} x={5} y={5} width={486} height={37}>
+        <View border={2} x={5} y={5} width={COLS * CELL + 6} height={37}>
           <LED x={5} y={4} number={mineCount - flagCount} />
-          <Face type={faceType} x={228} y={4} pressed={pressFace} />
-          <LED x={434} y={4} number={timer} />
+          <Face type={faceType} x={CELL / 2 * COLS - 12} y={4} pressed={pressFace} />
+          <LED x={CELL * COLS - 46} y={4} number={timer} />
         </View>
-        <View border={3} x={5} y={48} width={486} height={262}>
+        <View border={3} x={5} y={48} width={COLS * CELL + 6} height={ROWS * CELL + 6}>
           <Grid />
           {covers}
           {elements}

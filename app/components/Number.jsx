@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
-import { BG_COLOR } from 'constants'
+import { BG_COLOR, CELL } from 'constants'
 
 const numbers = {
   1: ({ dx, dy }) => (
@@ -89,8 +89,8 @@ const numbers = {
 }
 
 const Number = ({ row, col, number }) => {
-  const dx = 16 * col
-  const dy = 16 * row
+  const dx = CELL * col
+  const dy = CELL * row
   const Element = numbers[number]
   return <Element dx={dx} dy={dy} />
 }

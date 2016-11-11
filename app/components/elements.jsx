@@ -1,9 +1,9 @@
 import React from 'react'
-import { BD_COLOR } from 'constants'
+import { BD_COLOR, CELL } from 'constants'
 import { BitMap } from 'components/layouts'
 
 export const Mine = ({ row, col, exploded, cross }) => (
-  <g role="mine" transform={`translate(${16 * col}, ${16 * row})`}>
+  <g role="mine" transform={`translate(${CELL * col}, ${CELL * row})`}>
     {exploded ?
       <rect x="1" y="1" width="15" height="15" fill="red" />
       : null}
@@ -44,7 +44,7 @@ Mine.propTypes = {
 }
 
 export const Flag = ({ row, col }) => (
-  <g role="flag" transform={`translate(${16 * col}, ${16 * row})`}>
+  <g role="flag" transform={`translate(${CELL * col}, ${CELL * row})`}>
     <path
       d="M7,3
          h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1"
@@ -63,7 +63,7 @@ Flag.propTypes = {
 }
 
 export const QuestionMark = ({ row, col }) => (
-  <g role="question-mark" transform={`translate(${16 * col}, ${16 * row})`}>
+  <g role="question-mark" transform={`translate(${CELL * col}, ${CELL * row})`}>
     <path
       d="M6,3
          h4 v1 h1 v3 h-1 v1 h-1 v2 h-2 v-2 h1 v-1 h1
@@ -79,7 +79,7 @@ QuestionMark.propTypes = {
 }
 
 export const Cover = ({ row, col }) => (
-  <g role="cover" transform={`translate(${16 * col}, ${16 * row})`}>
+  <g role="cover" transform={`translate(${CELL * col}, ${CELL * row})`}>
     <path
       d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15"
       fill="white"

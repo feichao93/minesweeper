@@ -1,9 +1,8 @@
 import React from 'react'
 import { Range } from 'immutable'
-import { ROWS, COLS, BD_COLOR, BG_COLOR } from 'constants'
+import { ROWS, COLS, BD_COLOR, BG_COLOR, CELL } from 'constants'
 import { identity } from 'common'
 
-// todo rows, cols 改为 width, height
 export const BitMap = ({ x = 0, y = 0, height, width, getColor }) => (
   <g transform={`translate(${x}, ${y})`}>
     {Range(0, height * width).map((t) => {
@@ -81,8 +80,8 @@ export const Grid = () => (
       <rect
         key={row}
         x="0"
-        y={row * 16}
-        width={COLS * 16}
+        y={row * CELL}
+        width={COLS * CELL}
         height="1"
         fill={BD_COLOR}
       />
@@ -90,10 +89,10 @@ export const Grid = () => (
     {Range(0, COLS).map(col =>
       <rect
         key={col}
-        x={col * 16}
+        x={col * CELL}
         y="0"
         width="1"
-        height={ROWS * 16}
+        height={ROWS * CELL}
         fill={BD_COLOR}
       />
     )}
