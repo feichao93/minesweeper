@@ -1,19 +1,11 @@
 {
   "presets": [
     "react",
-    "es2015",
     "stage-2"
   ],
   "plugins": [
     "transform-decorators-legacy",
     "react-hot-loader/babel",
-    "transform-es2015-modules-commonjs",
-    [
-      "transform-runtime",
-      {
-        "polyfill": false,
-        "regenerator": true
-      }
-    ]
+    "transform-es2015-modules-commonjs"
   ]
 }

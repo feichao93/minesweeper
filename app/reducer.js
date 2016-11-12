@@ -10,6 +10,8 @@ import {
   GAME_ON,
   TICK,
   RESET_TIMER,
+  SET_INDICATORS,
+  CLEAR_INDICATORS,
 } from 'actions'
 import { defaultMines } from 'common'
 
@@ -24,6 +26,9 @@ const initialState = Map({
 
   // 计时器数值[0-999]
   timer: 0,
+
+  // AI反馈
+  indicators: Map(),
 })
 
 export default function reducer(state = initialState, action) {
@@ -54,6 +59,7 @@ export default function reducer(state = initialState, action) {
     return state.set('stage', STAGES.IDLE)
       .set('mines', defaultMines(ROWS * COLS, MINE_COUNT))
       .set('modes', Repeat(MODES.COVERED, ROWS * COLS).toList())
+      .set('indicators', Map())
   } else if (action.type === GAME_OVER_LOSE) {
     // 游戏失败的时候需要做以下几件事情:
     // 1. 先用find展开uncover (这个在失败之前应该已经执行)
@@ -78,6 +84,10 @@ export default function reducer(state = initialState, action) {
     return state.update('timer', timer => (timer === 999 ? timer : timer + 1))
   } else if (action.type === RESET_TIMER) {
     return state.set('timer', 0)
+  } else if (action.type === SET_INDICATORS) {
+    return state.mergeIn(['indicators'], action.map)
+  } else if (action.type === CLEAR_INDICATORS) {
+    return state.set('indicators', Map())
   } else {
     return state
   }

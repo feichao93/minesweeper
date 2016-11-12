@@ -33,3 +33,10 @@ export const TICK = 'TICK'
 
 // { type: RESET_TIMER }
 export const RESET_TIMER = 'RESET_TIMER'
+
+// { type: SET_INDICATORS, map: <t -> color> }
+export const SET_INDICATORS = 'SET_INDICATORS'
+
+// { type: CLEAR_INDICATORS }
+// todo 目前并没有什么卵用
+export const CLEAR_INDICATORS = 'CLEAR_INDICATORS'

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-indent */
 import React from 'react'
 import { BD_COLOR, CELL } from 'constants'
 import { BitMap } from 'components/layouts'

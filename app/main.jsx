@@ -7,6 +7,9 @@ import { Provider } from 'react-redux'
 import store from 'store'
 import App from './App.jsx'
 
+// todo for-debug
+window.debug = () => console.log(store.getState())
+
 ReactDOM.render(
   <AppContainer>
     <Provider store={store}>

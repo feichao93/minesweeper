@@ -1,7 +1,7 @@
 {
-  "name": "hzds-platform-mobile",
+  "name": "minesweepr",
   "version": "0.1.0-SNAPSHOT",
-  "description": "HZDS platform mobile.",
+  "description": "Minesweepr",
   "author": "Shi Feichao",
   "scripts": {
     "start": "webpack-dev-server",

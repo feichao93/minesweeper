@@ -1,14 +1,59 @@
 /* eslint-disable no-constant-condition */
-import Worker from 'worker!worker'
-import { take, put, select } from 'redux-saga/effects'
-import { UNCOVER, UNCOVER_MULTIPLE } from 'actions'
+import { eventChannel, delay, buffers } from 'redux-saga'
+import { take, put, select, fork } from 'redux-saga/effects'
+import { Map } from 'immutable'
+import { UNCOVER, UNCOVER_MULTIPLE, SET_INDICATORS, MARK, CLEAR_INDICATORS } from 'actions'
+import { MODES, COLS, ROWS } from 'constants'
+import Worker from 'worker!ai/worker'
+import * as C from 'ai/constants'
 
-const worker = new Worker()
+function* handleWorkerMessage(channel) {
+  while (true) {
+    const action = yield take(channel)
+    if (action.type === 'must-be-mine') {
+      const map = Map(action.value.map(v => [v, 'mine']))
+      yield put({ type: SET_INDICATORS, map })
+    } else if (action.type === 'must-be-safe') {
+      const map = Map(action.value.map(v => [v, 'safe']))
+      yield put({ type: SET_INDICATORS, map })
+    } else if (action.type === 'clear') {
+      yield put({ type: CLEAR_INDICATORS })
+    }
+  }
+}
 
 export default function* workerSaga() {
+  const worker = new Worker()
+
+  const channel = eventChannel((emmiter) => {
+    worker.onmessage = (event) => {
+      emmiter(JSON.parse(event.data))
+    }
+    return () => (worker.onmessage = null)
+  }, buffers.expanding(16))
+
+  yield fork(handleWorkerMessage, channel)
+
   while (true) {
-    yield take([UNCOVER, UNCOVER_MULTIPLE])
-    const { modes, mines } = (yield select()).toObject()
-    worker.postMessage(JSON.stringify({ modes, mines }))
+    yield take([UNCOVER, UNCOVER_MULTIPLE, MARK])
+    const { modes, mines, indicators } = (yield select()).toObject()
+    const state = mines.map((mine, t) => {
+      const mode = modes.get(t)
+      // todo 不应该颜色来区分indicator
+      if (mode === MODES.FLAG) {
+        return C.MINE
+      } else if (mode === MODES.UNCOVERED) {
+        return mine
+      } else if (indicators.get(t) === 'mine') {
+        return C.MINE
+      } else if (indicators.get(t) === 'safe') {
+        return C.SAFE
+      } else if (mode === MODES.COVERED || mode === MODES.QUESTIONED) {
+        return C.UNKNOWN
+      } else {
+        throw new Error(`Invalid mode: ${mode} for point: ${t}`)
+      }
+    })
+    worker.postMessage(JSON.stringify({ type: 'hint', ROWS, COLS, state }))
   }
 }

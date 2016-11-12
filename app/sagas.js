@@ -27,7 +27,7 @@ export function* handleLeftClick({ t }) {
   if (modes.get(t) === MODES.COVERED) {
     // 如果目前stage为IDLE, 那么先生成地雷布局
     if (stage === STAGES.IDLE) {
-      mines = generateMines(ROWS * COLS, MINE_COUNT, [t])
+      mines = generateMines(ROWS * COLS, MINE_COUNT, [t, ...neighbors(t)])
       // 游戏stage跳转到ON, 计时开始
       yield put({ type: GAME_ON, mines })
     }

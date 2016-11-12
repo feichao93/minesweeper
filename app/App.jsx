@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import Number from 'components/Number'
 import { Face, Mine, Flag, QuestionMark, Cover, LED } from 'components/elements'
 import { Grid, View } from 'components/layouts'
+import Indicators from 'components/Indicators'
 import { neighbors } from 'common'
 import { LEFT_CLICK, MIDDLE_CLICK, RIGHT_CLICK, RESTART } from 'actions'
 import { ROWS, COLS, CELL, STAGES, MODES } from 'constants'
@@ -20,6 +21,7 @@ export default class App extends React.Component {
     mines: ImmutablePropTypes.listOf(React.PropTypes.number).isRequired,
     modes: ImmutablePropTypes.list.isRequired,
     timer: React.PropTypes.number.isRequired,
+    indicators: ImmutablePropTypes.mapOf(React.PropTypes.string).isRequired,
     // callbacks
     dispatch: React.PropTypes.func.isRequired,
   }
@@ -123,8 +125,10 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { stage, mines, modes, timer } = this.props
+    const { stage, mines, modes, timer, indicators } = this.props
     const { btn1, btn2, point, pressFace } = this.state
+
+    const filterdIndicators = indicators.filter((_, t) => modes.get(t) === MODES.COVERED)
 
     let faceType = 'smiling'
     if (stage === STAGES.WIN) {
@@ -204,6 +208,7 @@ export default class App extends React.Component {
           <Grid />
           {covers}
           {elements}
+          <Indicators indicators={filterdIndicators} />
         </View>
       </svg>
     )
