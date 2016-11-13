@@ -87,7 +87,12 @@ export default function reducer(state = initialState, action) {
   } else if (action.type === SET_INDICATORS) {
     return state.mergeIn(['indicators'], action.map)
   } else if (action.type === CLEAR_INDICATORS) {
-    return state.set('indicators', Map())
+    console.log('CLEAR-INDICATORS')
+    return state.update('indicators', indicators => indicators.withMutations((inds) => {
+      for (const t of action.ts) {
+        inds.delete(t)
+      }
+    }))
   } else {
     return state
   }

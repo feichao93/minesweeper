@@ -32,7 +32,7 @@ export default class Indicators extends React.Component {
     const { indicators } = this.props
 
     return (
-      <g role="indicators" fillOpacity="0.15">
+      <g role="indicators" fillOpacity="0.2">
         {indicators.map((type, t) =>
           <Indicator
             key={t}

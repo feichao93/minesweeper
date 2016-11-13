@@ -10,17 +10,26 @@ import * as C from 'ai/constants'
 function* handleWorkerMessage(channel) {
   while (true) {
     const action = yield take(channel)
-    if (action.type === 'must-be-mine') {
+    if (action.type === 'mine') {
       const map = Map(action.value.map(v => [v, 'mine']))
       yield put({ type: SET_INDICATORS, map })
-    } else if (action.type === 'must-be-safe') {
+    } else if (action.type === 'safe') {
       const map = Map(action.value.map(v => [v, 'safe']))
       yield put({ type: SET_INDICATORS, map })
-    } else if (action.type === 'clear') {
-      yield put({ type: CLEAR_INDICATORS })
+    } else if (action.type === 'danger') {
+      const map = Map(action.value.map(v => [v, 'danger']))
+      yield put({ type: SET_INDICATORS, map })
+    } else if (action.type === 'clear') { // todo 这里需要类似于去抖动的效果
+      yield put({ type: CLEAR_INDICATORS, ts: action.ts })
     }
   }
 }
+
+async function test() {
+  await Promise.resolve(123)
+  return 1
+}
+console.log(test())
 
 export default function* workerSaga() {
   const worker = new Worker()
