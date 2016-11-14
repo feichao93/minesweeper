@@ -2,8 +2,9 @@
 import queryString from 'query-string'
 import { strip } from 'common'
 
-const { rows, cols, mines, AI } = queryString.parse(document.location.search)
-export const USE_AI = AI !== undefined
+const { rows, cols, mines, ai, auto } = queryString.parse(document.location.search)
+export const USE_AI = (ai !== undefined && ai !== 'false')
+export const USE_AUTO = (auto !== undefined && auto !== 'false')
 
 let ROWS
 let COLS
@@ -27,7 +28,7 @@ if (isNaN(mines) || Number(mines) === 0) {
 }
 
 history.replaceState(null, null,
-  `?rows=${ROWS}&cols=${COLS}&mines=${MINE_COUNT}${USE_AI ? '&AI' : ''}`)
+  `?rows=${ROWS}&cols=${COLS}&mines=${MINE_COUNT}${USE_AI ? '&ai' : ''}${USE_AUTO ? '&auto' : ''}`)
 
 export { ROWS, COLS, MINE_COUNT }
 

@@ -3,7 +3,7 @@ import { eventChannel, delay, buffers } from 'redux-saga'
 import { take, put, select, fork } from 'redux-saga/effects'
 import { Map, Set } from 'immutable'
 import { UNCOVER, UNCOVER_MULTIPLE, SET_INDICATORS, MARK, CLEAR_INDICATORS } from 'actions'
-import { MODES, COLS, ROWS } from 'constants'
+import { MODES, COLS, ROWS, USE_AUTO } from 'constants'
 import { find } from 'common'
 import Worker from 'worker!ai/worker'
 import * as C from 'ai/constants'
@@ -20,16 +20,18 @@ function* handleWorkerMessage(channel) {
         const map = Map(action.value.map(v => [v, 'safe']))
         yield put({ type: SET_INDICATORS, map })
 
-        yield fork(function*() {
-          const { modes, mines } = (yield select()).toObject()
-          let ts = Set()
-          action.value.forEach((t) => {
-            ts = ts.union(find(modes, mines, t))
+        if (USE_AUTO) {
+          yield fork(function*() {
+            const { modes, mines } = (yield select()).toObject()
+            let ts = Set()
+            action.value.forEach((t) => {
+              ts = ts.union(find(modes, mines, t))
+            })
+            yield delay(120)
+            // 这里电脑一下子点多个...有点作弊
+            yield put({ type: UNCOVER_MULTIPLE, ts })
           })
-          yield delay(50)
-          // 这里电脑一下子点多个...有点作弊
-          yield put({ type: UNCOVER_MULTIPLE, ts })
-        })
+        }
       }
     } else if (action.type === 'danger') {
       const map = Map(action.value.map(v => [v, 'danger']))
