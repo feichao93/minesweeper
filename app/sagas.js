@@ -3,7 +3,7 @@ import { Seq, Set } from 'immutable'
 import { takeEvery, delay } from 'redux-saga'
 import { select, put, take, fork } from 'redux-saga/effects'
 import { neighbors, find, win, generateMines } from 'common'
-import { MODES, ROWS, COLS, STAGES, MINE_COUNT } from 'constants'
+import { MODES, ROWS, COLS, STAGES, MINE_COUNT, USE_AI } from 'constants'
 import workerSaga from 'workerSaga'
 import {
   LEFT_CLICK,
@@ -121,5 +121,7 @@ export default function* rootSaga() {
   yield takeEvery(MIDDLE_CLICK, handleMiddleClick)
   yield takeEvery(RIGHT_CLICK, handleRightClick)
   yield fork(timerHandler)
-  yield fork(workerSaga)
+  if (USE_AI) {
+    yield fork(workerSaga)
+  }
 }

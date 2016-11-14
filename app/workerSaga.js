@@ -1,44 +1,54 @@
-/* eslint-disable no-constant-condition */
+/* eslint-disable no-constant-condition, generator-star-spacing */
 import { eventChannel, delay, buffers } from 'redux-saga'
 import { take, put, select, fork } from 'redux-saga/effects'
-import { Map } from 'immutable'
+import { Map, Set } from 'immutable'
 import { UNCOVER, UNCOVER_MULTIPLE, SET_INDICATORS, MARK, CLEAR_INDICATORS } from 'actions'
 import { MODES, COLS, ROWS } from 'constants'
+import { find } from 'common'
 import Worker from 'worker!ai/worker'
 import * as C from 'ai/constants'
 
 function* handleWorkerMessage(channel) {
   while (true) {
     const action = yield take(channel)
+    // todo 这里需要类似于去抖动的效果
     if (action.type === 'mine') {
       const map = Map(action.value.map(v => [v, 'mine']))
       yield put({ type: SET_INDICATORS, map })
     } else if (action.type === 'safe') {
-      const map = Map(action.value.map(v => [v, 'safe']))
-      yield put({ type: SET_INDICATORS, map })
+      if (action.value.length > 0) {
+        const map = Map(action.value.map(v => [v, 'safe']))
+        yield put({ type: SET_INDICATORS, map })
+
+        yield fork(function*() {
+          const { modes, mines } = (yield select()).toObject()
+          let ts = Set()
+          action.value.forEach((t) => {
+            ts = ts.union(find(modes, mines, t))
+          })
+          yield delay(50)
+          // 这里电脑一下子点多个...有点作弊
+          yield put({ type: UNCOVER_MULTIPLE, ts })
+        })
+      }
     } else if (action.type === 'danger') {
       const map = Map(action.value.map(v => [v, 'danger']))
       yield put({ type: SET_INDICATORS, map })
-    } else if (action.type === 'clear') { // todo 这里需要类似于去抖动的效果
+    } else if (action.type === 'clear') {
       yield put({ type: CLEAR_INDICATORS, ts: action.ts })
     }
   }
 }
 
-async function test() {
-  await Promise.resolve(123)
-  return 1
-}
-console.log(test())
-
 export default function* workerSaga() {
   const worker = new Worker()
 
   const channel = eventChannel((emmiter) => {
-    worker.onmessage = (event) => {
+    const listener = (event) => {
       emmiter(JSON.parse(event.data))
     }
-    return () => (worker.onmessage = null)
+    worker.addEventListener('message', listener)
+    return () => worker.removeEventListener('message', listener)
   }, buffers.expanding(16))
 
   yield fork(handleWorkerMessage, channel)
@@ -48,7 +58,6 @@ export default function* workerSaga() {
     const { modes, mines, indicators } = (yield select()).toObject()
     const state = mines.map((mine, t) => {
       const mode = modes.get(t)
-      // todo 不应该颜色来区分indicator
       if (mode === MODES.FLAG) {
         return C.MINE
       } else if (mode === MODES.UNCOVERED) {

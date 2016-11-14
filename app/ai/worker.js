@@ -44,7 +44,7 @@ onmessage = function (event) { // eslint-disable-line no-undef
     let lastSafes = firstSafes
     let lastMines = null
     // eslint-disable-next-line no-constant-condition, no-labels, no-restricted-syntax
-    foo: while (true) {
+    loop: while (true) {
       // 第二步(explicit-iteraction)
       if (lastSafes) {
         const { foundMines, foundSafes } = state.explicitIterationFromSafe(lastSafes)
@@ -75,12 +75,12 @@ onmessage = function (event) { // eslint-disable-line no-undef
                 state.apply([t], SAFE)
                 postSafes([t])
                 lastSafes = [t]
-                continue foo // eslint-disable-line no-continue, no-labels
+                continue loop // eslint-disable-line no-continue, no-labels
               } else if (result === MINE) {
                 state.apply([t], MINE)
                 postMines([t])
                 lastMines = [t]
-                continue foo // eslint-disable-line no-continue, no-labels
+                continue loop // eslint-disable-line no-continue, no-labels
               }
             }
           }

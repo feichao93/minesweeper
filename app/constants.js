@@ -2,30 +2,32 @@
 import queryString from 'query-string'
 import { strip } from 'common'
 
-const { rows, cols, mines } = queryString.parse(document.location.search)
+const { rows, cols, mines, AI } = queryString.parse(document.location.search)
+export const USE_AI = AI !== undefined
 
 let ROWS
 let COLS
 let MINE_COUNT
-if (rows === '' || isNaN(rows)) {
+if (isNaN(rows) || Number(rows) === 0) {
   ROWS = 16
 } else {
   ROWS = strip(5, rows, 40)
 }
 
-if (cols === '' || isNaN(cols)) {
+if (isNaN(cols) || Number(cols) === 0) {
   COLS = 30
 } else {
   COLS = strip(8, cols, 60)
 }
 
-if (mines === '' || isNaN(mines)) {
+if (isNaN(mines) || Number(mines) === 0) {
   MINE_COUNT = ROWS * COLS * 0.2
 } else {
   MINE_COUNT = Math.floor(strip(0.05, mines / (ROWS * COLS), 0.3) * ROWS * COLS)
 }
 
-history.replaceState(null, null, `?rows=${ROWS}&cols=${COLS}&mines=${MINE_COUNT}`)
+history.replaceState(null, null,
+  `?rows=${ROWS}&cols=${COLS}&mines=${MINE_COUNT}${USE_AI ? '&AI' : ''}`)
 
 export { ROWS, COLS, MINE_COUNT }
 
