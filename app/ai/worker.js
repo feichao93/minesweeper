@@ -30,7 +30,8 @@ function postDangers(dangers) {
 onmessage = function (event) { // eslint-disable-line no-undef
   const message = JSON.parse(event.data)
   if (message.type === 'hint') {
-    const state = new State(message.state, message.ROWS, message.COLS)
+    const state = new State(message.array, message.ROWS, message.COLS)
+    const USE_AUTO = message.USE_AUTO
 
     // 第一步(first-search): 遍历所有的格子来寻找那些显而易见的MINE&SAFE
     const firstMines = state.findExplicitMines()
@@ -67,20 +68,24 @@ onmessage = function (event) { // eslint-disable-line no-undef
             if (!state.canBeResolve(t)) {
               break
             }
-            // 一旦找到一个SAFE/MINE, 则重新开始explicit-iteraction
+            // 在AUTO下: 一旦找到一个SAFE/MINE, 则重新开始explicit-iteraction
             postDangers([t])
             const result = state.resolve(t)
             if (result !== UNKNOWN) {
               if (result === SAFE) {
                 state.apply([t], SAFE)
                 postSafes([t])
-                lastSafes = [t]
-                continue loop // eslint-disable-line no-continue, no-labels
+                if (USE_AUTO) {
+                  lastSafes = [t]
+                  continue loop // eslint-disable-line no-continue, no-labels
+                }
               } else if (result === MINE) {
                 state.apply([t], MINE)
                 postMines([t])
-                lastMines = [t]
-                continue loop // eslint-disable-line no-continue, no-labels
+                if (USE_AUTO) {
+                  lastMines = [t]
+                  continue loop // eslint-disable-line no-continue, no-labels
+                }
               }
             }
           }

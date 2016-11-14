@@ -58,7 +58,7 @@ export default function* workerSaga() {
   while (true) {
     yield take([UNCOVER, UNCOVER_MULTIPLE, MARK])
     const { modes, mines, indicators } = (yield select()).toObject()
-    const state = mines.map((mine, t) => {
+    const array = mines.map((mine, t) => {
       const mode = modes.get(t)
       if (mode === MODES.FLAG) {
         return C.MINE
@@ -74,6 +74,6 @@ export default function* workerSaga() {
         throw new Error(`Invalid mode: ${mode} for point: ${t}`)
       }
     })
-    worker.postMessage(JSON.stringify({ type: 'hint', ROWS, COLS, state }))
+    worker.postMessage(JSON.stringify({ type: 'hint', ROWS, COLS, array, USE_AUTO }))
   }
 }
