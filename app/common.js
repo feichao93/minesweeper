@@ -1,4 +1,4 @@
-import { Seq, Range, List, Repeat } from 'immutable'
+import Immutable, { Seq, Range, Repeat } from 'immutable'
 import { COLS, ROWS, MODES } from 'constants'
 
 export function strip(min, value, max) {
@@ -108,5 +108,5 @@ export function find(modes, mines, start) {
       visited = newVisited
     }
   }
-  return List(result)
+  return Immutable.Set(result)
 }

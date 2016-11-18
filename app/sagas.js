@@ -1,5 +1,5 @@
 /* eslint-disable no-constant-condition */
-import { Seq, Set } from 'immutable'
+import { Seq } from 'immutable'
 import { takeEvery, delay } from 'redux-saga'
 import { select, put, take, fork } from 'redux-saga/effects'
 import { neighbors, find, win, generateMines } from 'common'
@@ -31,19 +31,7 @@ export function* handleLeftClick({ t }) {
       // 游戏stage跳转到ON, 计时开始
       yield put({ type: GAME_ON, mines })
     }
-
-    const mine = mines.get(t)
-    if (mine === -1) { // 用户点到了炸弹
-      yield put({ type: GAME_OVER_LOSE, failTs: Set([t]) })
-    } else { // mine >= 0
-      yield put({ type: UNCOVER_MULTIPLE, ts: find(modes, mines, t) })
-      const { modes: afterModes, mines: afterMines } = (yield select()).toObject()
-      if (win(afterModes, afterMines)) {
-        yield put({ type: GAME_OVER_WIN })
-      }
-    }
-  } else {
-    console.warn('用户点击了 棋子/问号/已打开 的格子') // eslint-disable-line
+    yield put({ type: UNCOVER_MULTIPLE, ts: find(modes, mines, t) })
   }
 }
 
@@ -58,16 +46,6 @@ export function* handleMiddleClick({ t }) {
       const nearbyCovered = neighborSeq.filter(neighbor => modes.get(neighbor) === MODES.COVERED)
       const ts = nearbyCovered.flatMap(covered => find(modes, mines, covered)).toSet()
       yield put({ type: UNCOVER_MULTIPLE, ts })
-
-      const failTs = nearbyCovered.filter(covered => mines.get(covered) === -1).toSet()
-      if (failTs.size > 0) { // 用户点到了若干地雷
-        yield put({ type: GAME_OVER_LOSE, failTs })
-      } else {
-        const { modes: afterModes, mines: afterMines } = (yield select()).toObject()
-        if (win(afterModes, afterMines)) {
-          yield put({ type: GAME_OVER_WIN })
-        }
-      }
     }
   }
 }
@@ -116,10 +94,23 @@ export function* timerHandler() {
   }
 }
 
+export function* watchUncover(action) {
+  const ts = action.ts
+  const { modes, mines } = (yield select()).toObject()
+  // 先看看用户是否点击到了地雷, 如果点击到了地雷, 则游戏失败
+  const failTs = ts.filter(t => mines.get(t) === -1)
+  if (failTs.size > 0) {
+    yield put({ type: GAME_OVER_LOSE, failTs })
+  } else if (win(modes, mines)) {
+    yield put({ type: GAME_OVER_WIN })
+  }
+}
+
 export default function* rootSaga() {
   yield takeEvery(LEFT_CLICK, handleLeftClick)
   yield takeEvery(MIDDLE_CLICK, handleMiddleClick)
   yield takeEvery(RIGHT_CLICK, handleRightClick)
+  yield takeEvery(UNCOVER_MULTIPLE, watchUncover)
   yield fork(timerHandler)
   if (USE_AI || USE_AUTO) {
     yield fork(workerSaga)

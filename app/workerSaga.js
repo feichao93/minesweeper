@@ -3,7 +3,7 @@ import { eventChannel, delay, buffers } from 'redux-saga'
 import { take, put, select, fork } from 'redux-saga/effects'
 import { Map, Set } from 'immutable'
 import { UNCOVER, UNCOVER_MULTIPLE, SET_INDICATORS, MARK, CLEAR_INDICATORS } from 'actions'
-import { MODES, COLS, ROWS, USE_AUTO } from 'constants'
+import { MODES, COLS, ROWS, USE_AUTO, STAGES } from 'constants'
 import { find } from 'common'
 import Worker from 'worker!ai/worker'
 import * as C from 'ai/constants'
@@ -11,6 +11,10 @@ import * as C from 'ai/constants'
 function* handleWorkerMessage(channel) {
   while (true) {
     const action = yield take(channel)
+    const { stage } = (yield select()).toObject()
+    if (stage !== STAGES.ON) {
+      continue // eslint-disable-line no-continue
+    }
     // todo 这里需要类似于去抖动的效果
     if (action.type === 'mine') {
       const map = Map(action.value.map(v => [v, 'mine']))
@@ -29,7 +33,10 @@ function* handleWorkerMessage(channel) {
             })
             yield delay(120)
             // 这里电脑一下子点多个...有点作弊
-            yield put({ type: UNCOVER_MULTIPLE, ts })
+            if ((yield select()).get('stage') === STAGES.ON) {
+              // delay若干ms后, 可能游戏已经结束, 这里判断一下, 确保只在游戏进行的时候进行AI操作
+              yield put({ type: UNCOVER_MULTIPLE, ts })
+            }
           })
         }
       }
@@ -58,6 +65,7 @@ export default function* workerSaga() {
   while (true) {
     yield take([UNCOVER, UNCOVER_MULTIPLE, MARK])
     const { modes, mines, indicators } = (yield select()).toObject()
+    let gameOn = true
     const array = mines.map((mine, t) => {
       const mode = modes.get(t)
       if (mode === MODES.FLAG) {
@@ -71,9 +79,12 @@ export default function* workerSaga() {
       } else if (mode === MODES.COVERED || mode === MODES.QUESTIONED) {
         return C.UNKNOWN
       } else {
-        throw new Error(`Invalid mode: ${mode} for point: ${t}`)
+        gameOn = false // 遇到了无法识别的mode, 说明当前游戏已经结束
+        return C.UNKNOWN
       }
     })
-    worker.postMessage(JSON.stringify({ type: 'hint', ROWS, COLS, array, USE_AUTO }))
+    if (gameOn) {
+      worker.postMessage(JSON.stringify({ type: 'hint', ROWS, COLS, array, USE_AUTO }))
+    }
   }
 }
