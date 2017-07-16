@@ -124,11 +124,9 @@ export default class App extends React.Component {
     return stage === STAGES.IDLE || stage === STAGES.ON
   }
 
-  render() {
-    const { stage, mines, modes, timer, indicators } = this.props
-    const { btn1, btn2, point, pressFace } = this.state
-
-    const filterdIndicators = indicators.filter((_, t) => modes.get(t) === MODES.COVERED)
+  renderFace() {
+    const { stage } = this.props
+    const { btn1, btn2, pressFace } = this.state
 
     let faceType = 'smiling'
     if (stage === STAGES.WIN) {
@@ -138,11 +136,14 @@ export default class App extends React.Component {
     } else if (btn1 || btn2) {
       faceType = 'surprised'
     }
+    return <Face type={faceType} x={CELL / 2 * COLS - 12} y={4} pressed={pressFace} />
+  }
 
-    const mineCount = mines.filter(mine => mine === -1).count()
-    const flagCount = modes.filter(mode => mode === MODES.FLAG).count()
-
+  renderCovers() {
+    const { modes } = this.props
+    const { btn1, btn2, point } = this.state
     let dontNeedCover = Set()
+
     if (point !== -1) {
       if (btn1) {
         dontNeedCover = Set([point])
@@ -150,11 +151,8 @@ export default class App extends React.Component {
         dontNeedCover = Set(neighbors(point))
       }
     }
-
-    const range = Range(0, ROWS * COLS)
-
     const covers = []
-    range.forEach((t) => {
+    Range(0, ROWS * COLS).forEach((t) => {
       const row = Math.floor(t / COLS)
       const col = Math.floor(t % COLS)
       const mode = modes.get(t)
@@ -163,9 +161,14 @@ export default class App extends React.Component {
         covers.push(<Cover key={t} row={row} col={col} />)
       }
     })
+    return covers
+  }
+
+  renderElements() {
+    const { mines, modes } = this.props
 
     const elements = []
-    range.forEach((t) => {
+    Range(0, ROWS * COLS).forEach((t) => {
       const row = Math.floor(t / COLS)
       const col = Math.floor(t % COLS)
       const mode = modes.get(t)
@@ -187,6 +190,16 @@ export default class App extends React.Component {
         elements.push(<Mine key={t} row={row} col={col} exploded />)
       }
     })
+    return elements
+  }
+
+  render() {
+    const { mines, modes, timer, indicators } = this.props
+
+    const filterdIndicators = indicators.filter((_, t) => modes.get(t) === MODES.COVERED)
+
+    const mineCount = mines.filter(mine => mine === -1).count()
+    const flagCount = modes.filter(mode => mode === MODES.FLAG).count()
 
     return (
       <svg
@@ -201,13 +214,13 @@ export default class App extends React.Component {
       >
         <View border={2} x={5} y={5} width={COLS * CELL + 6} height={37}>
           <LED x={5} y={4} number={mineCount - flagCount} />
-          <Face type={faceType} x={CELL / 2 * COLS - 12} y={4} pressed={pressFace} />
+          {this.renderFace()}
           <LED x={CELL * COLS - 46} y={4} number={timer} />
         </View>
         <View border={3} x={5} y={48} width={COLS * CELL + 6} height={ROWS * CELL + 6}>
           <Grid />
-          {covers}
-          {elements}
+          {this.renderElements()}
+          {this.renderCovers()}
           <Indicators indicators={filterdIndicators} />
         </View>
       </svg>
