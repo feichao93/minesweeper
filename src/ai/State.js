@@ -1,7 +1,7 @@
-import { UNKNOWN, MINE, SAFE } from 'ai/constants'
+import { UNKNOWN, MINE, SAFE } from './constants'
 
 // eslint-disable-next-line no-extend-native
-Set.prototype.addAll = function (iterable) {
+Set.prototype.addAll = function(iterable) {
   for (const item of iterable) {
     this.add(item)
   }
@@ -48,7 +48,7 @@ export default class State {
         return t
       } else {
         // eslint-disable-next-line no-return-assign
-        return disjointSet[t] = find(disjointSet[t])
+        return (disjointSet[t] = find(disjointSet[t]))
       }
     }
 
@@ -68,8 +68,7 @@ export default class State {
     }
 
     function isEquivalent(s1, s2) {
-      if ((s1 >= 0 || s1 === SAFE)
-        && (s2 >= 0 || s2 === SAFE)) {
+      if ((s1 >= 0 || s1 === SAFE) && (s2 >= 0 || s2 === SAFE)) {
         return true
       } else {
         return s1 === s2
@@ -117,7 +116,7 @@ export default class State {
     return unknownMap.values()
   }
 
-  * neighbors(t) {
+  *neighbors(t) {
     const row = this.getRow(t)
     const col = this.getCol(t)
     for (const deltaRow of [-1, 0, 1]) {
@@ -309,8 +308,10 @@ export default class State {
 
     // todo 还要更偏向角落 / 更偏向有效数字小的(要去掉已知的MINE)
     // todo 需要更偏向数字更多的
-    return normals1.reduce((r, v) => Math.min(r, this.array[v]), 9)
-      - normals2.reduce((r, v) => Math.min(r, this.array[v]), 9)
+    return (
+      normals1.reduce((r, v) => Math.min(r, this.array[v]), 9) -
+      normals2.reduce((r, v) => Math.min(r, this.array[v]), 9)
+    )
   }
 
   resolve(start) {

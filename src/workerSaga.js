@@ -1,50 +1,49 @@
 /* eslint-disable no-constant-condition, generator-star-spacing */
-import { eventChannel, delay, buffers } from 'redux-saga'
-import { take, put, select, fork } from 'redux-saga/effects'
+import { buffers, delay, eventChannel, io } from 'little-saga'
 import { Map, Set } from 'immutable'
-import { UNCOVER, UNCOVER_MULTIPLE, SET_INDICATORS, MARK, CLEAR_INDICATORS } from 'actions'
-import { MODES, COLS, ROWS, USE_AUTO, STAGES } from 'constants'
-import { find } from 'common'
-import Worker from 'worker!ai/worker'
-import * as C from 'ai/constants'
+import { CLEAR_INDICATORS, MARK, SET_INDICATORS, UNCOVER, UNCOVER_MULTIPLE } from './actions'
+import { COLS, MODES, ROWS, STAGES, USE_AUTO } from './constants'
+import { find } from './common'
+import Worker from 'worker-loader!./ai/worker'
+import * as C from './ai/constants'
 
 function* handleWorkerMessage(channel) {
   while (true) {
-    const action = yield take(channel)
-    const { stage } = (yield select()).toObject()
+    const action = yield io.take(channel)
+    const { stage } = (yield io.select()).toObject()
     if (stage !== STAGES.ON) {
       continue // eslint-disable-line no-continue
     }
     // todo 这里需要类似于去抖动的效果
     if (action.type === 'mine') {
       const map = Map(action.value.map(v => [v, 'mine']))
-      yield put({ type: SET_INDICATORS, map })
+      yield io.put({ type: SET_INDICATORS, map })
     } else if (action.type === 'safe') {
       if (action.value.length > 0) {
         const map = Map(action.value.map(v => [v, 'safe']))
-        yield put({ type: SET_INDICATORS, map })
+        yield io.put({ type: SET_INDICATORS, map })
 
         if (USE_AUTO) {
-          yield fork(function*() {
-            const { modes, mines } = (yield select()).toObject()
+          yield io.fork(function*() {
+            const { modes, mines } = (yield io.select()).toObject()
             let ts = Set()
-            action.value.forEach((t) => {
+            action.value.forEach(t => {
               ts = ts.union(find(modes, mines, t))
             })
             yield delay(120)
             // 这里电脑一下子点多个...有点作弊
-            if ((yield select()).get('stage') === STAGES.ON) {
+            if ((yield io.select()).get('stage') === STAGES.ON) {
               // delay若干ms后, 可能游戏已经结束, 这里判断一下, 确保只在游戏进行的时候进行AI操作
-              yield put({ type: UNCOVER_MULTIPLE, ts })
+              yield io.put({ type: UNCOVER_MULTIPLE, ts })
             }
           })
         }
       }
     } else if (action.type === 'danger') {
       const map = Map(action.value.map(v => [v, 'danger']))
-      yield put({ type: SET_INDICATORS, map })
+      yield io.put({ type: SET_INDICATORS, map })
     } else if (action.type === 'clear') {
-      yield put({ type: CLEAR_INDICATORS, ts: action.ts })
+      yield io.put({ type: CLEAR_INDICATORS, ts: action.ts })
     }
   }
 }
@@ -52,19 +51,19 @@ function* handleWorkerMessage(channel) {
 export default function* workerSaga() {
   const worker = new Worker()
 
-  const channel = eventChannel((emmiter) => {
-    const listener = (event) => {
+  const channel = eventChannel(emmiter => {
+    const listener = event => {
       emmiter(JSON.parse(event.data))
     }
     worker.addEventListener('message', listener)
     return () => worker.removeEventListener('message', listener)
   }, buffers.expanding(16))
 
-  yield fork(handleWorkerMessage, channel)
+  yield io.fork(handleWorkerMessage, channel)
 
   while (true) {
-    yield take([UNCOVER, UNCOVER_MULTIPLE, MARK])
-    const { modes, mines, indicators } = (yield select()).toObject()
+    yield io.take([UNCOVER, UNCOVER_MULTIPLE, MARK])
+    const { modes, mines, indicators } = (yield io.select()).toObject()
     let gameOn = true
     const array = mines.map((mine, t) => {
       const mode = modes.get(t)

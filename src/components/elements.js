@@ -1,13 +1,10 @@
-/* eslint-disable react/jsx-indent */
 import React from 'react'
-import { BD_COLOR, CELL } from 'constants'
-import { BitMap } from 'components/layouts'
+import { BD_COLOR, CELL } from '../constants'
+import { BitMap } from './layouts'
 
 export const Mine = ({ row, col, exploded, cross }) => (
   <g role="mine" transform={`translate(${CELL * col}, ${CELL * row})`}>
-    {exploded ?
-      <rect x="1" y="1" width="15" height="15" fill="red" />
-      : null}
+    {exploded ? <rect x="1" y="1" width="15" height="15" fill="red" /> : null}
     <path
       d="M8,2
            h1  v2  h2  v1  h1  v1  h1  v2  h2
@@ -21,7 +18,7 @@ export const Mine = ({ row, col, exploded, cross }) => (
     <rect x="12" y="4" width="1" height="1" fill="black" />
     <rect x="4" y="12" width="1" height="1" fill="black" />
     <rect x="12" y="12" width="1" height="1" fill="black" />
-    {cross ?
+    {cross ? (
       <path
         d="M2,3
             h2 v1 h1 v1 h1 v1 h1 v1 h1 v1 h1
@@ -34,15 +31,9 @@ export const Mine = ({ row, col, exploded, cross }) => (
             h-1 v-1 h-1 v-1 h-1 v-1 h-1 v-1 h-1 v-1"
         fill="red"
       />
-      : null}
+    ) : null}
   </g>
 )
-Mine.propTypes = {
-  row: React.PropTypes.number.isRequired,
-  col: React.PropTypes.number.isRequired,
-  exploded: React.PropTypes.bool,
-  cross: React.PropTypes.bool,
-}
 
 export const Flag = ({ row, col }) => (
   <g role="flag" transform={`translate(${CELL * col}, ${CELL * row})`}>
@@ -58,10 +49,6 @@ export const Flag = ({ row, col }) => (
     />
   </g>
 )
-Flag.propTypes = {
-  row: React.PropTypes.number.isRequired,
-  col: React.PropTypes.number.isRequired,
-}
 
 export const QuestionMark = ({ row, col }) => (
   <g role="question-mark" transform={`translate(${CELL * col}, ${CELL * row})`}>
@@ -74,27 +61,13 @@ export const QuestionMark = ({ row, col }) => (
     <rect x="7" y="11" width="2" height="2" fill="black" />
   </g>
 )
-QuestionMark.propTypes = {
-  row: React.PropTypes.number.isRequired,
-  col: React.PropTypes.number.isRequired,
-}
 
 export const Cover = ({ row, col }) => (
   <g role="cover" transform={`translate(${CELL * col}, ${CELL * row})`}>
-    <path
-      d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15"
-      fill="white"
-    />
-    <path
-      d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1"
-      fill={BD_COLOR}
-    />
+    <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white" />
+    <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill={BD_COLOR} />
   </g>
 )
-Cover.propTypes = {
-  row: React.PropTypes.number.isRequired,
-  col: React.PropTypes.number.isRequired,
-}
 
 const smilingEyesAndMouth = (
   <g>
@@ -204,12 +177,6 @@ export const Face = ({ x, y, type, pressed }) => (
     </g>
   </g>
 )
-Face.propTypes = {
-  x: React.PropTypes.number.isRequired,
-  y: React.PropTypes.number.isRequired,
-  type: React.PropTypes.oneOf(['smiling', 'surprised', 'sad', 'sunglasses']).isRequired,
-  pressed: React.PropTypes.bool,
-}
 
 function segmentBackgroundForA(row, col) {
   const black = (row + col) % 2 === 1 || (row === 2 && col === 0) || (row === 2 && col === 6)
@@ -250,8 +217,8 @@ function getBit(x, t) {
 //   -----
 export const SevenSegmentDisplay = ({ x, y, number }) => {
   // number为-1的话, 显示一个负号. number在[0-9]之间的话, 显示正常的数字
-  const bits = number === -1 ? 0x40 :
-    [0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F][number]
+  const bits =
+    number === -1 ? 0x40 : [0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07, 0x7f, 0x6f][number]
   const a = getBit(bits, 0)
   const b = getBit(bits, 1)
   const c = getBit(bits, 2)
@@ -299,11 +266,6 @@ export const SevenSegmentDisplay = ({ x, y, number }) => {
     </g>
   )
 }
-SevenSegmentDisplay.propTypes = {
-  x: React.PropTypes.number.isRequired,
-  y: React.PropTypes.number.isRequired,
-  number: React.PropTypes.number.isRequired,
-}
 
 export const LED = ({ x, y, number }) => (
   <g transform={`translate(${x},${y})`}>
@@ -316,12 +278,7 @@ export const LED = ({ x, y, number }) => (
 
     <rect role="background" x="1" y="1" width="39" height="23" fill="black" />
     <SevenSegmentDisplay x={2} y={2} number={number < 0 ? -1 : Math.floor(number / 100)} />
-    <SevenSegmentDisplay x={15} y={2} number={Math.floor(Math.abs(number) % 100 / 10)} />
+    <SevenSegmentDisplay x={15} y={2} number={Math.floor((Math.abs(number) % 100) / 10)} />
     <SevenSegmentDisplay x={28} y={2} number={Math.abs(number) % 10} />
   </g>
 )
-LED.propTypes = {
-  x: React.PropTypes.number.isRequired,
-  y: React.PropTypes.number.isRequired,
-  number: React.PropTypes.number.isRequired, // number的范围为[-99, 999]
-}

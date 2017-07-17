@@ -3,61 +3,45 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: [
-    'react-hot-loader/patch',
-    __dirname + "/app/main.jsx"
-  ],
-  // devtool: "source-map",
-  devtool: "eval",
+  context: __dirname,
+  target: 'web',
+  entry: ['normalize.css', path.resolve(__dirname, 'src/index.js')],
+
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.(jsx?)$/,
-        exclude: /node_modules/,
-        loaders: ['react-hot-loader/webpack', 'babel']
+        test: /\.js$/,
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-react'],
+          plugins: [
+            '@babel/plugin-proposal-class-properties',
+            '@babel/plugin-syntax-object-rest-spread',
+          ],
+        },
       },
+
       {
         test: /\.css$/,
-        loader: "style!css"
+        loaders: ['style-loader', 'css-loader'],
       },
       {
         test: /\.styl$/,
-        loaders: [
-          'style?sourceMap',
-          'css',
-          'stylus'
-        ]
+        loaders: ['style-loader', 'css-loader', 'stylus-loader'],
       },
     ],
-    preLoaders: [
-      {
-        test: /\.jsx?$/,
-        loader: 'eslint',
-        exclude: /node_modules/,
-      }
-    ]
-  },
-
-  resolve: {
-    root: [
-      path.resolve('./app'),
-    ],
-    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx'],
   },
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: __dirname + '/app/index.tmpl.html'
+      filename: 'index.html',
+      template: path.resolve(__dirname, 'src/index.html'),
     }),
     new webpack.HotModuleReplacementPlugin(),
   ],
 
   devServer: {
-    host: '0.0.0.0',
-    port: '8080',
-    colors: true,
-    historyApiFallback: true,
-    inline: true,
+    contentBase: __dirname,
     hot: true,
-  }
+  },
 }

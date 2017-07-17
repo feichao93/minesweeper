@@ -1,26 +1,24 @@
-/* eslint-disable no-constant-condition */
 import { Seq } from 'immutable'
-import { takeEvery, delay } from 'redux-saga'
-import { select, put, take, fork } from 'redux-saga/effects'
-import { neighbors, find, win, generateMines } from 'common'
-import { MODES, ROWS, COLS, STAGES, MINE_COUNT, USE_AI, USE_AUTO } from 'constants'
-import workerSaga from 'workerSaga'
+import { delay, io, takeEvery } from 'little-saga'
+import { find, generateMines, neighbors, win } from './common'
+import { COLS, MINE_COUNT, MODES, ROWS, STAGES, USE_AI, USE_AUTO } from './constants'
+import workerSaga from './workerSaga'
 import {
-  LEFT_CLICK,
-  MIDDLE_CLICK,
-  RIGHT_CLICK,
-  UNCOVER_MULTIPLE,
-  MARK,
-  GAME_OVER_WIN,
-  GAME_OVER_LOSE,
   GAME_ON,
-  TICK,
+  GAME_OVER_LOSE,
+  GAME_OVER_WIN,
+  LEFT_CLICK,
+  MARK,
+  MIDDLE_CLICK,
   RESET_TIMER,
   RESTART,
-} from 'actions'
+  RIGHT_CLICK,
+  TICK,
+  UNCOVER_MULTIPLE,
+} from './actions'
 
 export function* handleLeftClick({ t }) {
-  const state = yield select()
+  const state = yield io.select()
   const stage = state.get('stage')
   const modes = state.get('modes')
   let mines = state.get('mines')
@@ -29,37 +27,38 @@ export function* handleLeftClick({ t }) {
     if (stage === STAGES.IDLE) {
       mines = generateMines(ROWS * COLS, MINE_COUNT, [t, ...neighbors(t)])
       // 游戏stage跳转到ON, 计时开始
-      yield put({ type: GAME_ON, mines })
+      yield io.put({ type: GAME_ON, mines })
     }
-    yield put({ type: UNCOVER_MULTIPLE, ts: find(modes, mines, t) })
+    yield io.put({ type: UNCOVER_MULTIPLE, ts: find(modes, mines, t) })
   }
 }
 
 export function* handleMiddleClick({ t }) {
-  const { modes, mines } = (yield select()).toObject()
+  const { modes, mines } = (yield io.select()).toObject()
   const mode = modes.get(t)
   const mine = mines.get(t)
   if (mode === MODES.UNCOVERED && mine > 0) {
     const neighborSeq = Seq(neighbors(t))
     const flagCount = neighborSeq.filter(neighbor => modes.get(neighbor) === MODES.FLAG).count()
-    if (flagCount === mine) { // 周围旗子的数量和该位置上的数字相等 (过多/过少都不能触发点击)
+    if (flagCount === mine) {
+      // 周围旗子的数量和该位置上的数字相等 (过多/过少都不能触发点击)
       const nearbyCovered = neighborSeq.filter(neighbor => modes.get(neighbor) === MODES.COVERED)
       const ts = nearbyCovered.flatMap(covered => find(modes, mines, covered)).toSet()
-      yield put({ type: UNCOVER_MULTIPLE, ts })
+      yield io.put({ type: UNCOVER_MULTIPLE, ts })
     }
   }
 }
 
 export function* handleRightClick({ t }) {
-  const { modes } = (yield select()).toObject()
+  const { modes } = (yield io.select()).toObject()
   const mode = modes.get(t)
   if (mode !== MODES.UNCOVERED) {
     if (mode === MODES.COVERED) {
-      yield put({ type: MARK, t, mark: MODES.FLAG })
+      yield io.put({ type: MARK, t, mark: MODES.FLAG })
     } else if (mode === MODES.FLAG) {
-      yield put({ type: MARK, t, mark: MODES.QUESTIONED })
+      yield io.put({ type: MARK, t, mark: MODES.QUESTIONED })
     } else if (mode === MODES.QUESTIONED) {
-      yield put({ type: MARK, t, mark: MODES.COVERED })
+      yield io.put({ type: MARK, t, mark: MODES.COVERED })
     } else {
       throw new Error(`Invalid mode ${mode} for ${t}`)
     }
@@ -70,7 +69,7 @@ export function* handleRightClick({ t }) {
 
 function* tickEmitter() {
   while (true) {
-    yield put({ type: TICK })
+    yield io.put({ type: TICK })
     yield delay(1000)
   }
 }
@@ -80,29 +79,30 @@ function* tickEmitter() {
 // take到RESTART暂停计时且put一个RESET_TIMER
 export function* timerHandler() {
   while (true) {
-    const action1 = yield take([GAME_ON, RESTART])
+    const action1 = yield io.take([GAME_ON, RESTART])
     if (action1.type === GAME_ON) {
-      const task = yield fork(tickEmitter)
-      const action2 = yield take([GAME_OVER_WIN, GAME_OVER_LOSE, RESTART])
+      const task = yield io.fork(tickEmitter)
+      const action2 = yield io.take([GAME_OVER_WIN, GAME_OVER_LOSE, RESTART])
       task.cancel()
       if (action2.type === RESTART) {
-        yield put({ type: RESET_TIMER })
+        yield io.put({ type: RESET_TIMER })
       }
-    } else { // action1.type === RESTART
-      yield put({ type: RESET_TIMER })
+    } else {
+      // action1.type === RESTART
+      yield io.put({ type: RESET_TIMER })
     }
   }
 }
 
 export function* watchUncover(action) {
   const ts = action.ts
-  const { modes, mines } = (yield select()).toObject()
+  const { modes, mines } = (yield io.select()).toObject()
   // 先看看用户是否点击到了地雷, 如果点击到了地雷, 则游戏失败
   const failTs = ts.filter(t => mines.get(t) === -1)
   if (failTs.size > 0) {
-    yield put({ type: GAME_OVER_LOSE, failTs })
+    yield io.put({ type: GAME_OVER_LOSE, failTs })
   } else if (win(modes, mines)) {
-    yield put({ type: GAME_OVER_WIN })
+    yield io.put({ type: GAME_OVER_WIN })
   }
 }
 
@@ -111,8 +111,8 @@ export default function* rootSaga() {
   yield takeEvery(MIDDLE_CLICK, handleMiddleClick)
   yield takeEvery(RIGHT_CLICK, handleRightClick)
   yield takeEvery(UNCOVER_MULTIPLE, watchUncover)
-  yield fork(timerHandler)
+  yield io.fork(timerHandler)
   if (USE_AI || USE_AUTO) {
-    yield fork(workerSaga)
+    yield io.fork(workerSaga)
   }
 }

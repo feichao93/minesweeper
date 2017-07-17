@@ -25,15 +25,6 @@ Data structure of the game state is not hard to design and implement. But when w
 
 This project uses [React](https://facebook.github.io/react/) to draw the UI, [Redux](http://redux.js.org/) to manage the state of the game, [immutable](https://facebook.github.io/immutable-js/) as the data structure utilities, and [redux-saga](https://redux-saga.js.org/) to handle the complexity of player interactions. Other used packages can be viewed in *package.json*. If you are familiar with these packages, then it is easy to figure out how the game runs.
 
-## File structure
-
-As the project is small, the file structure is clear.
-
-* The entry file of the application is *app/main.jsx*.
-* The UI is rendered by component `App` in *app/App.jsx*.
-* Sub-components are defined in folder *app/components*.
-* Game state is defined and manipulated in *app/reducer.js.*
-
 ## Data
 
 ### Data structure design
@@ -63,7 +54,7 @@ In *IDLE* stage, all tiles are covered and the timer is stopped, and when player
 
 `stage`, `mines`, `modes` and `timer`, the four variables together are sufficient to describe the total game state.
 
-The render loginc of the 480 tiles are defined in `App#renderElements` in *app/App.jsx*. For each tile at `row`-th row `col`-th column that corresponds to array index `i = row * 30 + col`, we examine `modes[i]` and `mines[i]` to determine what should be rendered as follows:
+The render loginc of the 480 tiles are defined in `App#renderElements` in *app/App.js*. For each tile at `row`-th row `col`-th column that corresponds to array index `i = row * 30 + col`, we examine `modes[i]` and `mines[i]` to determine what should be rendered as follows:
 
 1. If `modes[i]` is `UNCOVERD`, then a `<Mine />` or `<Number number={x} />` should be rendered according to `mines[i]`;
 2. If `modes[i]` is `FLAG` or `QUESTIONED`, then a `<Flag />` or `<QuestionMark />`is renderd;
@@ -82,7 +73,7 @@ In `onMouseDown`, if the game is not running, then the mouse down event is ignor
 
 The mouse interactions will be translated to three kinds of redux actions: `LEFT_CLICK`, `MIDDLE_CLICK` and `RIGHT_CLICK`. The action describes which button is clicked and the corresponding tile array index. There three kinds of actions are processed by saga in *app/sagas.js* which will translate them into more detailed actions like `UNCOVER_MULTIPLE` or `GAME_ON` for reducers.
 
-Detailed logic could be viewed in *app/App.jsx* and *app/sagas.js*.
+Detailed logic could be viewed in *app/App.js* and *app/sagas.js*.
 
 ## Sagas and reducers
 

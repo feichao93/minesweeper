@@ -1,0 +1,16 @@
+{
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "plugins": ["react", "react-hooks"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "comma-dangle": ["error", "always-multiline"],
+    "react/prop-types": "off",
+    "no-constant-condition": "off"
+  }
+}

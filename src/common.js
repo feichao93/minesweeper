@@ -1,5 +1,5 @@
 import Immutable, { Seq, Range, Repeat } from 'immutable'
-import { COLS, ROWS, MODES } from 'constants'
+import { COLS, ROWS, MODES } from './constants'
 
 export function strip(min, value, max) {
   return Math.min(max, Math.max(min, value))
@@ -40,7 +40,9 @@ export function* neighbors(t) {
 
 // 用来快速生成stage为IDLE时的地雷布局
 export function defaultMines(size, count) {
-  return Repeat(-1, count).concat(Repeat(0, size - count)).toList()
+  return Repeat(-1, count)
+    .concat(Repeat(0, size - count))
+    .toList()
 }
 
 // 随机生成地雷. 在[0...size-1]的范围中选出count个点放置地雷, 但在excluded处不放置地雷
@@ -71,7 +73,7 @@ export function generateMines(size, count, excluded = []) {
   const ts = new Set(array)
 
   // 第3步. 计算周围雷的数量, 生成mines
-  const mines = Range(0, size).map((t) => {
+  const mines = Range(0, size).map(t => {
     if (ts.has(t)) {
       return -1
     } else {
@@ -79,10 +81,15 @@ export function generateMines(size, count, excluded = []) {
     }
   })
 
-  return mines.map((mine, t) => (mine === -1
-      ? -1
-      : Seq(neighbors(t)).filter(neighbor => mines.get(neighbor) === -1).count()
-  )).toList()
+  return mines
+    .map((mine, t) =>
+      mine === -1
+        ? -1
+        : Seq(neighbors(t))
+            .filter(neighbor => mines.get(neighbor) === -1)
+            .count(),
+    )
+    .toList()
 }
 
 // 从start位置开始, uncover周围的点(一般为8个), 如果周围的点中存在mine = 0的点P, 则从点P处执行同样的操作.
@@ -98,9 +105,11 @@ export function find(modes, mines, start) {
       result.add(t)
       if (mines.get(t) === 0) {
         for (const neighbor of neighbors(t)) {
-          if (!result.has(neighbor)
-            && modes.get(neighbor) === MODES.COVERED
-            && mines.get(neighbor) >= 0) {
+          if (
+            !result.has(neighbor) &&
+            modes.get(neighbor) === MODES.COVERED &&
+            mines.get(neighbor) >= 0
+          ) {
             newVisited.add(neighbor)
           }
         }

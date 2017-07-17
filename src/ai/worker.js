@@ -1,33 +1,38 @@
-/* eslint-disable no-param-reassign */
-import { MINE, SAFE, UNKNOWN } from 'ai/constants'
-import State from 'ai/State'
+import { MINE, SAFE, UNKNOWN } from './constants'
+import State from './State'
 
 function postMines(mines) {
-  postMessage(JSON.stringify({
-    type: 'mine',
-    value: Array.from(mines),
-  }))
+  postMessage(
+    JSON.stringify({
+      type: 'mine',
+      value: Array.from(mines),
+    }),
+  )
 }
 
 function postSafes(safes) {
-  postMessage(JSON.stringify({
-    type: 'safe',
-    value: Array.from(safes),
-  }))
+  postMessage(
+    JSON.stringify({
+      type: 'safe',
+      value: Array.from(safes),
+    }),
+  )
 }
 
 function postDangers(dangers) {
-  postMessage(JSON.stringify({
-    type: 'danger',
-    value: Array.from(dangers),
-  }))
+  postMessage(
+    JSON.stringify({
+      type: 'danger',
+      value: Array.from(dangers),
+    }),
+  )
 }
 
 // function postClear(ts) {
 //   postMessage(JSON.stringify({ type: 'clear', ts: Array.from(ts) }))
 // }
 
-onmessage = function (event) { // eslint-disable-line no-undef
+onmessage = function(event) {
   const message = JSON.parse(event.data)
   if (message.type === 'hint') {
     const state = new State(message.array, message.ROWS, message.COLS)
@@ -44,7 +49,6 @@ onmessage = function (event) { // eslint-disable-line no-undef
 
     let lastSafes = firstSafes
     let lastMines = null
-    // eslint-disable-next-line no-constant-condition, no-labels, no-restricted-syntax
     loop: while (true) {
       // 第二步(explicit-iteraction)
       if (lastSafes) {
@@ -77,14 +81,14 @@ onmessage = function (event) { // eslint-disable-line no-undef
                 postSafes([t])
                 if (USE_AUTO) {
                   lastSafes = [t]
-                  continue loop // eslint-disable-line no-continue, no-labels
+                  continue loop
                 }
               } else if (result === MINE) {
                 state.apply([t], MINE)
                 postMines([t])
                 if (USE_AUTO) {
                   lastMines = [t]
-                  continue loop // eslint-disable-line no-continue, no-labels
+                  continue loop
                 }
               }
             }

@@ -1,21 +1,21 @@
-import { Map, Repeat } from 'immutable'
-import { ROWS, COLS, STAGES, MODES, MINE_COUNT } from 'constants'
+import { Map, Repeat, Record } from 'immutable'
+import { COLS, MINE_COUNT, MODES, ROWS, STAGES } from './constants'
 import {
+  CLEAR_INDICATORS,
+  GAME_ON,
+  GAME_OVER_LOSE,
+  GAME_OVER_WIN,
+  MARK,
+  RESET_TIMER,
+  RESTART,
+  SET_INDICATORS,
+  TICK,
   UNCOVER,
   UNCOVER_MULTIPLE,
-  MARK,
-  GAME_OVER_WIN,
-  GAME_OVER_LOSE,
-  RESTART,
-  GAME_ON,
-  TICK,
-  RESET_TIMER,
-  SET_INDICATORS,
-  CLEAR_INDICATORS,
-} from 'actions'
-import { defaultMines } from 'common'
+} from './actions'
+import { defaultMines } from './common'
 
-const initialState = Map({
+const GameRecord = Record({
   stage: STAGES.IDLE,
 
   // >=0 表示没有地雷, -1 表示有地雷
@@ -31,23 +31,25 @@ const initialState = Map({
   indicators: Map(),
 })
 
-export default function reducer(state = initialState, action) {
+export default function reducer(state = GameRecord(), action) {
   if (action.type === GAME_ON) {
     return state.set('stage', STAGES.ON).set('mines', action.mines)
   } else if (action.type === UNCOVER) {
     return state.setIn(['modes', action.t], MODES.UNCOVERED)
   } else if (action.type === UNCOVER_MULTIPLE) {
-    return state.update('modes', modes => modes.withMutations((ms) => {
-      action.ts.forEach((t) => {
-        ms.set(t, MODES.UNCOVERED)
-      })
-    }))
+    return state.update('modes', modes =>
+      modes.withMutations(ms => {
+        action.ts.forEach(t => {
+          ms.set(t, MODES.UNCOVERED)
+        })
+      }),
+    )
   } else if (action.type === MARK) {
     return state.setIn(['modes', action.t], action.mark)
   } else if (action.type === GAME_OVER_WIN) {
     // 玩家获胜的时候, 将所有有地雷的点 用棋子标记一下
     const { modes, mines } = state.toObject()
-    const newModes = modes.withMutations((ms) => {
+    const newModes = modes.withMutations(ms => {
       mines.forEach((mine, t) => {
         if (mine === -1) {
           ms.set(t, MODES.FLAG)
@@ -56,7 +58,8 @@ export default function reducer(state = initialState, action) {
     })
     return state.merge({ stage: STAGES.WIN, modes: newModes })
   } else if (action.type === RESTART) {
-    return state.set('stage', STAGES.IDLE)
+    return state
+      .set('stage', STAGES.IDLE)
       .set('mines', defaultMines(ROWS * COLS, MINE_COUNT))
       .set('modes', Repeat(MODES.COVERED, ROWS * COLS).toList())
       .set('indicators', Map())
@@ -88,11 +91,13 @@ export default function reducer(state = initialState, action) {
     return state.mergeIn(['indicators'], action.map)
   } else if (action.type === CLEAR_INDICATORS) {
     // console.log('CLEAR-INDICATORS')
-    return state.update('indicators', indicators => indicators.withMutations((inds) => {
-      for (const t of action.ts) {
-        inds.delete(t)
-      }
-    }))
+    return state.update('indicators', indicators =>
+      indicators.withMutations(inds => {
+        for (const t of action.ts) {
+          inds.delete(t)
+        }
+      }),
+    )
   } else {
     return state
   }
