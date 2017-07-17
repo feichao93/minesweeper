@@ -1,0 +1,297 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="630" height="240" viewBox="0 0 210 80">
+  <rect width="210" height="80" fill="silver"/>
+  <g transform="translate(5, 5)">
+    <g transform="translate(2, 2)">
+      <g transform="translate(5,4)">
+        <g role="border">
+          <rect x="0" y="0" width="40" height="1" fill="#808080"/>
+          <rect x="0" y="0" width="1" height="24" fill="#808080"/>
+          <rect x="40" y="1" width="1" height="24" fill="white"/>
+          <rect x="1" y="24" width="40" height="1" fill="white"/>
+        </g>
+        <rect role="background" x="1" y="1" width="39" height="23" fill="black"/>
+        <g transform="translate(2,2)">
+          <path d="M1,0 h9 v1 h-1 v1 h-1 v1 h-5 v-1 h-1 v-1 h-1 v-1" fill="red"/>
+          <path d="M10,1 h1 v9 h-1 v-1 h-1 v-1 h-1 v-5 h1 v-1 h1 v-1" fill="red"/>
+          <path d="M10,11 h1 v9 h-1 v-1 h-1 v-1 h-1 v-5 h1 v-1 h1 v-1" fill="red"/>
+          <path d="M3,18 h5 v1 h1 v1 h1 v1 h-9 v-1 h1 v-1 h1 v-1" fill="red"/>
+          <path d="M0,11 h1 v1 h1 v1 h1 v5 h-1 v1 h-1 v1 h-1 v-9" fill="red"/>
+          <path d="M0,1 h1 v1 h1 v1 h1 v5 h-1 v1 h-1 v1 h-1 v-9" fill="red"/>
+          <g transform="translate(2, 9)">
+            <rect x="1" y="0" fill="#800000" width="1" height="1"/>
+            <rect x="3" y="0" fill="#800000" width="1" height="1"/>
+            <rect x="5" y="0" fill="#800000" width="1" height="1"/>
+            <rect x="0" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="2" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="4" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="6" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="1" y="2" fill="#800000" width="1" height="1"/>
+            <rect x="3" y="2" fill="#800000" width="1" height="1"/>
+            <rect x="5" y="2" fill="#800000" width="1" height="1"/>
+          </g>
+        </g>
+        <g transform="translate(15,2)">
+          <path d="M1,0 h9 v1 h-1 v1 h-1 v1 h-5 v-1 h-1 v-1 h-1 v-1" fill="red"/>
+          <path d="M10,1 h1 v9 h-1 v-1 h-1 v-1 h-1 v-5 h1 v-1 h1 v-1" fill="red"/>
+          <path d="M10,11 h1 v9 h-1 v-1 h-1 v-1 h-1 v-5 h1 v-1 h1 v-1" fill="red"/>
+          <path d="M3,18 h5 v1 h1 v1 h1 v1 h-9 v-1 h1 v-1 h1 v-1" fill="red"/>
+          <g transform="translate(0, 11)">
+            <rect x="0" y="0" fill="#800000" width="1" height="1"/>
+            <rect x="1" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="0" y="2" fill="#800000" width="1" height="1"/>
+            <rect x="2" y="2" fill="#800000" width="1" height="1"/>
+            <rect x="1" y="3" fill="#800000" width="1" height="1"/>
+            <rect x="0" y="4" fill="#800000" width="1" height="1"/>
+            <rect x="2" y="4" fill="#800000" width="1" height="1"/>
+            <rect x="1" y="5" fill="#800000" width="1" height="1"/>
+            <rect x="0" y="6" fill="#800000" width="1" height="1"/>
+            <rect x="2" y="6" fill="#800000" width="1" height="1"/>
+            <rect x="1" y="7" fill="#800000" width="1" height="1"/>
+            <rect x="0" y="8" fill="#800000" width="1" height="1"/>
+          </g>
+          <path d="M0,1 h1 v1 h1 v1 h1 v5 h-1 v1 h-1 v1 h-1 v-9" fill="red"/>
+          <path d="M3,9 h5 v1 h1 v1 h-1 v1 h-5 v-1 h-1 v-1 h1 v-1" fill="red"/>
+        </g>
+        <g transform="translate(28,2)">
+          <path d="M1,0 h9 v1 h-1 v1 h-1 v1 h-5 v-1 h-1 v-1 h-1 v-1" fill="red"/>
+          <g transform="translate(8, 1)">
+            <rect x="2" y="0" fill="#800000" width="1" height="1"/>
+            <rect x="1" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="0" y="2" fill="#800000" width="1" height="1"/>
+            <rect x="2" y="2" fill="#800000" width="1" height="1"/>
+            <rect x="1" y="3" fill="#800000" width="1" height="1"/>
+            <rect x="0" y="4" fill="#800000" width="1" height="1"/>
+            <rect x="2" y="4" fill="#800000" width="1" height="1"/>
+            <rect x="1" y="5" fill="#800000" width="1" height="1"/>
+            <rect x="0" y="6" fill="#800000" width="1" height="1"/>
+            <rect x="2" y="6" fill="#800000" width="1" height="1"/>
+            <rect x="1" y="7" fill="#800000" width="1" height="1"/>
+            <rect x="2" y="8" fill="#800000" width="1" height="1"/>
+          </g>
+          <path d="M10,11 h1 v9 h-1 v-1 h-1 v-1 h-1 v-5 h1 v-1 h1 v-1" fill="red"/>
+          <path d="M3,18 h5 v1 h1 v1 h1 v1 h-9 v-1 h1 v-1 h1 v-1" fill="red"/>
+          <path d="M0,11 h1 v1 h1 v1 h1 v5 h-1 v1 h-1 v1 h-1 v-9" fill="red"/>
+          <path d="M0,1 h1 v1 h1 v1 h1 v5 h-1 v1 h-1 v1 h-1 v-9" fill="red"/>
+          <path d="M3,9 h5 v1 h1 v1 h-1 v1 h-5 v-1 h-1 v-1 h1 v-1" fill="red"/>
+        </g>
+      </g>
+      <g transform="translate(50, 4)">
+        <g>
+          <path d="M0,0 h25 v1 h-24 v24 h-1 v-25" fill="#808080"/>
+          <path d="M1,1 h23 v1 h-1 v1 h-20 v20 h-1 v1 h-1 v-23" fill="white"/>
+          <path d="M23,3 h1 v-1 h1 v-1 h1 v25 h-25 v-1 h1 v-1 h1 v-1 h20 v-20" fill="#808080"/>
+        </g>
+        <g transform="">
+          <path
+            d="M11,5 h5  v1  h2  v1  h1  v1  h1  v1  h1  v2  h1 v5 h-1  v2 h-1  v1 h-1  v1 h-1  v1 h-2  v1 h-5 v-1 h-2 v-1 h-1 v-1 h-1 v-1 h-1 v-2 h-1 v-5  h1 v-2  h1 v-1  h1 v-1  h1 v-1  h2 v-1"
+            fill="black"/>
+          <path
+            d="M11,6 h5  v1  h2  v1  h1  v1  h1  v2  h1 v5 h-1  v2 h-1  v1 h-1  v1 h-2  v1 h-5 v-1 h-2 v-1 h-1 v-1 h-1 v-2 h-1 v-5  h1 v-2  h1 v-1  h1 v-1  h2 v-1"
+            fill="yellow"/>
+          <g>
+            <rect x="10" y="10" width="2" height="2" fill="black"/>
+            <rect x="15" y="10" width="2" height="2" fill="black"/>
+            <path d="M9,15 h1 v1 h1 v1 h5 v-1 h1 v-1 h1 v1 h-1 v1 h-1 v1 h-5 v-1 h-1 v-1 h-1 v-1" fill="black"/>
+          </g>
+        </g>
+      </g>
+      <g transform="translate(86, 4)">
+        <g>
+          <path d="M0,0 h25 v1 h-24 v24 h-1 v-25" fill="#808080"/>
+          <path d="M1,1 h23 v1 h-1 v1 h-20 v20 h-1 v1 h-1 v-23" fill="white"/>
+          <path d="M23,3 h1 v-1 h1 v-1 h1 v25 h-25 v-1 h1 v-1 h1 v-1 h20 v-20" fill="#808080"/>
+        </g>
+        <g transform="">
+          <path
+            d="M11,5 h5  v1  h2  v1  h1  v1  h1  v1  h1  v2  h1 v5 h-1  v2 h-1  v1 h-1  v1 h-1  v1 h-2  v1 h-5 v-1 h-2 v-1 h-1 v-1 h-1 v-1 h-1 v-2 h-1 v-5  h1 v-2  h1 v-1  h1 v-1  h1 v-1  h2 v-1"
+            fill="black"/>
+          <path
+            d="M11,6 h5  v1  h2  v1  h1  v1  h1  v2  h1 v5 h-1  v2 h-1  v1 h-1  v1 h-2  v1 h-5 v-1 h-2 v-1 h-1 v-1 h-1 v-2 h-1 v-5  h1 v-2  h1 v-1  h1 v-1  h2 v-1"
+            fill="yellow"/>
+          <g>
+            <path
+              d="M9,10 h9 v1 h1 v1 h1 v1 h1 v1 h-1 v-1 h-1 v-1 h-1 v1 h-1 v1 h-2 v-1 h-1 v-2 h-1 v2 h-1 v1 h-2 v-1 h-1 v-1 h-1 v1 h-1 v1 h-1 v-1 h1 v-1 h1 v-1 h1 v-1"
+              fill="black"/>
+            <rect x="9" y="13" width="1" height="1" fill="#808000"/>
+            <rect x="17" y="13" width="1" height="1" fill="#808000"/>
+            <path d="M10,16 h1 v1 h5 v-1 h1 v1 h-1 v1 h-5 v-1 h-1 v-1" fill="black"/>
+          </g>
+        </g>
+      </g>
+      <g transform="translate(122, 4)">
+        <g>
+          <path d="M0,0 h25 v1 h-24 v24 h-1 v-25" fill="#808080"/>
+          <path d="M1,1 h23 v1 h-1 v1 h-20 v20 h-1 v1 h-1 v-23" fill="white"/>
+          <path d="M23,3 h1 v-1 h1 v-1 h1 v25 h-25 v-1 h1 v-1 h1 v-1 h20 v-20" fill="#808080"/>
+        </g>
+        <g transform="">
+          <path
+            d="M11,5 h5  v1  h2  v1  h1  v1  h1  v1  h1  v2  h1 v5 h-1  v2 h-1  v1 h-1  v1 h-1  v1 h-2  v1 h-5 v-1 h-2 v-1 h-1 v-1 h-1 v-1 h-1 v-2 h-1 v-5  h1 v-2  h1 v-1  h1 v-1  h1 v-1  h2 v-1"
+            fill="black"/>
+          <path
+            d="M11,6 h5  v1  h2  v1  h1  v1  h1  v2  h1 v5 h-1  v2 h-1  v1 h-1  v1 h-2  v1 h-5 v-1 h-2 v-1 h-1 v-1 h-1 v-2 h-1 v-5  h1 v-2  h1 v-1  h1 v-1  h2 v-1"
+            fill="yellow"/>
+          <g>
+            <g transform="translate(9, 9)">
+              <rect x="0" y="0" fill="black" width="1" height="1"/>
+              <rect x="1" y="0" fill="yellow" width="1" height="1"/>
+              <rect x="2" y="0" fill="black" width="1" height="1"/>
+              <rect x="0" y="1" fill="yellow" width="1" height="1"/>
+              <rect x="1" y="1" fill="black" width="1" height="1"/>
+              <rect x="2" y="1" fill="yellow" width="1" height="1"/>
+              <rect x="0" y="2" fill="black" width="1" height="1"/>
+              <rect x="1" y="2" fill="yellow" width="1" height="1"/>
+              <rect x="2" y="2" fill="black" width="1" height="1"/>
+            </g>
+            <g transform="translate(15, 9)">
+              <rect x="0" y="0" fill="black" width="1" height="1"/>
+              <rect x="1" y="0" fill="yellow" width="1" height="1"/>
+              <rect x="2" y="0" fill="black" width="1" height="1"/>
+              <rect x="0" y="1" fill="yellow" width="1" height="1"/>
+              <rect x="1" y="1" fill="black" width="1" height="1"/>
+              <rect x="2" y="1" fill="yellow" width="1" height="1"/>
+              <rect x="0" y="2" fill="black" width="1" height="1"/>
+              <rect x="1" y="2" fill="yellow" width="1" height="1"/>
+              <rect x="2" y="2" fill="black" width="1" height="1"/>
+            </g>
+            <path d="M11,15 h5 v1 h1 v1 h1 v1 h-1 v-1 h-1 v-1 h-5 v1 h-1 v1 h-1 v-1 h1 v-1 h1" fill="black"/>
+          </g>
+        </g>
+      </g>
+      <g transform="translate(158, 4)">
+        <g>
+          <path d="M0,0 h25 v1 h-24 v24 h-1 v-25" fill="#808080"/>
+          <path d="M1,1 h23 v1 h-1 v1 h-20 v20 h-1 v1 h-1 v-23" fill="white"/>
+          <path d="M23,3 h1 v-1 h1 v-1 h1 v25 h-25 v-1 h1 v-1 h1 v-1 h20 v-20" fill="#808080"/>
+        </g>
+        <g transform="">
+          <path
+            d="M11,5 h5  v1  h2  v1  h1  v1  h1  v1  h1  v2  h1 v5 h-1  v2 h-1  v1 h-1  v1 h-1  v1 h-2  v1 h-5 v-1 h-2 v-1 h-1 v-1 h-1 v-1 h-1 v-2 h-1 v-5  h1 v-2  h1 v-1  h1 v-1  h1 v-1  h2 v-1"
+            fill="black"/>
+          <path
+            d="M11,6 h5  v1  h2  v1  h1  v1  h1  v2  h1 v5 h-1  v2 h-1  v1 h-1  v1 h-2  v1 h-5 v-1 h-2 v-1 h-1 v-1 h-1 v-2 h-1 v-5  h1 v-2  h1 v-1  h1 v-1  h2 v-1"
+            fill="yellow"/>
+          <g>
+            <g transform="translate(9, 9)">
+              <rect x="0" y="0" fill="#808080" width="1" height="1"/>
+              <rect x="1" y="0" fill="black" width="1" height="1"/>
+              <rect x="2" y="0" fill="#808080" width="1" height="1"/>
+              <rect x="0" y="1" fill="black" width="1" height="1"/>
+              <rect x="1" y="1" fill="black" width="1" height="1"/>
+              <rect x="2" y="1" fill="black" width="1" height="1"/>
+              <rect x="0" y="2" fill="#808080" width="1" height="1"/>
+              <rect x="1" y="2" fill="black" width="1" height="1"/>
+              <rect x="2" y="2" fill="#808080" width="1" height="1"/>
+            </g>
+            <g transform="translate(15, 9)">
+              <rect x="0" y="0" fill="#808080" width="1" height="1"/>
+              <rect x="1" y="0" fill="black" width="1" height="1"/>
+              <rect x="2" y="0" fill="#808080" width="1" height="1"/>
+              <rect x="0" y="1" fill="black" width="1" height="1"/>
+              <rect x="1" y="1" fill="black" width="1" height="1"/>
+              <rect x="2" y="1" fill="black" width="1" height="1"/>
+              <rect x="0" y="2" fill="#808080" width="1" height="1"/>
+              <rect x="1" y="2" fill="black" width="1" height="1"/>
+              <rect x="2" y="2" fill="#808080" width="1" height="1"/>
+            </g>
+            <g transform="translate(11,14)">
+              <rect x="0" y="1" width="5" height="3" fill="#808000"/>
+              <rect x="1" y="0" width="3" height="5" fill="black"/>
+              <rect x="0" y="2" width="5" height="1" fill="black"/>
+              <rect x="1" y="2" width="3" height="1" fill="yellow"/>
+              <rect x="2" y="1" width="1" height="3" fill="yellow"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(5, 36)">
+    <g transform="translate(3, 3)">
+      <path role="number-1" d="M8,3
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M20,3
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-3" d="M35,3
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-4" d="M53,3
+        h3 v2 h-1 v2 h2 v-4 h3 v4 h1 v2 h-1 v4 h-3 v-4 h-6 v-2 h1
+        v-2 h1 v-2" fill="#000080"/>
+      <path role="number-5" d="M67,3
+          h10 v2 h-7 v2 h6 v1 h1 v4 h-1 v1 h-9
+          v-2 h7 v-2 h-7 v-6" fill="#800000"/>
+      <g role="number-6" transform="translate(80,0)">
+        <path d="M4,3
+          h8 v2 h-6 v2 h6 v1 h1 v4 h-1
+          v1 h-8 v-1 h-1 v-8 h1 v-1" fill="#008080"/>
+        <rect x="6" y="9" width="4" height="2" fill="#c0c0c0"/>
+      </g>
+      <path role="number-7" d="M99,3
+          h10 v4 h-1 v2 h-1 v2 h-1 v2 h-3 v-2 h1
+          v-2 h1 v-2 h1 v-2 h-7 v-2" fill="#000000"/>
+      <g role="number-8" transform="translate(112,0)">
+        <path d="M4,3
+           h8  v1  h1  v3 h-1  v2  h1  v3 h-1  v1
+          h-8 v-1 h-1 v-3  h1 v-2 h-1 v-3  h1 v-1" fill="#808080"/>
+        <rect x="6" y="5" width="4" height="2" fill="#c0c0c0"/>
+        <rect x="6" y="9" width="4" height="2" fill="#c0c0c0"/>
+      </g>
+      <g role="mine" transform="translate(0, 16)">
+        <path
+          d="M8,2 h1  v2  h2  v1  h1  v1  h1  v2  h2 v1 h-2  v2 h-1  v1 h-1  v1 h-2  v2 h-1 v-2 h-2 v-1 h-1 v-1 h-1 v-2 h-2 v-1  h2 v-2  h1 v-1  h1 v-1  h2 v-2"
+          fill="black"/>
+        <rect x="6" y="6" width="2" height="2" fill="white"/>
+        <rect x="4" y="4" width="1" height="1" fill="black"/>
+        <rect x="12" y="4" width="1" height="1" fill="black"/>
+        <rect x="4" y="12" width="1" height="1" fill="black"/>
+        <rect x="12" y="12" width="1" height="1" fill="black"/>
+      </g>
+      <g role="mine" transform="translate(16, 16)">
+        <path
+          d="M8,2 h1  v2  h2  v1  h1  v1  h1  v2  h2 v1 h-2  v2 h-1  v1 h-1  v1 h-2  v2 h-1 v-2 h-2 v-1 h-1 v-1 h-1 v-2 h-2 v-1  h2 v-2  h1 v-1  h1 v-1  h2 v-2"
+          fill="black"/>
+        <rect x="6" y="6" width="2" height="2" fill="white"/>
+        <rect x="4" y="4" width="1" height="1" fill="black"/>
+        <rect x="12" y="4" width="1" height="1" fill="black"/>
+        <rect x="4" y="12" width="1" height="1" fill="black"/>
+        <rect x="12" y="12" width="1" height="1" fill="black"/>
+        <path
+          d="M2,3 h2 v1 h1 v1 h1 v1 h1 v1 h1 v1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h2 v1 h-1 v1 h-1 v1 h-1 v1 h-1 v1 h-1 v2 h1 v1 h1 v1 h1 v1 h1 v1 h1 v1 h-2 v-1 h-1 v-1 h-1 v-1 h-1 v-1 h-1 v-1 h-1 v1 h-1 v1 h-1 v1 h-1 v1 h-1 v1 h-2 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-1 h1 v-2 h-1 v-1 h-1 v-1 h-1 v-1 h-1 v-1 h-1 v-1"
+          fill="red"/>
+      </g>
+      <g role="mine" transform="translate(32, 16)">
+        <rect x="1" y="1" width="15" height="15" fill="red"/>
+        <path
+          d="M8,2 h1  v2  h2  v1  h1  v1  h1  v2  h2 v1 h-2  v2 h-1  v1 h-1  v1 h-2  v2 h-1 v-2 h-2 v-1 h-1 v-1 h-1 v-2 h-2 v-1  h2 v-2  h1 v-1  h1 v-1  h2 v-2"
+          fill="black"/>
+        <rect x="6" y="6" width="2" height="2" fill="white"/>
+        <rect x="4" y="4" width="1" height="1" fill="black"/>
+        <rect x="12" y="4" width="1" height="1" fill="black"/>
+        <rect x="4" y="12" width="1" height="1" fill="black"/>
+        <rect x="12" y="12" width="1" height="1" fill="black"/>
+      </g>
+      <g role="flag" transform="translate(48, 16)">
+        <path d="M7,3 h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8 h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <g role="question-mark" transform="translate(64, 16)">
+        <path d="M6,3 h4 v1 h1 v3 h-1 v1 h-1 v2 h-2 v-2 h1 v-1 h1 v-3 h-2 v2 h-2 v-2 h1 v-1" fill="black"/>
+        <rect x="7" y="11" width="2" height="2" fill="black"/>
+      </g>
+      <g role="cover" transform="translate(80, 16)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(96, 16)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(112, 16)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+    </g>
+  </g>
+</svg>

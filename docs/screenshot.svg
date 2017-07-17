@@ -1,0 +1,2075 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="496" height="315">
+  <rect x="0" y="0" width="496" height="315" fill="silver"/>
+  <g transform="translate(5, 5)">
+    <g role="borders">
+      <rect role="border-left" width="2" height="37" fill="#808080"/>
+      <rect role="border-top" width="486" height="2" fill="#808080"/>
+      <rect role="border-right" x="484" width="2" height="37" fill="white"/>
+      <rect role="border-bottom" y="35" width="486" height="2" fill="white"/>
+      <g transform="translate(0, 35)">
+        <rect x="0" y="0" fill="#808080" width="1" height="1"/>
+        <rect x="1" y="0" fill="#c0c0c0" width="1" height="1"/>
+        <rect x="0" y="1" fill="#c0c0c0" width="1" height="1"/>
+        <rect x="1" y="1" fill="white" width="1" height="1"/>
+      </g>
+      <g transform="translate(484, 0)">
+        <rect x="0" y="0" fill="#808080" width="1" height="1"/>
+        <rect x="1" y="0" fill="#c0c0c0" width="1" height="1"/>
+        <rect x="0" y="1" fill="#c0c0c0" width="1" height="1"/>
+        <rect x="1" y="1" fill="white" width="1" height="1"/>
+      </g>
+    </g>
+    <g transform="translate(2, 2)">
+      <g transform="translate(5,4)">
+        <g role="border">
+          <rect x="0" y="0" width="40" height="1" fill="#808080"/>
+          <rect x="0" y="0" width="1" height="24" fill="#808080"/>
+          <rect x="40" y="1" width="1" height="24" fill="white"/>
+          <rect x="1" y="24" width="40" height="1" fill="white"/>
+        </g>
+        <rect role="background" x="1" y="1" width="39" height="23" fill="black"/>
+        <g transform="translate(2,2)">
+          <path d="M1,0 h9 v1 h-1 v1 h-1 v1 h-5 v-1 h-1 v-1 h-1 v-1" fill="red"/>
+          <path d="M10,1 h1 v9 h-1 v-1 h-1 v-1 h-1 v-5 h1 v-1 h1 v-1" fill="red"/>
+          <path d="M10,11 h1 v9 h-1 v-1 h-1 v-1 h-1 v-5 h1 v-1 h1 v-1" fill="red"/>
+          <path d="M3,18 h5 v1 h1 v1 h1 v1 h-9 v-1 h1 v-1 h1 v-1" fill="red"/>
+          <path d="M0,11 h1 v1 h1 v1 h1 v5 h-1 v1 h-1 v1 h-1 v-9" fill="red"/>
+          <path d="M0,1 h1 v1 h1 v1 h1 v5 h-1 v1 h-1 v1 h-1 v-9" fill="red"/>
+          <g transform="translate(2, 9)">
+            <rect x="1" y="0" fill="#800000" width="1" height="1"/>
+            <rect x="3" y="0" fill="#800000" width="1" height="1"/>
+            <rect x="5" y="0" fill="#800000" width="1" height="1"/>
+            <rect x="0" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="2" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="4" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="6" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="1" y="2" fill="#800000" width="1" height="1"/>
+            <rect x="3" y="2" fill="#800000" width="1" height="1"/>
+            <rect x="5" y="2" fill="#800000" width="1" height="1"/>
+          </g>
+        </g>
+        <g transform="translate(15,2)">
+          <path d="M1,0 h9 v1 h-1 v1 h-1 v1 h-5 v-1 h-1 v-1 h-1 v-1" fill="red"/>
+          <path d="M10,1 h1 v9 h-1 v-1 h-1 v-1 h-1 v-5 h1 v-1 h1 v-1" fill="red"/>
+          <path d="M10,11 h1 v9 h-1 v-1 h-1 v-1 h-1 v-5 h1 v-1 h1 v-1" fill="red"/>
+          <path d="M3,18 h5 v1 h1 v1 h1 v1 h-9 v-1 h1 v-1 h1 v-1" fill="red"/>
+          <path d="M0,11 h1 v1 h1 v1 h1 v5 h-1 v1 h-1 v1 h-1 v-9" fill="red"/>
+          <path d="M0,1 h1 v1 h1 v1 h1 v5 h-1 v1 h-1 v1 h-1 v-9" fill="red"/>
+          <g transform="translate(2, 9)">
+            <rect x="1" y="0" fill="#800000" width="1" height="1"/>
+            <rect x="3" y="0" fill="#800000" width="1" height="1"/>
+            <rect x="5" y="0" fill="#800000" width="1" height="1"/>
+            <rect x="0" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="2" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="4" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="6" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="1" y="2" fill="#800000" width="1" height="1"/>
+            <rect x="3" y="2" fill="#800000" width="1" height="1"/>
+            <rect x="5" y="2" fill="#800000" width="1" height="1"/>
+          </g>
+        </g>
+        <g transform="translate(28,2)">
+          <path d="M1,0 h9 v1 h-1 v1 h-1 v1 h-5 v-1 h-1 v-1 h-1 v-1" fill="red"/>
+          <path d="M10,1 h1 v9 h-1 v-1 h-1 v-1 h-1 v-5 h1 v-1 h1 v-1" fill="red"/>
+          <path d="M10,11 h1 v9 h-1 v-1 h-1 v-1 h-1 v-5 h1 v-1 h1 v-1" fill="red"/>
+          <path d="M3,18 h5 v1 h1 v1 h1 v1 h-9 v-1 h1 v-1 h1 v-1" fill="red"/>
+          <path d="M0,11 h1 v1 h1 v1 h1 v5 h-1 v1 h-1 v1 h-1 v-9" fill="red"/>
+          <path d="M0,1 h1 v1 h1 v1 h1 v5 h-1 v1 h-1 v1 h-1 v-9" fill="red"/>
+          <g transform="translate(2, 9)">
+            <rect x="1" y="0" fill="#800000" width="1" height="1"/>
+            <rect x="3" y="0" fill="#800000" width="1" height="1"/>
+            <rect x="5" y="0" fill="#800000" width="1" height="1"/>
+            <rect x="0" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="2" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="4" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="6" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="1" y="2" fill="#800000" width="1" height="1"/>
+            <rect x="3" y="2" fill="#800000" width="1" height="1"/>
+            <rect x="5" y="2" fill="#800000" width="1" height="1"/>
+          </g>
+        </g>
+      </g>
+      <g transform="translate(228, 4)">
+        <g>
+          <path d="M0,0 h25 v1 h-24 v24 h-1 v-25" fill="#808080"/>
+          <path d="M1,1 h23 v1 h-1 v1 h-20 v20 h-1 v1 h-1 v-23" fill="white"/>
+          <path d="M23,3 h1 v-1 h1 v-1 h1 v25 h-25 v-1 h1 v-1 h1 v-1 h20 v-20" fill="#808080"/>
+        </g>
+        <g transform="">
+          <path d="M11,5
+ h5  v1  h2  v1  h1  v1  h1  v1  h1  v2  h1
+ v5 h-1  v2 h-1  v1 h-1  v1 h-1  v1 h-2  v1
+ h-5 v-1 h-2 v-1 h-1 v-1 h-1 v-1 h-1 v-2 h-1
+ v-5  h1 v-2  h1 v-1  h1 v-1  h1 v-1  h2 v-1" fill="black"/>
+          <path d="M11,6
+ h5  v1  h2  v1  h1  v1  h1  v2  h1
+ v5 h-1  v2 h-1  v1 h-1  v1 h-2  v1
+ h-5 v-1 h-2 v-1 h-1 v-1 h-1 v-2 h-1
+ v-5  h1 v-2  h1 v-1  h1 v-1  h2 v-1" fill="yellow"/>
+          <g>
+            <path d="M9,10
+ h9 v1 h1 v1 h1 v1 h1 v1 h-1 v-1 h-1 v-1 h-1
+ v1 h-1 v1 h-2 v-1 h-1 v-2 h-1 v2 h-1 v1 h-2
+ v-1 h-1 v-1 h-1 v1 h-1 v1 h-1 v-1 h1 v-1 h1 v-1 h1 v-1" fill="black"/>
+            <rect x="9" y="13" width="1" height="1" fill="#808000"/>
+            <rect x="17" y="13" width="1" height="1" fill="#808000"/>
+            <path d="M10,16
+ h1 v1 h5 v-1 h1 v1 h-1 v1 h-5 v-1 h-1 v-1" fill="black"/>
+          </g>
+        </g>
+      </g>
+      <g transform="translate(434,4)">
+        <g role="border">
+          <rect x="0" y="0" width="40" height="1" fill="#808080"/>
+          <rect x="0" y="0" width="1" height="24" fill="#808080"/>
+          <rect x="40" y="1" width="1" height="24" fill="white"/>
+          <rect x="1" y="24" width="40" height="1" fill="white"/>
+        </g>
+        <rect role="background" x="1" y="1" width="39" height="23" fill="black"/>
+        <g transform="translate(2,2)">
+          <path d="M1,0 h9 v1 h-1 v1 h-1 v1 h-5 v-1 h-1 v-1 h-1 v-1" fill="red"/>
+          <path d="M10,1 h1 v9 h-1 v-1 h-1 v-1 h-1 v-5 h1 v-1 h1 v-1" fill="red"/>
+          <path d="M10,11 h1 v9 h-1 v-1 h-1 v-1 h-1 v-5 h1 v-1 h1 v-1" fill="red"/>
+          <path d="M3,18 h5 v1 h1 v1 h1 v1 h-9 v-1 h1 v-1 h1 v-1" fill="red"/>
+          <path d="M0,11 h1 v1 h1 v1 h1 v5 h-1 v1 h-1 v1 h-1 v-9" fill="red"/>
+          <path d="M0,1 h1 v1 h1 v1 h1 v5 h-1 v1 h-1 v1 h-1 v-9" fill="red"/>
+          <g transform="translate(2, 9)">
+            <rect x="1" y="0" fill="#800000" width="1" height="1"/>
+            <rect x="3" y="0" fill="#800000" width="1" height="1"/>
+            <rect x="5" y="0" fill="#800000" width="1" height="1"/>
+            <rect x="0" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="2" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="4" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="6" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="1" y="2" fill="#800000" width="1" height="1"/>
+            <rect x="3" y="2" fill="#800000" width="1" height="1"/>
+            <rect x="5" y="2" fill="#800000" width="1" height="1"/>
+          </g>
+        </g>
+        <g transform="translate(15,2)">
+          <path d="M1,0 h9 v1 h-1 v1 h-1 v1 h-5 v-1 h-1 v-1 h-1 v-1" fill="red"/>
+          <path d="M10,1 h1 v9 h-1 v-1 h-1 v-1 h-1 v-5 h1 v-1 h1 v-1" fill="red"/>
+          <path d="M10,11 h1 v9 h-1 v-1 h-1 v-1 h-1 v-5 h1 v-1 h1 v-1" fill="red"/>
+          <path d="M3,18 h5 v1 h1 v1 h1 v1 h-9 v-1 h1 v-1 h1 v-1" fill="red"/>
+          <path d="M0,11 h1 v1 h1 v1 h1 v5 h-1 v1 h-1 v1 h-1 v-9" fill="red"/>
+          <path d="M0,1 h1 v1 h1 v1 h1 v5 h-1 v1 h-1 v1 h-1 v-9" fill="red"/>
+          <g transform="translate(2, 9)">
+            <rect x="1" y="0" fill="#800000" width="1" height="1"/>
+            <rect x="3" y="0" fill="#800000" width="1" height="1"/>
+            <rect x="5" y="0" fill="#800000" width="1" height="1"/>
+            <rect x="0" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="2" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="4" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="6" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="1" y="2" fill="#800000" width="1" height="1"/>
+            <rect x="3" y="2" fill="#800000" width="1" height="1"/>
+            <rect x="5" y="2" fill="#800000" width="1" height="1"/>
+          </g>
+        </g>
+        <g transform="translate(28,2)">
+          <path d="M1,0 h9 v1 h-1 v1 h-1 v1 h-5 v-1 h-1 v-1 h-1 v-1" fill="red"/>
+          <g transform="translate(8, 1)">
+            <rect x="2" y="0" fill="#800000" width="1" height="1"/>
+            <rect x="1" y="1" fill="#800000" width="1" height="1"/>
+            <rect x="0" y="2" fill="#800000" width="1" height="1"/>
+            <rect x="2" y="2" fill="#800000" width="1" height="1"/>
+            <rect x="1" y="3" fill="#800000" width="1" height="1"/>
+            <rect x="0" y="4" fill="#800000" width="1" height="1"/>
+            <rect x="2" y="4" fill="#800000" width="1" height="1"/>
+            <rect x="1" y="5" fill="#800000" width="1" height="1"/>
+            <rect x="0" y="6" fill="#800000" width="1" height="1"/>
+            <rect x="2" y="6" fill="#800000" width="1" height="1"/>
+            <rect x="1" y="7" fill="#800000" width="1" height="1"/>
+            <rect x="2" y="8" fill="#800000" width="1" height="1"/>
+          </g>
+          <path d="M10,11 h1 v9 h-1 v-1 h-1 v-1 h-1 v-5 h1 v-1 h1 v-1" fill="red"/>
+          <path d="M3,18 h5 v1 h1 v1 h1 v1 h-9 v-1 h1 v-1 h1 v-1" fill="red"/>
+          <path d="M0,11 h1 v1 h1 v1 h1 v5 h-1 v1 h-1 v1 h-1 v-9" fill="red"/>
+          <path d="M0,1 h1 v1 h1 v1 h1 v5 h-1 v1 h-1 v1 h-1 v-9" fill="red"/>
+          <path d="M3,9 h5 v1 h1 v1 h-1 v1 h-5 v-1 h-1 v-1 h1 v-1" fill="red"/>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(5, 48)">
+    <g role="borders">
+      <rect role="border-left" width="3" height="262" fill="#808080"/>
+      <rect role="border-top" width="486" height="3" fill="#808080"/>
+      <rect role="border-right" x="483" width="3" height="262" fill="white"/>
+      <rect role="border-bottom" y="259" width="486" height="3" fill="white"/>
+      <g transform="translate(0, 259)">
+        <rect x="0" y="0" fill="#808080" width="1" height="1"/>
+        <rect x="1" y="0" fill="#808080" width="1" height="1"/>
+        <rect x="2" y="0" fill="#c0c0c0" width="1" height="1"/>
+        <rect x="0" y="1" fill="#808080" width="1" height="1"/>
+        <rect x="1" y="1" fill="#c0c0c0" width="1" height="1"/>
+        <rect x="2" y="1" fill="white" width="1" height="1"/>
+        <rect x="0" y="2" fill="#c0c0c0" width="1" height="1"/>
+        <rect x="1" y="2" fill="white" width="1" height="1"/>
+        <rect x="2" y="2" fill="white" width="1" height="1"/>
+      </g>
+      <g transform="translate(483, 0)">
+        <rect x="0" y="0" fill="#808080" width="1" height="1"/>
+        <rect x="1" y="0" fill="#808080" width="1" height="1"/>
+        <rect x="2" y="0" fill="#c0c0c0" width="1" height="1"/>
+        <rect x="0" y="1" fill="#808080" width="1" height="1"/>
+        <rect x="1" y="1" fill="#c0c0c0" width="1" height="1"/>
+        <rect x="2" y="1" fill="white" width="1" height="1"/>
+        <rect x="0" y="2" fill="#c0c0c0" width="1" height="1"/>
+        <rect x="1" y="2" fill="white" width="1" height="1"/>
+        <rect x="2" y="2" fill="white" width="1" height="1"/>
+      </g>
+    </g>
+    <g transform="translate(3, 3)">
+      <g>
+        <rect x="0" y="0" width="480" height="1" fill="#808080"/>
+        <rect x="0" y="16" width="480" height="1" fill="#808080"/>
+        <rect x="0" y="32" width="480" height="1" fill="#808080"/>
+        <rect x="0" y="48" width="480" height="1" fill="#808080"/>
+        <rect x="0" y="64" width="480" height="1" fill="#808080"/>
+        <rect x="0" y="80" width="480" height="1" fill="#808080"/>
+        <rect x="0" y="96" width="480" height="1" fill="#808080"/>
+        <rect x="0" y="112" width="480" height="1" fill="#808080"/>
+        <rect x="0" y="128" width="480" height="1" fill="#808080"/>
+        <rect x="0" y="144" width="480" height="1" fill="#808080"/>
+        <rect x="0" y="160" width="480" height="1" fill="#808080"/>
+        <rect x="0" y="176" width="480" height="1" fill="#808080"/>
+        <rect x="0" y="192" width="480" height="1" fill="#808080"/>
+        <rect x="0" y="208" width="480" height="1" fill="#808080"/>
+        <rect x="0" y="224" width="480" height="1" fill="#808080"/>
+        <rect x="0" y="240" width="480" height="1" fill="#808080"/>
+        <rect x="0" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="16" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="32" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="48" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="64" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="80" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="96" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="112" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="128" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="144" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="160" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="176" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="192" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="208" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="224" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="240" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="256" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="272" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="288" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="304" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="320" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="336" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="352" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="368" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="384" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="400" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="416" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="432" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="448" y="0" width="1" height="256" fill="#808080"/>
+        <rect x="464" y="0" width="1" height="256" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(16, 0)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(64, 0)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(144, 0)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(192, 0)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(256, 0)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(336, 0)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(352, 0)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(384, 0)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(464, 0)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(0, 16)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(432, 16)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(0, 32)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(32, 32)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(256, 32)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(304, 32)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(368, 32)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(112, 48)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(304, 48)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(384, 48)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(400, 48)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(432, 48)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(64, 64)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(144, 64)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(400, 64)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(416, 64)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(16, 80)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(80, 80)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(256, 80)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(272, 80)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(320, 80)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(336, 80)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(160, 96)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(176, 96)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(288, 96)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(336, 96)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(368, 96)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(384, 96)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(400, 96)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(0, 112)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(16, 112)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(144, 112)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(176, 112)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(304, 112)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(64, 128)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(192, 128)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(272, 128)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(336, 128)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(384, 128)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(400, 128)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(448, 128)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(32, 144)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(48, 144)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(128, 144)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(144, 144)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(208, 144)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(240, 144)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(256, 144)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(272, 144)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(336, 144)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(128, 160)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(160, 160)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(400, 160)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(0, 176)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(16, 176)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(32, 176)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(96, 176)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(128, 176)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(352, 176)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(368, 176)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(432, 176)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(0, 192)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(48, 192)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(80, 192)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(192, 192)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(288, 192)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(400, 192)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(464, 192)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(0, 208)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(64, 208)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(128, 208)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(144, 208)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(160, 208)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(192, 208)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(208, 208)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(240, 208)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(272, 208)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(320, 208)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(352, 208)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(416, 208)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(464, 208)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(96, 224)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(256, 224)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(0, 240)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(64, 240)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(96, 240)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(176, 240)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(240, 240)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(288, 240)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <g role="cover" transform="translate(448, 240)">
+        <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white"/>
+        <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill="#808080"/>
+      </g>
+      <path role="number-2" d="M4,3
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(16, 0)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-1" d="M40,3
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M56,3
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="flag" transform="translate(64, 0)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-1" d="M88,3
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M136,3
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="flag" transform="translate(144, 0)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-1" d="M168,3
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M184,3
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="flag" transform="translate(192, 0)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-1" d="M216,3
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M248,3
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="flag" transform="translate(256, 0)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-1" d="M280,3
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M328,3
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="flag" transform="translate(336, 0)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <g role="flag" transform="translate(352, 0)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M372,3
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(384, 0)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-1" d="M408,3
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M424,3
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M440,3
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M452,3
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(464, 0)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <g role="flag" transform="translate(0, 16)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-4" d="M21,19
+        h3 v2 h-1 v2 h2 v-4 h3 v4 h1 v2 h-1 v4 h-3 v-4 h-6 v-2 h1
+        v-2 h1 v-2" fill="#000080"/>
+      <path role="number-2" d="M36,19
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M52,19
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M72,19
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M88,19
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M136,19
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M152,19
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M168,19
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M184,19
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M200,19
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M216,19
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M244,19
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M260,19
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M276,19
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M296,19
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M312,19
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M324,19
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M340,19
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-3" d="M355,19
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-3" d="M371,19
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-2" d="M388,19
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M408,19
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M424,19
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="flag" transform="translate(432, 16)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M452,19
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M472,19
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="flag" transform="translate(0, 32)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-3" d="M19,35
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <g role="flag" transform="translate(32, 32)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-1" d="M56,35
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M104,35
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M120,35
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M136,35
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M248,35
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="flag" transform="translate(256, 32)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-1" d="M280,35
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M292,35
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(304, 32)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M324,35
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M360,35
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="flag" transform="translate(368, 32)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-3" d="M387,35
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-2" d="M404,35
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-3" d="M419,35
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-2" d="M436,35
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M452,35
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M8,51
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M20,51
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M40,51
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M52,51
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M72,51
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M88,51
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M104,51
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="flag" transform="translate(112, 48)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M132,51
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M152,51
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M168,51
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M248,51
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M264,51
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M280,51
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M292,51
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(304, 48)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M324,51
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M360,51
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M372,51
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(384, 48)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <g role="flag" transform="translate(400, 48)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-4" d="M421,51
+        h3 v2 h-1 v2 h2 v-4 h3 v4 h1 v2 h-1 v4 h-3 v-4 h-6 v-2 h1
+        v-2 h1 v-2" fill="#000080"/>
+      <g role="flag" transform="translate(432, 48)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-1" d="M456,51
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M8,67
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M24,67
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M40,67
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M56,67
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="flag" transform="translate(64, 64)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M84,67
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M100,67
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M120,67
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M132,67
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(144, 64)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-1" d="M168,67
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M248,67
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M260,67
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M276,67
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M292,67
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M308,67
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-3" d="M323,67
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-2" d="M340,67
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M360,67
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M376,67
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-3" d="M387,67
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <g role="flag" transform="translate(400, 64)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <g role="flag" transform="translate(416, 64)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M436,67
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M456,67
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M8,83
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="flag" transform="translate(16, 80)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-1" d="M40,83
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M56,83
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M68,83
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(80, 80)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-1" d="M104,83
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M136,83
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M148,83
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-3" d="M163,83
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-2" d="M180,83
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M200,83
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M248,83
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="flag" transform="translate(256, 80)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <g role="flag" transform="translate(272, 80)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M292,83
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M308,83
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(320, 80)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <g role="flag" transform="translate(336, 80)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-3" d="M355,83
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-2" d="M372,83
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-4" d="M389,83
+        h3 v2 h-1 v2 h2 v-4 h3 v4 h1 v2 h-1 v4 h-3 v-4 h-6 v-2 h1
+        v-2 h1 v-2" fill="#000080"/>
+      <path role="number-4" d="M405,83
+        h3 v2 h-1 v2 h2 v-4 h3 v4 h1 v2 h-1 v4 h-3 v-4 h-6 v-2 h1
+        v-2 h1 v-2" fill="#000080"/>
+      <path role="number-3" d="M419,83
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-1" d="M440,83
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-3" d="M3,99
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-3" d="M19,99
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-2" d="M36,99
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M72,99
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M88,99
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M104,99
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M136,99
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M148,99
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(160, 96)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <g role="flag" transform="translate(176, 96)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M196,99
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M248,99
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M260,99
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-3" d="M275,99
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <g role="flag" transform="translate(288, 96)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-3" d="M307,99
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-4" d="M325,99
+        h3 v2 h-1 v2 h2 v-4 h3 v4 h1 v2 h-1 v4 h-3 v-4 h-6 v-2 h1
+        v-2 h1 v-2" fill="#000080"/>
+      <g role="flag" transform="translate(336, 96)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-3" d="M355,99
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <g role="flag" transform="translate(368, 96)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <g role="flag" transform="translate(384, 96)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <g role="flag" transform="translate(400, 96)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-1" d="M424,99
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="flag" transform="translate(0, 112)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <g role="flag" transform="translate(16, 112)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-1" d="M40,115
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M56,115
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M72,115
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M88,115
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M136,115
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="flag" transform="translate(144, 112)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-4" d="M165,115
+        h3 v2 h-1 v2 h2 v-4 h3 v4 h1 v2 h-1 v4 h-3 v-4 h-6 v-2 h1
+        v-2 h1 v-2" fill="#000080"/>
+      <g role="flag" transform="translate(176, 112)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-3" d="M195,115
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-1" d="M216,115
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M264,115
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M276,115
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-3" d="M291,115
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <g role="flag" transform="translate(304, 112)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-3" d="M323,115
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-2" d="M340,115
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-3" d="M355,115
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-3" d="M371,115
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-5" d="M387,115
+          h10 v2 h-7 v2 h6 v1 h1 v4 h-1 v1 h-9
+          v-2 h7 v-2 h-7 v-6" fill="#800000"/>
+      <path role="number-4" d="M405,115
+        h3 v2 h-1 v2 h2 v-4 h3 v4 h1 v2 h-1 v4 h-3 v-4 h-6 v-2 h1
+        v-2 h1 v-2" fill="#000080"/>
+      <path role="number-2" d="M420,115
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M440,115
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M456,115
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M472,115
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M4,131
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-3" d="M19,131
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-3" d="M35,131
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-3" d="M51,131
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <g role="flag" transform="translate(64, 128)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-1" d="M88,131
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M120,131
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-3" d="M131,131
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-3" d="M147,131
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-3" d="M163,131
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-2" d="M180,131
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(192, 128)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M212,131
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M228,131
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M244,131
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-4" d="M261,131
+        h3 v2 h-1 v2 h2 v-4 h3 v4 h1 v2 h-1 v4 h-3 v-4 h-6 v-2 h1
+        v-2 h1 v-2" fill="#000080"/>
+      <g role="flag" transform="translate(272, 128)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-3" d="M291,131
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-1" d="M312,131
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-3" d="M323,131
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <g role="flag" transform="translate(336, 128)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M356,131
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M376,131
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="flag" transform="translate(384, 128)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <g role="flag" transform="translate(400, 128)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-1" d="M424,131
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M440,131
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="flag" transform="translate(448, 128)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-1" d="M472,131
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M24,147
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="flag" transform="translate(32, 144)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <g role="flag" transform="translate(48, 144)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M68,147
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M88,147
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M116,147
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(128, 144)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <g role="flag" transform="translate(144, 144)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M164,147
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M180,147
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M196,147
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(208, 144)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M228,147
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(240, 144)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <g role="flag" transform="translate(256, 144)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <g role="flag" transform="translate(272, 144)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M292,147
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M324,147
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(336, 144)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M356,147
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M376,147
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-3" d="M387,147
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-3" d="M403,147
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-2" d="M420,147
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M440,147
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M456,147
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M472,147
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M4,163
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-4" d="M21,163
+        h3 v2 h-1 v2 h2 v-4 h3 v4 h1 v2 h-1 v4 h-3 v-4 h-6 v-2 h1
+        v-2 h1 v-2" fill="#000080"/>
+      <path role="number-4" d="M37,163
+        h3 v2 h-1 v2 h2 v-4 h3 v4 h1 v2 h-1 v4 h-3 v-4 h-6 v-2 h1
+        v-2 h1 v-2" fill="#000080"/>
+      <path role="number-3" d="M51,163
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-1" d="M72,163
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M88,163
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M104,163
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-4" d="M117,163
+        h3 v2 h-1 v2 h2 v-4 h3 v4 h1 v2 h-1 v4 h-3 v-4 h-6 v-2 h1
+        v-2 h1 v-2" fill="#000080"/>
+      <g role="flag" transform="translate(128, 160)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-5" d="M147,163
+          h10 v2 h-7 v2 h6 v1 h1 v4 h-1 v1 h-9
+          v-2 h7 v-2 h-7 v-6" fill="#800000"/>
+      <g role="flag" transform="translate(160, 160)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-1" d="M184,163
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M200,163
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M216,163
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M228,163
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M244,163
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-3" d="M259,163
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-2" d="M276,163
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M296,163
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M328,163
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M340,163
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-3" d="M355,163
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-2" d="M372,163
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M388,163
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(400, 160)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M420,163
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M440,163
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M456,163
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="flag" transform="translate(0, 176)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <g role="flag" transform="translate(16, 176)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <g role="flag" transform="translate(32, 176)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M52,179
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M68,179
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M84,179
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(96, 176)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-3" d="M115,179
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <g role="flag" transform="translate(128, 176)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-3" d="M147,179
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-1" d="M168,179
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M180,179
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M200,179
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M216,179
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M280,179
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M296,179
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M312,179
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M344,179
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="flag" transform="translate(352, 176)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <g role="flag" transform="translate(368, 176)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-3" d="M387,179
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-2" d="M404,179
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-3" d="M419,179
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <g role="flag" transform="translate(432, 176)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M452,179
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M472,179
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="flag" transform="translate(0, 192)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-5" d="M19,195
+          h10 v2 h-7 v2 h6 v1 h1 v4 h-1 v1 h-9
+          v-2 h7 v-2 h-7 v-6" fill="#800000"/>
+      <path role="number-3" d="M35,195
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <g role="flag" transform="translate(48, 192)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-3" d="M67,195
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <g role="flag" transform="translate(80, 192)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M100,195
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-3" d="M115,195
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-3" d="M131,195
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-4" d="M149,195
+        h3 v2 h-1 v2 h2 v-4 h3 v4 h1 v2 h-1 v4 h-3 v-4 h-6 v-2 h1
+        v-2 h1 v-2" fill="#000080"/>
+      <path role="number-2" d="M164,195
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-3" d="M179,195
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <g role="flag" transform="translate(192, 192)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-3" d="M211,195
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-2" d="M228,195
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M248,195
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M260,195
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M276,195
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(288, 192)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M308,195
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M328,195
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-3" d="M339,195
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-3" d="M355,195
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-3" d="M371,195
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-2" d="M388,195
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(400, 192)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-3" d="M419,195
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-2" d="M436,195
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-3" d="M451,195
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <g role="flag" transform="translate(464, 192)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <g role="flag" transform="translate(0, 208)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M20,211
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M40,211
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M52,211
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(64, 208)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-3" d="M83,211
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-2" d="M100,211
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M116,211
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(128, 208)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <g role="flag" transform="translate(144, 208)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <g role="flag" transform="translate(160, 208)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-3" d="M179,211
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <g role="flag" transform="translate(192, 208)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <g role="flag" transform="translate(208, 208)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M228,211
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(240, 208)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-3" d="M259,211
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <g role="flag" transform="translate(272, 208)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M292,211
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M308,211
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(320, 208)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M340,211
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(352, 208)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-1" d="M376,211
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M392,211
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M404,211
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(416, 208)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-1" d="M440,211
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M452,211
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(464, 208)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M4,227
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M20,227
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M52,227
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M68,227
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-4" d="M85,227
+        h3 v2 h-1 v2 h2 v-4 h3 v4 h1 v2 h-1 v4 h-3 v-4 h-6 v-2 h1
+        v-2 h1 v-2" fill="#000080"/>
+      <g role="flag" transform="translate(96, 224)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-3" d="M115,227
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-2" d="M132,227
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-3" d="M147,227
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-3" d="M163,227
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-3" d="M179,227
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-3" d="M195,227
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-2" d="M212,227
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-3" d="M227,227
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-3" d="M243,227
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <g role="flag" transform="translate(256, 224)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-3" d="M275,227
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <path role="number-2" d="M292,227
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M308,227
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M328,227
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M340,227
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M360,227
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M376,227
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M408,227
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M424,227
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-2" d="M436,227
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M452,227
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M468,227
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(0, 240)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-1" d="M24,243
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M56,243
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="flag" transform="translate(64, 240)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-3" d="M83,243
+        h9 v1 h1 v3 h-1 v2 h1 v3 h-1 v1 h-9 v-2 h7 v-2 h-4 v-2 h4
+        v-2 h-7 v-2" fill="red"/>
+      <g role="flag" transform="translate(96, 240)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M116,243
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-1" d="M168,243
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="flag" transform="translate(176, 240)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-1" d="M200,243
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M232,243
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="flag" transform="translate(240, 240)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-2" d="M260,243
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <path role="number-2" d="M276,243
+        h8 v1 h1 v3 h-1 v1 h-1 v1 h-2 v1 h-2 v1 h6 v2 h-10
+        v-3 h1 v-1 h2 v-1 h2 v-1 h2 v-2 h-4 v1 h-3 v-2 h1 v-1" fill="#008000"/>
+      <g role="flag" transform="translate(288, 240)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-1" d="M312,243
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <path role="number-1" d="M440,243
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="flag" transform="translate(448, 240)">
+        <path d="M7,3
+ h2 v5 h-2 v-1 h-2 v-1 h-1 v-1 h1 v-1 h2 v-1" fill="red"/>
+        <path d="M8,8
+ h1 v2 h1 v1 h2 v2 h-8 v-2 h2 v-1 h2 v-2" fill="black"/>
+      </g>
+      <path role="number-1" d="M472,243
+        h2 v8 h2 v2 h-7 v-2 h2 v-4 h-2 v-1 h1 v-1 h1 v-1 h1 v-1" fill="blue"/>
+      <g role="indicators" fill-opacity="0.2"/>
+    </g>
+  </g>
+</svg>

@@ -15,7 +15,9 @@ As you can see, you could configure the game via the URL. Enjoy yourself.
 
 > Minesweeper is a single-player puzzle video game. The objective of the game is to clear a rectangular board containing hidden "mines" or bombs without detonating any of them, with help from clues about the number of neighboring mines in each field.
 
-The UI of minesweeper game is quite straightforward: there are 480(30 * 16, advanced level default) tiles and each tile is covered or uncovered. Every covered tile may or may not have a mine under it. Every uncovered tile shows the number of neighboring mines. Our task is to clear all the tiles among the tiles while avoiding mines.
+![screenshot](docs/screenshot.bmp)
+
+The UI of minesweeper game is quite straightforward: there are 480(30 * 16, advanced level default) tiles and each tile is covered or uncovered. Every covered tile may or may not have a mine under it. Every uncovered tile shows the number of neighboring mines. Our task is to clear/open all the tiles among the tiles while avoiding mines.
 
 Data structure of the game state is not hard to design and implement. But when we play the game, the game state changes a lot and the UI changes a lot. It is straightforward to manipulate data but it's trivial to synchronize the UI with state. It is a very suitable case for React, because React can sync you UI with the data according the render function that we define.
 
@@ -82,10 +84,34 @@ The mouse interactions will be translated to three kinds of redux actions: `LEFT
 
 Detailed logic could be viewed in *app/App.jsx* and *app/sagas.js*.
 
+## Sagas and reducers
+
+The game main loop is managed by sagas and reducers. The root saga in *app/sagas.js* starts several other sagas.
+
+Saga `handleXxxClick` handles click actions and translate them into more detailed actions which will be processed by reducers. 
+
+Saga `timerHandler` watches for `GAME_OVER_WIN` / `GAME_OVER_LOSE` / `RESTART` actions and then reset timer. This saga also forks a `tickEmitter` to emit a tick action at every second when the game stage is `ON`.
+
+Saga `watchUncoder` watches for uncover actions. If player clears all tiles then this saga dispatch a `GAME_OVER_WIN` action; If player detonates a mine then this saga dispatch `GAME_OVER_LOSE`.
+
+Saga `handleLeftClick` handles `LEFT_CLICK` actions. A `LEFT_CLICK` action describes that player click one tile and wants to open/uncover it. If we generates mines before player's first click , then the first click may encounter a mine and it is frustrating. So we generates mines after the first click and ensure first click can make a open propagation. In `IDLE` stage, the left click must be the first left click; In `ON` stage, it is not the first click. 
+
+Since in `IDLE` stage mines have not been generated, `defaultMines` is used (in *app/common.js*). `generateMines` (in *app/common*) uses reservoir sampling algothrim and could generate random mines.
+
+Saga `handleMiddleClick` handles `MIDDLE_CLICK` actions. It first checks the number at the tile (the tile is uncovered so has a number) is equal to the number of neighboring flags. If the two numbers are equals, it means that neighboring covered tiles are safe, so it will uncover all the safes at once.
+
+Saga `handleRightClick` handles `RIGHT_CLICK` actions and dispatch `MARK` actions.
+
+Most logic is implemented in sagas. Reducers is somewhat light and is not covered here.
+
+## Components
+
+![components](docs/components.bmp)
+
 # TODO
 
 * ~~how the game handle left-click, middle-click and right-click~~
-* how the game generates mines according to ensure first click could make a open propagation.
+* ~~how the game generates mines according to ensure first click could make a open propagation.~~
 * components compositon: BitMap -> Segment -> SevenSegmentDisplay -> LED
-* brief of redux-saga related code logic
+* ~~brief of redux-saga related code logic~~
 * the simple AI and web worker
