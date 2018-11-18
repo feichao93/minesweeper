@@ -1,4 +1,4 @@
-import { Seq } from 'immutable'
+import { List } from 'immutable'
 import { delay, io, takeEvery } from 'little-saga'
 import { find, generateMines, neighbors, win } from './common'
 import { COLS, MINE_COUNT, MODES, ROWS, STAGES, USE_AI, USE_AUTO } from './constants'
@@ -38,11 +38,11 @@ export function* handleMiddleClick({ t }) {
   const mode = modes.get(t)
   const mine = mines.get(t)
   if (mode === MODES.UNCOVERED && mine > 0) {
-    const neighborSeq = Seq(neighbors(t))
-    const flagCount = neighborSeq.filter(neighbor => modes.get(neighbor) === MODES.FLAG).count()
+    const neighbors = List(neighbors(t))
+    const flagCount = neighbors.filter(neighbor => modes.get(neighbor) === MODES.FLAG).count()
     if (flagCount === mine) {
       // 周围旗子的数量和该位置上的数字相等 (过多/过少都不能触发点击)
-      const nearbyCovered = neighborSeq.filter(neighbor => modes.get(neighbor) === MODES.COVERED)
+      const nearbyCovered = neighbors.filter(neighbor => modes.get(neighbor) === MODES.COVERED)
       const ts = nearbyCovered.flatMap(covered => find(modes, mines, covered)).toSet()
       yield io.put({ type: UNCOVER_MULTIPLE, ts })
     }
