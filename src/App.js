@@ -5,11 +5,11 @@ import { Cover, Face, Flag, LED, Mine, QuestionMark } from './components/element
 import { Grid, View } from './components/layouts'
 import Indicators from './components/Indicators'
 import { neighbors } from './common'
-import { LEFT_CLICK, MIDDLE_CLICK, RESTART, RIGHT_CLICK } from './actions'
-import { CELL, COLS, MODES, ROWS, GAME_STATUS } from './constants'
+import * as actions from './actions'
+import { CELL, COLS, GAME_STATUS, MODES, ROWS } from './constants'
 import useSaga from '@little-saga/use-saga'
 import rootSaga from './sagas'
-import reducer from './reducer'
+import reducer, { GameRecord } from './reducer'
 
 const LEFT_BUTTON = 0
 const MIDDLE_BUTTON = 1
@@ -30,16 +30,16 @@ function CoverContainer({ modes, btn1, btn2, point }) {
     }
   }
   const covers = []
-  Range(0, ROWS * COLS).forEach(t => {
-    const row = Math.floor(t / COLS)
-    const col = Math.floor(t % COLS)
-    const mode = modes.get(t)
+  Range(0, ROWS * COLS).forEach(point => {
+    const row = Math.floor(point / COLS)
+    const col = Math.floor(point % COLS)
+    const mode = modes.get(point)
     if (
-      (mode === MODES.COVERED && !dontNeedCover.has(t)) ||
+      (mode === MODES.COVERED && !dontNeedCover.has(point)) ||
       mode === MODES.FLAG ||
       mode === MODES.QUESTIONED
     ) {
-      covers.push(<Cover key={t} row={row} col={col} />)
+      covers.push(<Cover key={point} row={row} col={col} />)
     }
   })
   return covers
@@ -47,25 +47,25 @@ function CoverContainer({ modes, btn1, btn2, point }) {
 
 function ElementContainer({ modes, mines }) {
   const elements = []
-  Range(0, ROWS * COLS).forEach(t => {
-    const row = Math.floor(t / COLS)
-    const col = Math.floor(t % COLS)
-    const mode = modes.get(t)
+  Range(0, ROWS * COLS).forEach(point => {
+    const row = Math.floor(point / COLS)
+    const col = Math.floor(point % COLS)
+    const mode = modes.get(point)
     if (mode === MODES.UNCOVERED) {
-      if (mines.get(t) === -1) {
-        elements.push(<Mine key={t} row={row} col={col} />)
-      } else if (mines.get(t) > 0) {
+      if (mines.get(point) === -1) {
+        elements.push(<Mine key={point} row={row} col={col} />)
+      } else if (mines.get(point) > 0) {
         // >= 0
-        elements.push(<Number key={t} row={row} col={col} number={mines.get(t)} />)
+        elements.push(<Number key={point} row={row} col={col} number={mines.get(point)} />)
       }
     } else if (mode === MODES.FLAG) {
-      elements.push(<Flag key={t} row={row} col={col} />)
+      elements.push(<Flag key={point} row={row} col={col} />)
     } else if (mode === MODES.QUESTIONED) {
-      elements.push(<QuestionMark key={t} row={row} col={col} />)
+      elements.push(<QuestionMark key={point} row={row} col={col} />)
     } else if (mode === MODES.CROSS) {
-      elements.push(<Mine key={t} row={row} col={col} cross />)
+      elements.push(<Mine key={point} row={row} col={col} cross />)
     } else if (mode === MODES.EXPLODED) {
-      elements.push(<Mine key={t} row={row} col={col} exploded />)
+      elements.push(<Mine key={point} row={row} col={col} exploded />)
     }
   })
   return elements
@@ -75,7 +75,7 @@ export default function App() {
   const [{ status, mines, modes, timer, indicators }, dispatch] = useSaga({
     saga: rootSaga,
     reducer,
-    initialAction: { type: 'init' },
+    initialState: GameRecord(),
   })
 
   const [leftPressed, setLeftPressed] = useState(false)
@@ -110,7 +110,9 @@ export default function App() {
         <Grid />
         <ElementContainer modes={modes} mines={mines} />
         <CoverContainer modes={modes} btn1={leftPressed} btn2={middlePressed} point={point} />
-        <Indicators indicators={indicators.filter((_, t) => modes.get(t) === MODES.COVERED)} />
+        <Indicators
+          indicators={indicators.filter((_, point) => modes.get(point) === MODES.COVERED)}
+        />
       </View>
     </svg>
   )
@@ -124,18 +126,18 @@ export default function App() {
       } else if (isgameon && !leftPressed) {
         setLeftPressed(true)
         setMiddlePressed(false)
-        setPoint(result.t)
+        setPoint(result.point)
       }
     } else if (event.button === MIDDLE_BUTTON) {
       event.preventDefault()
       if (isgameon && !middlePressed) {
         setLeftPressed(false)
         setMiddlePressed(true)
-        setPoint(result.t)
+        setPoint(result.point)
       }
     } else if (event.button === RIGHT_BUTTON) {
       if (isgameon && result.valid) {
-        dispatch({ type: RIGHT_CLICK, t: result.t })
+        dispatch(actions.rightClick(result.point))
       }
     }
   }
@@ -144,7 +146,7 @@ export default function App() {
     if (leftPressed || middlePressed) {
       const result = calculate(event)
       if (result.valid) {
-        setPoint(result.t)
+        setPoint(result.point)
       }
     }
   }
@@ -153,12 +155,12 @@ export default function App() {
     if (event.button === LEFT_BUTTON) {
       if (facePressed) {
         setFacePressed(false)
-        dispatch({ type: RESTART })
+        dispatch(actions.restart())
       } else if (leftPressed) {
         setLeftPressed(false)
         const result = calculate(event)
         if (result.valid) {
-          dispatch({ type: LEFT_CLICK, t: result.t })
+          dispatch(actions.leftClick(result.point))
         }
       }
     } else if (event.button === MIDDLE_BUTTON) {
@@ -166,7 +168,7 @@ export default function App() {
         setMiddlePressed(false)
         const result = calculate(event)
         if (result.valid) {
-          dispatch({ type: MIDDLE_CLICK, t: result.t })
+          dispatch(actions.middleClick(result.point))
         }
       }
     } // else other button, ignore
@@ -188,14 +190,14 @@ export default function App() {
       y >= 4 + faceOffsetY &&
       y <= 4 + faceOffsetY + faceSize
     ) {
-      return { row: 0, col: 0, valid: false, t: -1, isFace: true }
+      return { row: 0, col: 0, valid: false, point: -1, isFace: true }
     }
 
     const row = Math.floor((y - 51) / CELL)
     const col = Math.floor((x - 8) / CELL)
     const valid = row >= 0 && row < ROWS && col >= 0 && col <= COLS
-    const t = row * COLS + col
-    return { row, col, valid, t: valid ? t : -1 }
+    const point = row * COLS + col
+    return { row, col, valid, point: valid ? point : -1 }
   }
 
   function renderFace() {

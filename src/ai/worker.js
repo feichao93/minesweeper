@@ -28,8 +28,8 @@ function postDangers(dangers) {
   )
 }
 
-// function postClear(ts) {
-//   postMessage(JSON.stringify({ type: 'clear', ts: Array.from(ts) }))
+// function postClear(pointSet) {
+//   postMessage(JSON.stringify({ type: 'clear', pointSet: Array.from(pointSet) }))
 // }
 
 onmessage = function(event) {
@@ -68,26 +68,26 @@ onmessage = function(event) {
       if (state.countStatus(SAFE) === 0) {
         for (const part of state.splitUnknownParts()) {
           part.sort(state.sortByNearbyNumbers.bind(state))
-          for (const t of part) {
-            if (!state.canBeResolve(t)) {
+          for (const point of part) {
+            if (!state.canBeResolve(point)) {
               break
             }
             // 在AUTO下: 一旦找到一个SAFE/MINE, 则重新开始explicit-iteraction
-            postDangers([t])
-            const result = state.resolve(t)
+            postDangers([point])
+            const result = state.resolve(point)
             if (result !== UNKNOWN) {
               if (result === SAFE) {
-                state.apply([t], SAFE)
-                postSafes([t])
+                state.apply([point], SAFE)
+                postSafes([point])
                 if (USE_AUTO) {
-                  lastSafes = [t]
+                  lastSafes = [point]
                   continue loop
                 }
               } else if (result === MINE) {
-                state.apply([t], MINE)
-                postMines([t])
+                state.apply([point], MINE)
+                postMines([point])
                 if (USE_AUTO) {
-                  lastMines = [t]
+                  lastMines = [point]
                   continue loop
                 }
               }

@@ -2,7 +2,7 @@ import React from 'react'
 import { BD_COLOR, CELL } from '../constants'
 import { BitMap } from './layouts'
 
-export const Mine = ({ row, col, exploded, cross }) => (
+export const Mine = React.memo(({ row, col, exploded, cross }) => (
   <g role="mine" transform={`translate(${CELL * col}, ${CELL * row})`}>
     {exploded ? <rect x="1" y="1" width="15" height="15" fill="red" /> : null}
     <path
@@ -33,9 +33,9 @@ export const Mine = ({ row, col, exploded, cross }) => (
       />
     ) : null}
   </g>
-)
+))
 
-export const Flag = ({ row, col }) => (
+export const Flag = React.memo(({ row, col }) => (
   <g role="flag" transform={`translate(${CELL * col}, ${CELL * row})`}>
     <path
       d="M7,3
@@ -48,9 +48,9 @@ export const Flag = ({ row, col }) => (
       fill="black"
     />
   </g>
-)
+))
 
-export const QuestionMark = ({ row, col }) => (
+export const QuestionMark = React.memo(({ row, col }) => (
   <g role="question-mark" transform={`translate(${CELL * col}, ${CELL * row})`}>
     <path
       d="M6,3
@@ -60,14 +60,14 @@ export const QuestionMark = ({ row, col }) => (
     />
     <rect x="7" y="11" width="2" height="2" fill="black" />
   </g>
-)
+))
 
-export const Cover = ({ row, col }) => (
+export const Cover = React.memo(({ row, col }) => (
   <g role="cover" transform={`translate(${CELL * col}, ${CELL * row})`}>
     <path d="M0, 0 h15 v1 h-1 v1 h-12 v12 h-1 v1 h-1 v-15" fill="white" />
     <path d="M15,1 h1 v15 h-15 v-1 h1 v-1 h13 v-13 h1 v-1" fill={BD_COLOR} />
   </g>
-)
+))
 
 const smilingEyesAndMouth = (
   <g>
@@ -133,7 +133,7 @@ const sunglassesEyesAndMouth = (
   </g>
 )
 
-export const Face = ({ x, y, type, pressed }) => (
+export const Face = React.memo(({ x, y, type, pressed }) => (
   <g transform={`translate(${x}, ${y})`}>
     {/* 边框 */}
     {pressed ? (
@@ -176,7 +176,7 @@ export const Face = ({ x, y, type, pressed }) => (
       {type === 'sunglasses' ? sunglassesEyesAndMouth : null}
     </g>
   </g>
-)
+))
 
 function segmentBackgroundForA(row, col) {
   const black = (row + col) % 2 === 1 || (row === 2 && col === 0) || (row === 2 && col === 6)
@@ -215,7 +215,7 @@ function getBit(x, t) {
 // e|     |c
 //  |  d  |
 //   -----
-export const SevenSegmentDisplay = ({ x, y, number }) => {
+export const SevenSegmentDisplay = React.memo(({ x, y, number }) => {
   // number为-1的话, 显示一个负号. number在[0-9]之间的话, 显示正常的数字
   const bits =
     number === -1 ? 0x40 : [0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07, 0x7f, 0x6f][number]
@@ -265,9 +265,9 @@ export const SevenSegmentDisplay = ({ x, y, number }) => {
       )}
     </g>
   )
-}
+})
 
-export const LED = ({ x, y, number }) => (
+export const LED = React.memo(({ x, y, number }) => (
   <g transform={`translate(${x},${y})`}>
     <g role="border">
       <rect x="0" y="0" width="40" height="1" fill={BD_COLOR} />
@@ -281,4 +281,4 @@ export const LED = ({ x, y, number }) => (
     <SevenSegmentDisplay x={15} y={2} number={Math.floor((Math.abs(number) % 100) / 10)} />
     <SevenSegmentDisplay x={28} y={2} number={Math.abs(number) % 10} />
   </g>
-)
+))

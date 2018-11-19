@@ -27,8 +27,8 @@ export default class Indicators extends React.Component {
     return (
       <g role="indicators" fillOpacity="0.2">
         {indicators
-          .map((type, t) => (
-            <Indicator key={t} row={Math.floor(t / COLS)} col={t % COLS} type={type} />
+          .map((type, point) => (
+            <Indicator key={point} row={Math.floor(point / COLS)} col={point % COLS} type={type} />
           ))
           .toArray()}
       </g>

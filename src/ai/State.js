@@ -1,8 +1,8 @@
 import { UNKNOWN, MINE, SAFE } from './constants'
 
-Set.prototype.addAll = function(iterable) {
+function addAll(set, iterable) {
   for (const item of iterable) {
-    this.add(item)
+    set.add(item)
   }
 }
 
@@ -17,15 +17,15 @@ export default class State {
     this.array = array
     this.ROWS = ROWS
     this.COLS = COLS
-    this.T = ROWS * COLS
+    this.POINT_COUNT = ROWS * COLS
   }
 
-  getRow(t) {
-    return Math.floor(t / this.COLS)
+  getRow(point) {
+    return Math.floor(point / this.COLS)
   }
 
-  getCol(t) {
-    return t % this.COLS
+  getCol(point) {
+    return point % this.COLS
   }
 
   countStatus(target) {
@@ -42,11 +42,11 @@ export default class State {
     const disjointSet = new Array(this.array.length)
     disjointSet.fill(-1)
 
-    function find(t) {
-      if (disjointSet[t] < 0) {
-        return t
+    function find(point) {
+      if (disjointSet[point] < 0) {
+        return point
       } else {
-        return (disjointSet[t] = find(disjointSet[t]))
+        return (disjointSet[point] = find(disjointSet[point]))
       }
     }
 
@@ -83,30 +83,30 @@ export default class State {
     // todo 我们只关心unknown的合并, 其他元素并不需要
     for (const row of range(0, this.ROWS)) {
       for (const col of range(0, this.COLS)) {
-        const t = row * this.COLS + col
-        const top = t - this.COLS
-        const left = t - 1
-        const topLeft = t - this.COLS - 1
+        const point = row * this.COLS + col
+        const top = point - this.COLS
+        const left = point - 1
+        const topLeft = point - this.COLS - 1
         if (col >= 1) {
-          tryUnion(t, left)
+          tryUnion(point, left)
         }
         if (row >= 1) {
-          tryUnion(t, top)
+          tryUnion(point, top)
         }
         if (row >= 1 && col >= 1) {
-          tryUnion(t, topLeft)
+          tryUnion(point, topLeft)
         }
       }
     }
 
     const unknownMap = new Map()
-    for (const t of range(0, this.T)) {
-      const s = find(t)
+    for (const point of range(0, this.POINT_COUNT)) {
+      const s = find(point)
       if (this.array[s] === UNKNOWN) {
         if (unknownMap.has(s)) {
-          unknownMap.get(s).push(t)
+          unknownMap.get(s).push(point)
         } else {
-          unknownMap.set(s, [t])
+          unknownMap.set(s, [point])
         }
       }
     }
@@ -114,9 +114,9 @@ export default class State {
     return unknownMap.values()
   }
 
-  *neighbors(t) {
-    const row = this.getRow(t)
-    const col = this.getCol(t)
+  *neighbors(point) {
+    const row = this.getRow(point)
+    const col = this.getCol(point)
     for (const deltaRow of [-1, 0, 1]) {
       for (const deltaCol of [-1, 0, 1]) {
         const row2 = row + deltaRow
@@ -128,55 +128,55 @@ export default class State {
     }
   }
 
-  group(ts) {
+  group(points) {
     const mines = []
     const unknowns = []
     const safes = []
     const normals = []
-    for (const t of ts) {
-      switch (this.array[t]) {
+    for (const point of points) {
+      switch (this.array[point]) {
         case MINE:
-          mines.push(t)
+          mines.push(point)
           break
         case SAFE:
-          safes.push(t)
+          safes.push(point)
           break
         case UNKNOWN:
-          unknowns.push(t)
+          unknowns.push(point)
           break
         default:
-          normals.push(t)
+          normals.push(point)
       }
     }
     return { mines, unknowns, safes, normals }
   }
 
-  apply(ts, status) {
-    for (const t of ts) {
-      this.array[t] = status
+  apply(points, status) {
+    for (const point of points) {
+      this.array[point] = status
     }
   }
 
-  revert(ts) {
-    this.apply(ts, UNKNOWN)
+  revert(pointSet) {
+    this.apply(pointSet, UNKNOWN)
   }
 
-  check(ts) {
-    for (const t of ts) {
-      const { mines, unknowns } = this.group(this.neighbors(t))
+  check(points) {
+    for (const point of points) {
+      const { mines, unknowns } = this.group(this.neighbors(point))
       const min = mines.length
       const max = mines.length + unknowns.length
-      if (!(min <= this.array[t] && this.array[t] <= max)) {
+      if (!(min <= this.array[point] && this.array[point] <= max)) {
         return false
       }
     }
     return true
   }
 
-  findRelated(ts) {
+  findRelated(points) {
     const related = new Set()
-    for (const t of ts) {
-      for (const neighbor of this.neighbors(t)) {
+    for (const point of points) {
+      for (const neighbor of this.neighbors(point)) {
         if (this.array[neighbor] > 0) {
           related.add(neighbor)
         }
@@ -191,11 +191,11 @@ export default class State {
     if (lastSafes) {
       searchSet = this.findRelated(lastSafes)
     } else {
-      searchSet = Array.from(range(0, this.T)).filter(t => this.array[t] > 0)
+      searchSet = Array.from(range(0, this.POINT_COUNT)).filter(point => this.array[point] > 0)
     }
-    for (const t of searchSet) {
-      const { mines, unknowns } = this.group(this.neighbors(t))
-      if (this.array[t] === unknowns.length + mines.length) {
+    for (const point of searchSet) {
+      const { mines, unknowns } = this.group(this.neighbors(point))
+      if (this.array[point] === unknowns.length + mines.length) {
         for (const unknown of unknowns) {
           result.add(unknown)
         }
@@ -210,11 +210,11 @@ export default class State {
     if (lastMines) {
       searchSet = this.findRelated(lastMines)
     } else {
-      searchSet = Array.from(range(0, this.T)).filter(t => this.array[t] > 0)
+      searchSet = Array.from(range(0, this.POINT_COUNT)).filter(point => this.array[point] > 0)
     }
-    for (const t of searchSet) {
-      const { mines, unknowns } = this.group(this.neighbors(t))
-      if (this.array[t] === mines.length) {
+    for (const point of searchSet) {
+      const { mines, unknowns } = this.group(this.neighbors(point))
+      if (this.array[point] === mines.length) {
         for (const unknown of unknowns) {
           result.add(unknown)
         }
@@ -232,7 +232,7 @@ export default class State {
     while (safes.length > 0) {
       const mines = this.findExplicitMines(safes)
       this.apply(mines, MINE)
-      foundMines.addAll(mines)
+      addAll(foundMines, mines)
       if (needCheck && !this.check(this.findRelated(mines))) {
         checkFailed = true
         break
@@ -240,7 +240,7 @@ export default class State {
 
       safes = this.findExplicitSafes(mines)
       this.apply(safes, SAFE)
-      foundSafes.addAll(safes)
+      addAll(foundSafes, safes)
       if (needCheck && !this.check(this.findRelated(safes))) {
         checkFailed = true
         break
@@ -259,7 +259,7 @@ export default class State {
     while (mines.length > 0) {
       const safes = this.findExplicitSafes(mines)
       this.apply(safes, SAFE)
-      foundSafes.addAll(safes)
+      addAll(foundSafes, safes)
       if (needCheck && !this.check(this.findRelated(safes))) {
         checkFailed = true
         break
@@ -267,7 +267,7 @@ export default class State {
 
       mines = this.findExplicitSafes(safes)
       this.apply(mines, MINE)
-      foundMines.addAll(mines)
+      addAll(foundMines, mines)
       if (needCheck && !this.check(this.findRelated(mines))) {
         checkFailed = true
         break
@@ -295,8 +295,8 @@ export default class State {
     return !checkFailed
   }
 
-  canBeResolve(t) {
-    return this.group(this.neighbors(t)).normals.length > 0
+  canBeResolve(point) {
+    return this.group(this.neighbors(point)).normals.length > 0
   }
 
   // todo 需要进一步的优化

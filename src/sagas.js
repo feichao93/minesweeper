@@ -1,65 +1,64 @@
 import { List } from 'immutable'
 import { delay, io, takeEvery } from 'little-saga'
-import { find, generateMines, neighbors, win } from './common'
-import { COLS, MINE_COUNT, MODES, ROWS, GAME_STATUS, USE_AI, USE_AUTO } from './constants'
+import { find, generateMines, neighbors, doesPlayerWin } from './common'
+import { COLS, GAME_STATUS, MINE_COUNT, MODES, ROWS, USE_AI, USE_AUTO } from './constants'
 import workerSaga from './workerSaga'
+import * as actions from './actions'
 import {
   GAME_ON,
   GAME_OVER_LOSE,
   GAME_OVER_WIN,
   LEFT_CLICK,
-  MARK,
   MIDDLE_CLICK,
-  RESET_TIMER,
   RESTART,
   RIGHT_CLICK,
   TICK,
   UNCOVER_MULTIPLE,
 } from './actions'
 
-export function* handleLeftClick({ t }) {
+export function* handleLeftClick({ point }) {
   const state = yield io.select()
   const { status, modes } = state.toObject()
   let mines = state.get('mines')
-  if (modes.get(t) === MODES.COVERED) {
+  if (modes.get(point) === MODES.COVERED) {
     // 如果目前 game.status 为 IDLE, 那么先生成地雷布局
     if (status === GAME_STATUS.IDLE) {
-      mines = generateMines(ROWS * COLS, MINE_COUNT, [t, ...neighbors(t)])
+      mines = generateMines(ROWS * COLS, MINE_COUNT, [point, ...neighbors(point)])
       // 游戏 status 跳转到 ON, 计时开始
-      yield io.put({ type: GAME_ON, mines })
+      yield io.put(actions.gameOn(mines))
     }
-    yield io.put({ type: UNCOVER_MULTIPLE, ts: find(modes, mines, t) })
+    yield io.put(actions.uncoverMultiple(find(modes, mines, point)))
   }
 }
 
-export function* handleMiddleClick({ t }) {
+export function* handleMiddleClick({ point }) {
   const { modes, mines } = (yield io.select()).toObject()
-  const mode = modes.get(t)
-  const mine = mines.get(t)
+  const mode = modes.get(point)
+  const mine = mines.get(point)
   if (mode === MODES.UNCOVERED && mine > 0) {
-    const neighborList = List(neighbors(t))
+    const neighborList = List(neighbors(point))
     const flagCount = neighborList.filter(neighbor => modes.get(neighbor) === MODES.FLAG).count()
     if (flagCount === mine) {
       // 周围旗子的数量和该位置上的数字相等 (过多/过少都不能触发点击)
       const nearbyCovered = neighborList.filter(neighbor => modes.get(neighbor) === MODES.COVERED)
-      const ts = nearbyCovered.flatMap(covered => find(modes, mines, covered)).toSet()
-      yield io.put({ type: UNCOVER_MULTIPLE, ts })
+      const pointSet = nearbyCovered.flatMap(covered => find(modes, mines, covered)).toSet()
+      yield io.put(actions.uncoverMultiple(pointSet))
     }
   }
 }
 
-export function* handleRightClick({ t }) {
+export function* handleRightClick({ point }) {
   const { modes } = (yield io.select()).toObject()
-  const mode = modes.get(t)
+  const mode = modes.get(point)
   if (mode !== MODES.UNCOVERED) {
     if (mode === MODES.COVERED) {
-      yield io.put({ type: MARK, t, mark: MODES.FLAG })
+      yield io.put(actions.changeMode(point, MODES.FLAG))
     } else if (mode === MODES.FLAG) {
-      yield io.put({ type: MARK, t, mark: MODES.QUESTIONED })
+      yield io.put(actions.changeMode(point, MODES.QUESTIONED))
     } else if (mode === MODES.QUESTIONED) {
-      yield io.put({ type: MARK, t, mark: MODES.COVERED })
+      yield io.put(actions.changeMode(point, MODES.COVERED))
     } else {
-      throw new Error(`Invalid mode ${mode} for ${t}`)
+      throw new Error(`Invalid mode ${mode} for ${point}`)
     }
   }
 }
@@ -82,24 +81,24 @@ export function* timerHandler() {
       const action2 = yield io.take([GAME_OVER_WIN, GAME_OVER_LOSE, RESTART])
       task.cancel()
       if (action2.type === RESTART) {
-        yield io.put({ type: RESET_TIMER })
+        yield io.put(actions.resetTimer())
       }
     } else {
       // action1.type === RESTART
-      yield io.put({ type: RESET_TIMER })
+      yield io.put(actions.resetTimer())
     }
   }
 }
 
-export function* watchUncover(action) {
-  const ts = action.ts
-  const { modes, mines } = (yield io.select()).toObject()
+export function* watchUncover({ pointSet }) {
+  const state = yield io.select()
+  const { modes, mines } = state.toObject()
   // 先看看用户是否点击到了地雷, 如果点击到了地雷, 则游戏失败
-  const failTs = ts.filter(t => mines.get(t) === -1)
-  if (failTs.size > 0) {
-    yield io.put({ type: GAME_OVER_LOSE, failTs })
-  } else if (win(modes, mines)) {
-    yield io.put({ type: GAME_OVER_WIN })
+  const failedPoints = pointSet.filter(point => mines.get(point) === -1)
+  if (failedPoints.size > 0) {
+    yield io.put(actions.gameOverLose(failedPoints))
+  } else if (doesPlayerWin(modes, mines)) {
+    yield io.put(actions.gameOverWin())
   }
 }
 

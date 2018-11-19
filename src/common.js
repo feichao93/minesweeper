@@ -5,28 +5,24 @@ export function clamp(min, value, max) {
   return Math.min(max, Math.max(min, value))
 }
 
-export function identity(x) {
-  return x
-}
-
 function cmp(x, y) {
   return x - y
 }
 
 // 判断当前玩家是否获胜
-export function win(modes, mines) {
+export function doesPlayerWin(modes, mines) {
   // mine对应>= 0(即没有地雷)的点对应的mode均为UNCOVERED的时候, 玩家获胜
-  return mines.every((mine, t) => {
+  return mines.every((mine, point) => {
     if (mine >= 0) {
-      return modes.get(t) === MODES.UNCOVERED
+      return modes.get(point) === MODES.UNCOVERED
     }
     return true
   })
 }
 
-export function* neighbors(t) {
-  const row = Math.floor(t / COLS)
-  const col = t % COLS
+export function* neighbors(point) {
+  const row = Math.floor(point / COLS)
+  const col = point % COLS
   for (const deltaRow of [-1, 0, 1]) {
     for (const deltaCol of [-1, 0, 1]) {
       const row2 = row + deltaRow
@@ -70,11 +66,11 @@ export function generateMines(size, count, excluded = []) {
     }
     array[i] += k
   }
-  const ts = new Set(array)
+  const pointSet = new Set(array)
 
   // 第3步. 计算周围雷的数量, 生成mines
-  const mines = Range(0, size).map(t => {
-    if (ts.has(t)) {
+  const mines = Range(0, size).map(point => {
+    if (pointSet.has(point)) {
       return -1
     } else {
       return 0
@@ -82,10 +78,10 @@ export function generateMines(size, count, excluded = []) {
   })
 
   return mines
-    .map((mine, t) =>
+    .map((mine, point) =>
       mine === -1
         ? -1
-        : Seq(neighbors(t))
+        : Seq(neighbors(point))
             .filter(neighbor => mines.get(neighbor) === -1)
             .count(),
     )
@@ -101,10 +97,10 @@ export function find(modes, mines, start) {
 
   while (visited.size > 0) {
     const newVisited = new Set()
-    for (const t of visited) {
-      result.add(t)
-      if (mines.get(t) === 0) {
-        for (const neighbor of neighbors(t)) {
+    for (const point of visited) {
+      result.add(point)
+      if (mines.get(point) === 0) {
+        for (const neighbor of neighbors(point)) {
           if (
             !result.has(neighbor) &&
             modes.get(neighbor) === MODES.COVERED &&

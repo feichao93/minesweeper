@@ -103,9 +103,9 @@ const numbers = {
   },
 }
 
-export default function Number({ row, col, number }) {
+export default React.memo(function Number({ row, col, number }) {
   const dx = CELL * col
   const dy = CELL * row
   const Element = numbers[number]
   return <Element dx={dx} dy={dy} />
-}
+})

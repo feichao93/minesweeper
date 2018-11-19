@@ -1,6 +1,6 @@
 import { buffers, delay, eventChannel, io } from 'little-saga'
 import { Map, Set } from 'immutable'
-import { CLEAR_INDICATORS, MARK, SET_INDICATORS, UNCOVER, UNCOVER_MULTIPLE } from './actions'
+import { CLEAR_INDICATORS, CHANGE_MODE, SET_INDICATORS, UNCOVER, UNCOVER_MULTIPLE } from './actions'
 import { COLS, MODES, ROWS, GAME_STATUS, USE_AUTO } from './constants'
 import { find } from './common'
 import Worker from 'worker-loader!./ai/worker'
@@ -26,15 +26,15 @@ function* handleWorkerMessage(channel) {
         if (USE_AUTO) {
           yield io.fork(function*() {
             const { modes, mines } = (yield io.select()).toObject()
-            let ts = Set()
-            action.value.forEach(t => {
-              ts = ts.union(find(modes, mines, t))
+            let pointSet = Set()
+            action.value.forEach(point => {
+              pointSet = pointSet.union(find(modes, mines, point))
             })
             yield delay(120)
             // 这里电脑一下子点多个...有点作弊
             if ((yield io.select()).get('status') === GAME_STATUS.ON) {
               // delay若干ms后, 可能游戏已经结束, 这里判断一下, 确保只在游戏进行的时候进行AI操作
-              yield io.put({ type: UNCOVER_MULTIPLE, ts })
+              yield io.put({ type: UNCOVER_MULTIPLE, pointSet })
             }
           })
         }
@@ -43,7 +43,7 @@ function* handleWorkerMessage(channel) {
       const map = Map(action.value.map(v => [v, 'danger']))
       yield io.put({ type: SET_INDICATORS, map })
     } else if (action.type === 'clear') {
-      yield io.put({ type: CLEAR_INDICATORS, ts: action.ts })
+      yield io.put({ type: CLEAR_INDICATORS, pointSet: action.pointSet })
     }
   }
 }
@@ -62,18 +62,18 @@ export default function* workerSaga() {
   yield io.fork(handleWorkerMessage, channel)
 
   while (true) {
-    yield io.take([UNCOVER, UNCOVER_MULTIPLE, MARK])
+    yield io.take([UNCOVER, UNCOVER_MULTIPLE, CHANGE_MODE])
     const { modes, mines, indicators } = (yield io.select()).toObject()
     let gameOn = true
-    const array = mines.map((mine, t) => {
-      const mode = modes.get(t)
+    const array = mines.map((mine, point) => {
+      const mode = modes.get(point)
       if (mode === MODES.FLAG) {
         return C.MINE
       } else if (mode === MODES.UNCOVERED) {
         return mine
-      } else if (indicators.get(t) === 'mine') {
+      } else if (indicators.get(point) === 'mine') {
         return C.MINE
-      } else if (indicators.get(t) === 'safe') {
+      } else if (indicators.get(point) === 'safe') {
         return C.SAFE
       } else if (mode === MODES.COVERED || mode === MODES.QUESTIONED) {
         return C.UNKNOWN

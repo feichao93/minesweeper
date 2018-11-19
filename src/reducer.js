@@ -1,11 +1,11 @@
-import { Map, Repeat, Record } from 'immutable'
-import { COLS, MINE_COUNT, MODES, ROWS, GAME_STATUS } from './constants'
+import { Map, Record, Repeat } from 'immutable'
+import { COLS, GAME_STATUS, MINE_COUNT, MODES, ROWS } from './constants'
 import {
+  CHANGE_MODE,
   CLEAR_INDICATORS,
   GAME_ON,
   GAME_OVER_LOSE,
   GAME_OVER_WIN,
-  MARK,
   RESET_TIMER,
   RESTART,
   SET_INDICATORS,
@@ -15,7 +15,7 @@ import {
 } from './actions'
 import { defaultMines } from './common'
 
-const GameRecord = Record({
+export const GameRecord = Record({
   status: GAME_STATUS.IDLE,
 
   // >=0 表示没有地雷, -1 表示有地雷
@@ -31,28 +31,25 @@ const GameRecord = Record({
   indicators: Map(),
 })
 
-export default function reducer(state = GameRecord(), action) {
+export default function reducer(state, action) {
   if (action.type === GAME_ON) {
     return state.set('status', GAME_STATUS.ON).set('mines', action.mines)
   } else if (action.type === UNCOVER) {
-    return state.setIn(['modes', action.t], MODES.UNCOVERED)
+    return state.setIn(['modes', action.point], MODES.UNCOVERED)
   } else if (action.type === UNCOVER_MULTIPLE) {
     return state.update('modes', modes =>
-      modes.withMutations(ms => {
-        action.ts.forEach(t => {
-          ms.set(t, MODES.UNCOVERED)
-        })
-      }),
+      modes.map((mode, point) => (action.pointSet.has(point) ? MODES.UNCOVERED : mode)),
     )
-  } else if (action.type === MARK) {
-    return state.setIn(['modes', action.t], action.mark)
+  } else if (action.type === CHANGE_MODE) {
+    return state.setIn(['modes', action.point], action.mode)
   } else if (action.type === GAME_OVER_WIN) {
     // 玩家获胜的时候, 将所有有地雷的点 用棋子标记一下
     const { modes, mines } = state.toObject()
+    // TODO refine..
     const newModes = modes.withMutations(ms => {
-      mines.forEach((mine, t) => {
+      mines.forEach((mine, point) => {
         if (mine === -1) {
-          ms.set(t, MODES.FLAG)
+          ms.set(point, MODES.FLAG)
         }
       })
     })
@@ -66,18 +63,18 @@ export default function reducer(state = GameRecord(), action) {
   } else if (action.type === GAME_OVER_LOSE) {
     // 游戏失败的时候需要做以下几件事情:
     // 1. 先用find展开uncover (这个在失败之前应该已经执行)
-    // 2. 将出错的点标位红地雷 (action.failTs <Mine type="exploded" />)
+    // 2. 将出错的点标位红地雷 (action.failedPoints <Mine type="exploded" />)
     // 3. 原来错误的旗子的地方需要显示 <Mine type="cross" />
     // 4. 原来正确的旗子保持不变
     // 5. 显示剩余的地雷
-    // 6. 当然, 将stage设置为 LOSE
+    // 6. 当然, 将 state 设置为 LOSE
     const { modes, mines } = state.toObject()
-    const newModes = modes.map((mode, t) => {
-      if (action.failTs.has(t)) {
+    const newModes = modes.map((mode, point) => {
+      if (action.failedPoints.has(point)) {
         return MODES.EXPLODED
-      } else if (mode === MODES.FLAG && mines.get(t) !== -1) {
+      } else if (mode === MODES.FLAG && mines.get(point) !== -1) {
         return MODES.CROSS
-      } else if (mines.get(t) === -1 && modes.get(t) === MODES.COVERED) {
+      } else if (mines.get(point) === -1 && modes.get(point) === MODES.COVERED) {
         return MODES.UNCOVERED
       }
       return mode
@@ -92,8 +89,9 @@ export default function reducer(state = GameRecord(), action) {
   } else if (action.type === CLEAR_INDICATORS) {
     return state.update('indicators', indicators =>
       indicators.withMutations(inds => {
-        for (const t of action.ts) {
-          inds.delete(t)
+        // TODO...
+        for (const point of action.pointSet) {
+          inds.delete(point)
         }
       }),
     )
