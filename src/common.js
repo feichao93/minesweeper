@@ -14,7 +14,7 @@ export function doesPlayerWin(modes, mines) {
   // mine对应>= 0(即没有地雷)的点对应的mode均为UNCOVERED的时候, 玩家获胜
   return mines.every((mine, point) => {
     if (mine >= 0) {
-      return modes.get(point) === MODES.UNCOVERED
+      return modes.get(point) === MODES.REVEALED
     }
     return true
   })

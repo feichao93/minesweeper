@@ -51,7 +51,7 @@ function ElementContainer({ modes, mines }) {
     const row = Math.floor(point / COLS)
     const col = Math.floor(point % COLS)
     const mode = modes.get(point)
-    if (mode === MODES.UNCOVERED) {
+    if (mode === MODES.REVEALED) {
       if (mines.get(point) === -1) {
         elements.push(<Mine key={point} row={row} col={col} />)
       } else if (mines.get(point) > 0) {

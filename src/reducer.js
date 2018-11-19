@@ -2,7 +2,6 @@ import { Map, Record, Repeat } from 'immutable'
 import { COLS, GAME_STATUS, MINE_COUNT, MODES, ROWS } from './constants'
 import {
   CHANGE_MODE,
-  CLEAR_INDICATORS,
   GAME_ON,
   GAME_OVER_LOSE,
   GAME_OVER_WIN,
@@ -35,7 +34,7 @@ export default function reducer(state, action) {
     return state.set('status', GAME_STATUS.ON).set('mines', action.mines)
   } else if (action.type === REVEAL) {
     return state.update('modes', modes =>
-      modes.map((mode, point) => (action.pointSet.has(point) ? MODES.UNCOVERED : mode)),
+      modes.map((mode, point) => (action.pointSet.has(point) ? MODES.REVEALED : mode)),
     )
   } else if (action.type === CHANGE_MODE) {
     return state.setIn(['modes', action.point], action.mode)
@@ -72,7 +71,7 @@ export default function reducer(state, action) {
       } else if (mode === MODES.FLAG && mines.get(point) !== -1) {
         return MODES.CROSS
       } else if (mines.get(point) === -1 && modes.get(point) === MODES.COVERED) {
-        return MODES.UNCOVERED
+        return MODES.REVEALED
       }
       return mode
     })
@@ -82,16 +81,7 @@ export default function reducer(state, action) {
   } else if (action.type === RESET_TIMER) {
     return state.set('timer', 0)
   } else if (action.type === SET_INDICATORS) {
-    return state.mergeIn(['indicators'], action.map)
-  } else if (action.type === CLEAR_INDICATORS) {
-    return state.update('indicators', indicators =>
-      indicators.withMutations(inds => {
-        // TODO...
-        for (const point of action.pointSet) {
-          inds.delete(point)
-        }
-      }),
-    )
+    return state.mergeIn(['indicators'], action.colorMap)
   } else {
     return state
   }

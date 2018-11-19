@@ -57,7 +57,3 @@ export const SET_INDICATORS = 'SET_INDICATORS'
 export function setIndicators(colorMap) {
   return { type: SET_INDICATORS, colorMap }
 }
-
-// { type: CLEAR_INDICATORS }
-// todo ??目前并没有什么卵用??
-export const CLEAR_INDICATORS = 'CLEAR_INDICATORS'

@@ -246,10 +246,10 @@
     log-update "^2.3.0"
     strip-ansi "^3.0.1"
 
-"@little-saga/use-saga@^0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@little-saga/use-saga/-/use-saga-0.7.0.tgz#f35fb5595ed2b0d2ccd592b4176226a4cb6c2d0b"
-  integrity sha512-PwhvlQ/7fwKMHjk6exzgjStIoxvJLc1261v+10bpO7cefgGefz3N+gX5W+g553++Vqttm0aDPur0j0zL7upNTg==
+"@little-saga/use-saga@^0.7.1":
+  version "0.7.1"
+  resolved "http://registry.npm.taobao.org/@little-saga/use-saga/download/@little-saga/use-saga-0.7.1.tgz#83b03c1971353bbc6f6874d4dc590110f4b9b720"
+  integrity sha1-g7A8GXE1O7xvaHTU3FkBEPS5tyA=
   dependencies:
     little-saga "^0.6.0"
     react "16.7.0-alpha.0 || 16.7.0-alpha.1 || 16.7.0-alpha.2"
@@ -1041,11 +1041,6 @@ class-utils@^0.3.5:
     define-property "^0.2.5"
     isobject "^3.0.0"
     static-extend "^0.1.1"
-
-classnames@^2.2.6:
-  version "2.2.6"
-  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
-  integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
 
 clean-css@4.2.x:
   version "4.2.1"

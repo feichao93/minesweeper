@@ -36,7 +36,7 @@ We use array `mines` of length 480 to store whether there is a mine under tile. 
 We use another array `modes` to store the mode of each tile. Each tile has one of the following modes:
 
 * `COVERED`  means it is covered now. (Initial mode).
-* `UNCOVERED` means it is uncovered now. (After player clicks the tile or open propagation).
+* `REVEALED` means it is uncovered now. (After player clicks the tile or open propagation).
 * `FLAG`  means that player right-clicks the tile and marks there's a mine under the tile.
 * `QUESTIONED` means that player right-clicks the tile twice and marks there may be a mine under the tile.
 * `CROSS` means that player mark the wrong flags when game fails.

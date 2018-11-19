@@ -1,6 +1,6 @@
 import { List } from 'immutable'
 import { delay, io, takeEvery } from 'little-saga'
-import { find, generateMines, neighbors, doesPlayerWin } from './common'
+import { doesPlayerWin, find, generateMines, neighbors } from './common'
 import { COLS, GAME_STATUS, MINE_COUNT, MODES, ROWS, USE_AI, USE_AUTO } from './constants'
 import workerSaga from './workerSaga'
 import * as actions from './actions'
@@ -11,9 +11,8 @@ import {
   LEFT_CLICK,
   MIDDLE_CLICK,
   RESTART,
-  RIGHT_CLICK,
-  TICK,
   REVEAL,
+  RIGHT_CLICK,
 } from './actions'
 
 export function* handleLeftClick({ point }) {
@@ -35,7 +34,7 @@ export function* handleMiddleClick({ point }) {
   const { modes, mines } = (yield io.select()).toObject()
   const mode = modes.get(point)
   const mine = mines.get(point)
-  if (mode === MODES.UNCOVERED && mine > 0) {
+  if (mode === MODES.REVEALED && mine > 0) {
     const neighborList = List(neighbors(point))
     const flagCount = neighborList.filter(neighbor => modes.get(neighbor) === MODES.FLAG).count()
     if (flagCount === mine) {
@@ -50,7 +49,7 @@ export function* handleMiddleClick({ point }) {
 export function* handleRightClick({ point }) {
   const { modes } = (yield io.select()).toObject()
   const mode = modes.get(point)
-  if (mode !== MODES.UNCOVERED) {
+  if (mode !== MODES.REVEALED) {
     if (mode === MODES.COVERED) {
       yield io.put(actions.changeMode(point, MODES.FLAG))
     } else if (mode === MODES.FLAG) {
@@ -65,7 +64,7 @@ export function* handleRightClick({ point }) {
 
 function* tickEmitter() {
   while (true) {
-    yield io.put({ type: TICK })
+    yield io.put(actions.tick())
     yield delay(1000)
   }
 }

@@ -1,6 +1,7 @@
 import { buffers, delay, eventChannel, io } from 'little-saga'
-import { Range, Map, Set } from 'immutable'
-import { CHANGE_MODE, CLEAR_INDICATORS, REVEAL, SET_INDICATORS } from './actions'
+import { Map, Range, Set } from 'immutable'
+import * as actions from './actions'
+import { CHANGE_MODE, REVEAL } from './actions'
 import { COLS, GAME_STATUS, MODES, ROWS, USE_AUTO } from './constants'
 import { find } from './common'
 import Worker from 'worker-loader!./ai/worker'
@@ -15,25 +16,25 @@ function waitIdleCallback() {
 
 function* handleWorkerMessage(channel) {
   while (true) {
-    const action = yield io.take(channel)
+    const message = yield io.take(channel)
     const { status } = yield io.select()
     if (status !== GAME_STATUS.ON) {
       continue
     }
-    // todo 这里需要类似于去抖动的效果
-    if (action.type === 'mine') {
-      const map = Map(action.value.map(v => [v, 'mine']))
-      yield io.put({ type: SET_INDICATORS, map })
-    } else if (action.type === 'safe') {
-      if (action.value.length > 0) {
-        const map = Map(action.value.map(v => [v, 'safe']))
-        yield io.put({ type: SET_INDICATORS, map })
+
+    if (message.type === 'mine') {
+      const colorMap = Map(message.value.map(v => [v, 'mine']))
+      yield io.put(actions.setIndicators(colorMap))
+    } else if (message.type === 'safe') {
+      if (message.value.length > 0) {
+        const colorMap = Map(message.value.map(v => [v, 'safe']))
+        yield io.put(actions.setIndicators(colorMap))
 
         if (USE_AUTO) {
           yield io.fork(function*() {
             const { modes, mines } = (yield io.select()).toObject()
             let pointSet = Set()
-            action.value.forEach(point => {
+            message.value.forEach(point => {
               pointSet = pointSet.union(find(modes, mines, point))
             })
             yield delay(120)
@@ -46,11 +47,11 @@ function* handleWorkerMessage(channel) {
           })
         }
       }
-    } else if (action.type === 'danger') {
-      const map = Map(action.value.map(v => [v, 'danger']))
-      yield io.put({ type: SET_INDICATORS, map })
-    } else if (action.type === 'clear') {
-      yield io.put({ type: CLEAR_INDICATORS, pointSet: action.pointSet })
+    } else if (message.type === 'danger') {
+      const colorMap = Map(message.value.map(v => [v, 'danger']))
+      yield io.put(actions.setIndicators(colorMap))
+    } else {
+      throw new Error(`Invalid message type ${message.type} from worker`)
     }
   }
 }
@@ -58,9 +59,9 @@ function* handleWorkerMessage(channel) {
 export default function* workerSaga() {
   const worker = new Worker()
 
-  const channel = eventChannel(emmiter => {
+  const channel = eventChannel(emit => {
     const listener = event => {
-      emmiter(JSON.parse(event.data))
+      emit(JSON.parse(event.data))
     }
     worker.addEventListener('message', listener)
     return () => worker.removeEventListener('message', listener)
@@ -86,7 +87,7 @@ export default function* workerSaga() {
 
       if (mode === MODES.FLAG) {
         array.push(C.MINE)
-      } else if (mode === MODES.UNCOVERED) {
+      } else if (mode === MODES.REVEALED) {
         array.push(mine)
       } else if (indicators.get(point) === 'mine') {
         array.push(C.MINE)

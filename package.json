@@ -9,8 +9,7 @@
     "build": "webpack --mode=production"
   },
   "dependencies": {
-    "@little-saga/use-saga": "^0.7.0",
-    "classnames": "^2.2.6",
+    "@little-saga/use-saga": "^0.7.1",
     "immutable": "^4.0.0-rc.12",
     "little-saga": "^0.6.0",
     "normalize.css": "^8.0.1",

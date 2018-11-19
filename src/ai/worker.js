@@ -28,10 +28,6 @@ function postDangers(dangers) {
   )
 }
 
-// function postClear(pointSet) {
-//   postMessage(JSON.stringify({ type: 'clear', pointSet: Array.from(pointSet) }))
-// }
-
 onmessage = function(event) {
   const message = JSON.parse(event.data)
   if (message.type === 'hint') {

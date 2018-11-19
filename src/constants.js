@@ -46,7 +46,7 @@ export const BD_COLOR = '#808080'
 
 // 模式
 export const MODES = {
-  UNCOVERED: 'UNCOVERED', // 点开
+  REVEALED: 'REVEALED', // 点开
   COVERED: 'COVERED', // 没有点开
   FLAG: 'FLAG', // 加上了旗子
   QUESTIONED: 'QUESTIONED', // 加上了问号
