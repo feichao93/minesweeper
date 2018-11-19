@@ -42,9 +42,9 @@ We use another array `modes` to store the mode of each tile. Each tile has one o
 * `CROSS` means that player mark the wrong flags when game fails.
 * `EXPLODED` means that this tile with a mine leads to game fail.
 
-And `stage` keeps the game state/stage. Game stage is one of the following 4 choices: *IDLE*, *ON*, *WIN*, *LOSE*
+And `status` keeps the game state/status. Game status is one of the following 4 choices: *IDLE*, *ON*, *WIN*, *LOSE*
 
-In *IDLE* stage, all tiles are covered and the timer is stopped, and when player click one tile timer will start and stage will become *ON*. In *ON* stage, there are some tiles uncovered and timer is counting which means the game is running. Once player clears all tiles or detonates a mine, then stage becomes *WIN* or *LOSE*.
+In *IDLE* status, all tiles are covered and the timer is stopped, and when player click one tile timer will start and status will become *ON*. In *ON* status, there are some tiles uncovered and timer is counting which means the game is running. Once player clears all tiles or detonates a mine, then status becomes *WIN* or *LOSE*.
 
 `timer` keeps the number of seconds since game start.
 
@@ -52,7 +52,7 @@ In *IDLE* stage, all tiles are covered and the timer is stopped, and when player
 
 ### Using the data structure to render the tiles
 
-`stage`, `mines`, `modes` and `timer`, the four variables together are sufficient to describe the total game state.
+`status`, `mines`, `modes` and `timer`, the four variables together are sufficient to describe the total game state.
 
 The render loginc of the 480 tiles are defined in `App#renderElements` in *app/App.js*. For each tile at `row`-th row `col`-th column that corresponds to array index `i = row * 30 + col`, we examine `modes[i]` and `mines[i]` to determine what should be rendered as follows:
 
@@ -63,7 +63,7 @@ The render loginc of the 480 tiles are defined in `App#renderElements` in *app/A
 
 ### Data structure and interactions
 
-`stage` indicates global game state and influences the player interactions. Only in `IDLE`/`ON` stage should game handle click actions. On `WIN`/`LOSE` stage it is supposed that player must click the face to restart the game.
+`status` indicates global game state and influences the player interactions. Only in `IDLE`/`ON` status should game handle click actions. On `WIN`/`LOSE` status it is supposed that player must click the face to restart the game.
 
 Besides left-click, we needs to handle middle-click (uncover neighboring tiles) and right-click (toggle among `COVERD`, `FLAG`, `QUESTIONED`). The game supports mouse movement with left-button or middle-button pressed, so wee need to track the mouse state. Because mouse state is not related with global game state, we puts the mouse state in `App#state`.
 
@@ -81,13 +81,13 @@ The game main loop is managed by sagas and reducers. The root saga in *app/sagas
 
 Saga `handleXxxClick` handles click actions and translate them into more detailed actions which will be processed by reducers. 
 
-Saga `timerHandler` watches for `GAME_OVER_WIN` / `GAME_OVER_LOSE` / `RESTART` actions and then reset timer. This saga also forks a `tickEmitter` to emit a tick action every second when the game stage is `ON`.
+Saga `timerHandler` watches for `GAME_OVER_WIN` / `GAME_OVER_LOSE` / `RESTART` actions and then reset timer. This saga also forks a `tickEmitter` to emit a tick action every second when the game status is `ON`.
 
 Saga `watchUncover` watches for uncover actions. If player clears all tiles then this saga dispatch a `GAME_OVER_WIN` action; If player detonates a mine then this saga dispatch `GAME_OVER_LOSE`.
 
-Saga `handleLeftClick` handles `LEFT_CLICK` actions. A `LEFT_CLICK` action describes that player click one tile and wants to open/uncover it. If we generates mines before player's first click , then the first click may encounter a mine and it is frustrating. So we generates mines after the first click and ensure first click can make a open propagation. When handling click actions in `IDLE` stage, the left click must be the first left click; In `ON` stage, it is not the first click. 
+Saga `handleLeftClick` handles `LEFT_CLICK` actions. A `LEFT_CLICK` action describes that player click one tile and wants to open/uncover it. If we generates mines before player's first click , then the first click may encounter a mine and it is frustrating. So we generates mines after the first click and ensure first click can make a open propagation. When handling click actions in `IDLE` status, the left click must be the first left click; In `ON` status, it is not the first click. 
 
-Since in `IDLE` stage mines have not been generated, `defaultMines` is used (in *app/common.js*). Function `generateMines` (in *app/common*) uses reservoir sampling algothrim and could generate random mines.
+Since in `IDLE` status mines have not been generated, `defaultMines` is used (in *app/common.js*). Function `generateMines` (in *app/common*) uses reservoir sampling algothrim and could generate random mines.
 
 Saga `handleMiddleClick` handles `MIDDLE_CLICK` actions. It first checks the number at the tile (the tile is uncovered, so it has a number) is equal to the number of neighboring flags. If the two numbers are equals, it means that neighboring covered tiles are supported to be safe, so it will uncover all the safe tiles at once.
 

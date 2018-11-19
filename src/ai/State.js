@@ -1,6 +1,5 @@
 import { UNKNOWN, MINE, SAFE } from './constants'
 
-// eslint-disable-next-line no-extend-native
 Set.prototype.addAll = function(iterable) {
   for (const item of iterable) {
     this.add(item)
@@ -47,7 +46,6 @@ export default class State {
       if (disjointSet[t] < 0) {
         return t
       } else {
-        // eslint-disable-next-line no-return-assign
         return (disjointSet[t] = find(disjointSet[t]))
       }
     }

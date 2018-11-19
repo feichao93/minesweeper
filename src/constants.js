@@ -1,10 +1,13 @@
-/* eslint-disable import/no-mutable-exports */
-import queryString from 'query-string'
-import { strip } from './common'
+import { clamp } from './common'
 
-const { rows, cols, mines, ai, auto } = queryString.parse(document.location.search)
-export const USE_AI = ai !== undefined && ai !== 'false'
-export const USE_AUTO = auto !== undefined && auto !== 'false'
+const params = new URLSearchParams(document.location.search)
+
+const rows = params.get('rows')
+const cols = params.get('cols')
+const mines = params.get('mines')
+
+export const USE_AI = params.has('ai')
+export const USE_AUTO = params.has('auto')
 
 let ROWS
 let COLS
@@ -12,19 +15,19 @@ let MINE_COUNT
 if (isNaN(rows) || Number(rows) === 0) {
   ROWS = 16
 } else {
-  ROWS = strip(5, rows, 40)
+  ROWS = clamp(5, rows, 40)
 }
 
 if (isNaN(cols) || Number(cols) === 0) {
   COLS = 30
 } else {
-  COLS = strip(8, cols, 60)
+  COLS = clamp(8, cols, 60)
 }
 
 if (isNaN(mines) || Number(mines) === 0) {
   MINE_COUNT = ROWS * COLS * 0.2
 } else {
-  MINE_COUNT = Math.floor(strip(0.05, mines / (ROWS * COLS), 0.3) * ROWS * COLS)
+  MINE_COUNT = Math.floor(clamp(0.05, mines / (ROWS * COLS), 0.3) * ROWS * COLS)
 }
 
 history.replaceState(
@@ -47,12 +50,12 @@ export const MODES = {
   COVERED: 'COVERED', // 没有点开
   FLAG: 'FLAG', // 加上了旗子
   QUESTIONED: 'QUESTIONED', // 加上了问号
-  CROSS: 'CROSS', // 用在LOSE stage下, 表明旗子插错了
-  EXPLODED: 'EXPLODED', // 用在LOSE stage下, 表明触发了地雷
+  CROSS: 'CROSS', // 用在 game.status === LOSE 下, 表明旗子插错了
+  EXPLODED: 'EXPLODED', // 用在 game.status === LOSE 下, 表明触发了地雷
 }
 
 // 游戏阶段
-export const STAGES = {
+export const GAME_STATUS = {
   IDLE: 'IDLE', // 空白
   ON: 'ON', // 正在进行游戏
   WIN: 'WIN', // 获胜

@@ -1,7 +1,7 @@
 import Immutable, { Seq, Range, Repeat } from 'immutable'
 import { COLS, ROWS, MODES } from './constants'
 
-export function strip(min, value, max) {
+export function clamp(min, value, max) {
   return Math.min(max, Math.max(min, value))
 }
 
@@ -38,7 +38,7 @@ export function* neighbors(t) {
   }
 }
 
-// 用来快速生成stage为IDLE时的地雷布局
+// 用来快速生成 game.status 为IDLE时的地雷布局
 export function defaultMines(size, count) {
   return Repeat(-1, count)
     .concat(Repeat(0, size - count))

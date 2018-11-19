@@ -1,7 +1,7 @@
 import { List } from 'immutable'
 import { delay, io, takeEvery } from 'little-saga'
 import { find, generateMines, neighbors, win } from './common'
-import { COLS, MINE_COUNT, MODES, ROWS, STAGES, USE_AI, USE_AUTO } from './constants'
+import { COLS, MINE_COUNT, MODES, ROWS, GAME_STATUS, USE_AI, USE_AUTO } from './constants'
 import workerSaga from './workerSaga'
 import {
   GAME_ON,
@@ -19,14 +19,13 @@ import {
 
 export function* handleLeftClick({ t }) {
   const state = yield io.select()
-  const stage = state.get('stage')
-  const modes = state.get('modes')
+  const { status, modes } = state.toObject()
   let mines = state.get('mines')
   if (modes.get(t) === MODES.COVERED) {
-    // 如果目前stage为IDLE, 那么先生成地雷布局
-    if (stage === STAGES.IDLE) {
+    // 如果目前 game.status 为 IDLE, 那么先生成地雷布局
+    if (status === GAME_STATUS.IDLE) {
       mines = generateMines(ROWS * COLS, MINE_COUNT, [t, ...neighbors(t)])
-      // 游戏stage跳转到ON, 计时开始
+      // 游戏 status 跳转到 ON, 计时开始
       yield io.put({ type: GAME_ON, mines })
     }
     yield io.put({ type: UNCOVER_MULTIPLE, ts: find(modes, mines, t) })
@@ -38,11 +37,11 @@ export function* handleMiddleClick({ t }) {
   const mode = modes.get(t)
   const mine = mines.get(t)
   if (mode === MODES.UNCOVERED && mine > 0) {
-    const neighbors = List(neighbors(t))
-    const flagCount = neighbors.filter(neighbor => modes.get(neighbor) === MODES.FLAG).count()
+    const neighborList = List(neighbors(t))
+    const flagCount = neighborList.filter(neighbor => modes.get(neighbor) === MODES.FLAG).count()
     if (flagCount === mine) {
       // 周围旗子的数量和该位置上的数字相等 (过多/过少都不能触发点击)
-      const nearbyCovered = neighbors.filter(neighbor => modes.get(neighbor) === MODES.COVERED)
+      const nearbyCovered = neighborList.filter(neighbor => modes.get(neighbor) === MODES.COVERED)
       const ts = nearbyCovered.flatMap(covered => find(modes, mines, covered)).toSet()
       yield io.put({ type: UNCOVER_MULTIPLE, ts })
     }
@@ -62,8 +61,6 @@ export function* handleRightClick({ t }) {
     } else {
       throw new Error(`Invalid mode ${mode} for ${t}`)
     }
-  } else {
-    console.warn('用户点击了 棋子/问号/已打开 的格子') // eslint-disable-line
   }
 }
 

@@ -1,8 +1,7 @@
-/* eslint-disable no-constant-condition, generator-star-spacing */
 import { buffers, delay, eventChannel, io } from 'little-saga'
 import { Map, Set } from 'immutable'
 import { CLEAR_INDICATORS, MARK, SET_INDICATORS, UNCOVER, UNCOVER_MULTIPLE } from './actions'
-import { COLS, MODES, ROWS, STAGES, USE_AUTO } from './constants'
+import { COLS, MODES, ROWS, GAME_STATUS, USE_AUTO } from './constants'
 import { find } from './common'
 import Worker from 'worker-loader!./ai/worker'
 import * as C from './ai/constants'
@@ -10,9 +9,10 @@ import * as C from './ai/constants'
 function* handleWorkerMessage(channel) {
   while (true) {
     const action = yield io.take(channel)
-    const { stage } = (yield io.select()).toObject()
-    if (stage !== STAGES.ON) {
-      continue // eslint-disable-line no-continue
+    const state = yield io.select()
+    const { status } = state.toObject()
+    if (status !== GAME_STATUS.ON) {
+      continue
     }
     // todo 这里需要类似于去抖动的效果
     if (action.type === 'mine') {
@@ -32,7 +32,7 @@ function* handleWorkerMessage(channel) {
             })
             yield delay(120)
             // 这里电脑一下子点多个...有点作弊
-            if ((yield io.select()).get('stage') === STAGES.ON) {
+            if ((yield io.select()).get('status') === GAME_STATUS.ON) {
               // delay若干ms后, 可能游戏已经结束, 这里判断一下, 确保只在游戏进行的时候进行AI操作
               yield io.put({ type: UNCOVER_MULTIPLE, ts })
             }
@@ -78,7 +78,7 @@ export default function* workerSaga() {
       } else if (mode === MODES.COVERED || mode === MODES.QUESTIONED) {
         return C.UNKNOWN
       } else {
-        gameOn = false // 遇到了无法识别的mode, 说明当前游戏已经结束
+        gameOn = false // 遇到了无法识别的 mode, 说明当前游戏已经结束
         return C.UNKNOWN
       }
     })

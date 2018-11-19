@@ -203,7 +203,7 @@ function segmentBackgroundForG(row, col) {
 }
 
 function getBit(x, t) {
-  return x & (1 << t) // eslint-disable-line no-bitwise
+  return x & (1 << t)
 }
 
 // Positions of the 7 segments:

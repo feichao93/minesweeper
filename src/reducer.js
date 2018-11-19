@@ -1,5 +1,5 @@
 import { Map, Repeat, Record } from 'immutable'
-import { COLS, MINE_COUNT, MODES, ROWS, STAGES } from './constants'
+import { COLS, MINE_COUNT, MODES, ROWS, GAME_STATUS } from './constants'
 import {
   CLEAR_INDICATORS,
   GAME_ON,
@@ -16,7 +16,7 @@ import {
 import { defaultMines } from './common'
 
 const GameRecord = Record({
-  stage: STAGES.IDLE,
+  status: GAME_STATUS.IDLE,
 
   // >=0 表示没有地雷, -1 表示有地雷
   mines: defaultMines(ROWS * COLS, MINE_COUNT),
@@ -33,7 +33,7 @@ const GameRecord = Record({
 
 export default function reducer(state = GameRecord(), action) {
   if (action.type === GAME_ON) {
-    return state.set('stage', STAGES.ON).set('mines', action.mines)
+    return state.set('status', GAME_STATUS.ON).set('mines', action.mines)
   } else if (action.type === UNCOVER) {
     return state.setIn(['modes', action.t], MODES.UNCOVERED)
   } else if (action.type === UNCOVER_MULTIPLE) {
@@ -56,10 +56,10 @@ export default function reducer(state = GameRecord(), action) {
         }
       })
     })
-    return state.merge({ stage: STAGES.WIN, modes: newModes })
+    return state.merge({ status: GAME_STATUS.WIN, modes: newModes })
   } else if (action.type === RESTART) {
     return state
-      .set('stage', STAGES.IDLE)
+      .set('status', GAME_STATUS.IDLE)
       .set('mines', defaultMines(ROWS * COLS, MINE_COUNT))
       .set('modes', Repeat(MODES.COVERED, ROWS * COLS).toList())
       .set('indicators', Map())
@@ -82,7 +82,7 @@ export default function reducer(state = GameRecord(), action) {
       }
       return mode
     })
-    return state.merge({ stage: STAGES.LOSE, modes: newModes })
+    return state.merge({ status: GAME_STATUS.LOSE, modes: newModes })
   } else if (action.type === TICK) {
     return state.update('timer', timer => (timer === 999 ? timer : timer + 1))
   } else if (action.type === RESET_TIMER) {
@@ -90,7 +90,6 @@ export default function reducer(state = GameRecord(), action) {
   } else if (action.type === SET_INDICATORS) {
     return state.mergeIn(['indicators'], action.map)
   } else if (action.type === CLEAR_INDICATORS) {
-    // console.log('CLEAR-INDICATORS')
     return state.update('indicators', indicators =>
       indicators.withMutations(inds => {
         for (const t of action.ts) {

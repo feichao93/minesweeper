@@ -14,7 +14,6 @@
     "immutable": "^4.0.0-rc.12",
     "little-saga": "^0.6.0",
     "normalize.css": "^8.0.1",
-    "query-string": "^6.2.0",
     "react": "^16.7.0-alpha.2",
     "react-dom": "^16.7.0-alpha.2"
   },

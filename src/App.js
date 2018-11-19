@@ -6,7 +6,7 @@ import { Grid, View } from './components/layouts'
 import Indicators from './components/Indicators'
 import { neighbors } from './common'
 import { LEFT_CLICK, MIDDLE_CLICK, RESTART, RIGHT_CLICK } from './actions'
-import { CELL, COLS, MODES, ROWS, STAGES } from './constants'
+import { CELL, COLS, MODES, ROWS, GAME_STATUS } from './constants'
 import useSaga from '@little-saga/use-saga'
 import rootSaga from './sagas'
 import reducer from './reducer'
@@ -72,22 +72,21 @@ function ElementContainer({ modes, mines }) {
 }
 
 export default function App() {
-  const [{ stage, mines, modes, timer, indicators }, dispatch] = useSaga({
+  const [{ status, mines, modes, timer, indicators }, dispatch] = useSaga({
     saga: rootSaga,
     reducer,
     initialAction: { type: 'init' },
   })
 
-  // 左键是否被按下
-  const [btn1, setBtn1] = useState(false)
-  // 中间是否被按下
-  const [btn2, setBtn2] = useState(false)
-  const [pressFace, setPressFace] = useState(false)
+  const [leftPressed, setLeftPressed] = useState(false)
+  const [middlePressed, setMiddlePressed] = useState(false)
+  const [facePressed, setFacePressed] = useState(false)
+  // 鼠标当前的位置，仅在 左键按下 或是 中键按下的情况下有效
   const [point, setPoint] = useState(-1)
 
   const svgRef = useRef()
 
-  const isgameon = stage === STAGES.IDLE || stage === STAGES.ON
+  const isgameon = status === GAME_STATUS.IDLE || status === GAME_STATUS.ON
   const mineCount = mines.filter(mine => mine === -1).count()
   const flagCount = modes.filter(mode => mode === MODES.FLAG).count()
 
@@ -110,7 +109,7 @@ export default function App() {
       <View border={3} x={5} y={48} width={COLS * CELL + 6} height={ROWS * CELL + 6}>
         <Grid />
         <ElementContainer modes={modes} mines={mines} />
-        <CoverContainer modes={modes} btn1={btn1} btn2={btn2} point={point} />
+        <CoverContainer modes={modes} btn1={leftPressed} btn2={middlePressed} point={point} />
         <Indicators indicators={indicators.filter((_, t) => modes.get(t) === MODES.COVERED)} />
       </View>
     </svg>
@@ -121,17 +120,17 @@ export default function App() {
     const result = calculate(event)
     if (event.button === LEFT_BUTTON) {
       if (result.isFace) {
-        setPressFace(true)
-      } else if (isgameon && !btn1) {
-        setBtn1(true)
-        setBtn2(false)
+        setFacePressed(true)
+      } else if (isgameon && !leftPressed) {
+        setLeftPressed(true)
+        setMiddlePressed(false)
         setPoint(result.t)
       }
     } else if (event.button === MIDDLE_BUTTON) {
       event.preventDefault()
-      if (isgameon && !btn2) {
-        setBtn1(false)
-        setBtn2(true)
+      if (isgameon && !middlePressed) {
+        setLeftPressed(false)
+        setMiddlePressed(true)
         setPoint(result.t)
       }
     } else if (event.button === RIGHT_BUTTON) {
@@ -142,7 +141,7 @@ export default function App() {
   }
 
   function onMouseMove(event) {
-    if (btn1 || btn2) {
+    if (leftPressed || middlePressed) {
       const result = calculate(event)
       if (result.valid) {
         setPoint(result.t)
@@ -152,19 +151,19 @@ export default function App() {
 
   function onMouseUp(event) {
     if (event.button === LEFT_BUTTON) {
-      if (pressFace) {
-        setPressFace(false)
+      if (facePressed) {
+        setFacePressed(false)
         dispatch({ type: RESTART })
-      } else if (btn1) {
-        setBtn1(false)
+      } else if (leftPressed) {
+        setLeftPressed(false)
         const result = calculate(event)
         if (result.valid) {
           dispatch({ type: LEFT_CLICK, t: result.t })
         }
       }
     } else if (event.button === MIDDLE_BUTTON) {
-      if (btn2) {
-        setBtn2(false)
+      if (middlePressed) {
+        setMiddlePressed(false)
         const result = calculate(event)
         if (result.valid) {
           dispatch({ type: MIDDLE_CLICK, t: result.t })
@@ -201,14 +200,14 @@ export default function App() {
 
   function renderFace() {
     let faceType = 'smiling'
-    if (stage === STAGES.WIN) {
+    if (status === GAME_STATUS.WIN) {
       faceType = 'sunglasses'
-    } else if (stage === STAGES.LOSE) {
+    } else if (status === GAME_STATUS.LOSE) {
       faceType = 'sad'
-    } else if (btn1 || btn2) {
+    } else if (leftPressed || middlePressed) {
       faceType = 'surprised'
     }
-    return <Face type={faceType} x={(CELL / 2) * COLS - 12} y={4} pressed={pressFace} />
+    return <Face type={faceType} x={(CELL / 2) * COLS - 12} y={4} pressed={facePressed} />
   }
   // endregion
 }
