@@ -16,22 +16,21 @@ import {
 } from './actions'
 
 export function* handleLeftClick({ point }) {
-  const state = yield io.select()
-  const { status, modes } = state.toObject()
-  let mines = state.get('mines')
+  const { status, modes, mines } = yield io.select()
+  let nextMines = mines
   if (modes.get(point) === MODES.COVERED) {
     // 如果目前 game.status 为 IDLE, 那么先生成地雷布局
     if (status === GAME_STATUS.IDLE) {
-      mines = generateMines(ROWS * COLS, MINE_COUNT, [point, ...neighbors(point)])
+      nextMines = generateMines(ROWS * COLS, MINE_COUNT, [point, ...neighbors(point)])
       // 游戏 status 跳转到 ON, 计时开始
-      yield io.put(actions.gameOn(mines))
+      yield io.put(actions.gameOn(nextMines))
     }
-    yield io.put(actions.reveal(find(modes, mines, point)))
+    yield io.put(actions.reveal(find(modes, nextMines, point)))
   }
 }
 
 export function* handleMiddleClick({ point }) {
-  const { modes, mines } = (yield io.select()).toObject()
+  const { modes, mines } = yield io.select()
   const mode = modes.get(point)
   const mine = mines.get(point)
   if (mode === MODES.REVEALED && mine > 0) {
@@ -47,7 +46,7 @@ export function* handleMiddleClick({ point }) {
 }
 
 export function* handleRightClick({ point }) {
-  const { modes } = (yield io.select()).toObject()
+  const { modes } = yield io.select()
   const mode = modes.get(point)
   if (mode !== MODES.REVEALED) {
     if (mode === MODES.COVERED) {
@@ -90,8 +89,7 @@ export function* timerHandler() {
 }
 
 export function* watchReveal({ pointSet }) {
-  const state = yield io.select()
-  const { modes, mines } = state.toObject()
+  const { modes, mines } = yield io.select()
   // 先看看用户是否点击到了地雷, 如果点击到了地雷, 则游戏失败
   const failedPoints = pointSet.filter(point => mines.get(point) === -1)
   if (failedPoints.size > 0) {

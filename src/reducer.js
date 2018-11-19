@@ -1,4 +1,4 @@
-import { Map, Record, Repeat } from 'immutable'
+import { Range, Map, Record, Repeat } from 'immutable'
 import { COLS, GAME_STATUS, MINE_COUNT, MODES, ROWS } from './constants'
 import {
   CHANGE_MODE,
@@ -40,16 +40,13 @@ export default function reducer(state, action) {
     return state.setIn(['modes', action.point], action.mode)
   } else if (action.type === GAME_OVER_WIN) {
     // 玩家获胜的时候, 将所有有地雷的点 用棋子标记一下
-    const { modes, mines } = state.toObject()
-    // TODO refine..
-    const newModes = modes.withMutations(ms => {
-      mines.forEach((mine, point) => {
-        if (mine === -1) {
-          ms.set(point, MODES.FLAG)
-        }
-      })
-    })
-    return state.merge({ status: GAME_STATUS.WIN, modes: newModes })
+    const minePointSet = Range(0, ROWS * COLS)
+      .filter(point => state.mines.get(point) === -1)
+      .toSet()
+    const nextModes = state.modes.map((mode, point) =>
+      minePointSet.has(point) ? MODES.FLAG : mode,
+    )
+    return state.merge({ status: GAME_STATUS.WIN, modes: nextModes })
   } else if (action.type === RESTART) {
     return state
       .set('status', GAME_STATUS.IDLE)
@@ -65,7 +62,7 @@ export default function reducer(state, action) {
     // 5. 显示剩余的地雷
     // 6. 当然, 将 state 设置为 LOSE
     const { modes, mines } = state.toObject()
-    const newModes = modes.map((mode, point) => {
+    const nextModes = modes.map((mode, point) => {
       if (action.failedPoints.has(point)) {
         return MODES.EXPLODED
       } else if (mode === MODES.FLAG && mines.get(point) !== -1) {
@@ -75,7 +72,7 @@ export default function reducer(state, action) {
       }
       return mode
     })
-    return state.merge({ status: GAME_STATUS.LOSE, modes: newModes })
+    return state.merge({ status: GAME_STATUS.LOSE, modes: nextModes })
   } else if (action.type === TICK) {
     return state.update('timer', timer => (timer === 999 ? timer : timer + 1))
   } else if (action.type === RESET_TIMER) {

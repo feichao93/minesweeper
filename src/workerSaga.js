@@ -32,7 +32,7 @@ function* handleWorkerMessage(channel) {
 
         if (USE_AUTO) {
           yield io.fork(function*() {
-            const { modes, mines } = (yield io.select()).toObject()
+            const { modes, mines } = yield io.select()
             let pointSet = Set()
             message.value.forEach(point => {
               pointSet = pointSet.union(find(modes, mines, point))
