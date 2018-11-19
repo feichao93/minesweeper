@@ -1,16 +1,22 @@
 import { buffers, delay, eventChannel, io } from 'little-saga'
-import { Map, Set } from 'immutable'
-import { CLEAR_INDICATORS, CHANGE_MODE, SET_INDICATORS, UNCOVER, UNCOVER_MULTIPLE } from './actions'
-import { COLS, MODES, ROWS, GAME_STATUS, USE_AUTO } from './constants'
+import { Range, Map, Set } from 'immutable'
+import { CHANGE_MODE, CLEAR_INDICATORS, REVEAL, SET_INDICATORS } from './actions'
+import { COLS, GAME_STATUS, MODES, ROWS, USE_AUTO } from './constants'
 import { find } from './common'
 import Worker from 'worker-loader!./ai/worker'
 import * as C from './ai/constants'
 
+function waitIdleCallback() {
+  return io.cps(cb => {
+    const handle = requestIdleCallback(() => cb(null))
+    cb.cancel = () => cancelIdleCallback(handle)
+  })
+}
+
 function* handleWorkerMessage(channel) {
   while (true) {
     const action = yield io.take(channel)
-    const state = yield io.select()
-    const { status } = state.toObject()
+    const { status } = yield io.select()
     if (status !== GAME_STATUS.ON) {
       continue
     }
@@ -32,9 +38,10 @@ function* handleWorkerMessage(channel) {
             })
             yield delay(120)
             // 这里电脑一下子点多个...有点作弊
-            if ((yield io.select()).get('status') === GAME_STATUS.ON) {
+            const { status: currentStatus } = yield io.select()
+            if (currentStatus === GAME_STATUS.ON) {
               // delay若干ms后, 可能游戏已经结束, 这里判断一下, 确保只在游戏进行的时候进行AI操作
-              yield io.put({ type: UNCOVER_MULTIPLE, pointSet })
+              yield io.put({ type: REVEAL, pointSet })
             }
           })
         }
@@ -62,28 +69,36 @@ export default function* workerSaga() {
   yield io.fork(handleWorkerMessage, channel)
 
   while (true) {
-    yield io.take([UNCOVER, UNCOVER_MULTIPLE, CHANGE_MODE])
-    const { modes, mines, indicators } = (yield io.select()).toObject()
-    let gameOn = true
-    const array = mines.map((mine, point) => {
-      const mode = modes.get(point)
-      if (mode === MODES.FLAG) {
-        return C.MINE
-      } else if (mode === MODES.UNCOVERED) {
-        return mine
-      } else if (indicators.get(point) === 'mine') {
-        return C.MINE
-      } else if (indicators.get(point) === 'safe') {
-        return C.SAFE
-      } else if (mode === MODES.COVERED || mode === MODES.QUESTIONED) {
-        return C.UNKNOWN
-      } else {
-        gameOn = false // 遇到了无法识别的 mode, 说明当前游戏已经结束
-        return C.UNKNOWN
-      }
-    })
-    if (gameOn) {
-      worker.postMessage(JSON.stringify({ type: 'hint', ROWS, COLS, array, USE_AUTO }))
+    yield io.take([REVEAL, CHANGE_MODE])
+    yield waitIdleCallback()
+
+    const { modes, mines, indicators, status } = yield io.select()
+
+    if (status !== GAME_STATUS.ON) {
+      continue
     }
+
+    const array = []
+
+    for (const point of Range(0, ROWS * COLS)) {
+      const mine = mines.get(point)
+      const mode = modes.get(point)
+
+      if (mode === MODES.FLAG) {
+        array.push(C.MINE)
+      } else if (mode === MODES.UNCOVERED) {
+        array.push(mine)
+      } else if (indicators.get(point) === 'mine') {
+        array.push(C.MINE)
+      } else if (indicators.get(point) === 'safe') {
+        array.push(C.SAFE)
+      } else if (mode === MODES.COVERED || mode === MODES.QUESTIONED) {
+        array.push(C.UNKNOWN)
+      } else {
+        // 遇到了其他 mode, 说明当前游戏已经结束
+        throw new Error(`Invalid mode ${mode}`)
+      }
+    }
+    worker.postMessage(JSON.stringify({ type: 'hint', ROWS, COLS, array, USE_AUTO }))
   }
 }

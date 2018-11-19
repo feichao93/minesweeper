@@ -13,7 +13,7 @@ import {
   RESTART,
   RIGHT_CLICK,
   TICK,
-  UNCOVER_MULTIPLE,
+  REVEAL,
 } from './actions'
 
 export function* handleLeftClick({ point }) {
@@ -27,7 +27,7 @@ export function* handleLeftClick({ point }) {
       // 游戏 status 跳转到 ON, 计时开始
       yield io.put(actions.gameOn(mines))
     }
-    yield io.put(actions.uncoverMultiple(find(modes, mines, point)))
+    yield io.put(actions.reveal(find(modes, mines, point)))
   }
 }
 
@@ -42,7 +42,7 @@ export function* handleMiddleClick({ point }) {
       // 周围旗子的数量和该位置上的数字相等 (过多/过少都不能触发点击)
       const nearbyCovered = neighborList.filter(neighbor => modes.get(neighbor) === MODES.COVERED)
       const pointSet = nearbyCovered.flatMap(covered => find(modes, mines, covered)).toSet()
-      yield io.put(actions.uncoverMultiple(pointSet))
+      yield io.put(actions.reveal(pointSet))
     }
   }
 }
@@ -90,7 +90,7 @@ export function* timerHandler() {
   }
 }
 
-export function* watchUncover({ pointSet }) {
+export function* watchReveal({ pointSet }) {
   const state = yield io.select()
   const { modes, mines } = state.toObject()
   // 先看看用户是否点击到了地雷, 如果点击到了地雷, 则游戏失败
@@ -106,7 +106,7 @@ export default function* rootSaga() {
   yield takeEvery(LEFT_CLICK, handleLeftClick)
   yield takeEvery(MIDDLE_CLICK, handleMiddleClick)
   yield takeEvery(RIGHT_CLICK, handleRightClick)
-  yield takeEvery(UNCOVER_MULTIPLE, watchUncover)
+  yield takeEvery(REVEAL, watchReveal)
   yield io.fork(timerHandler)
   if (USE_AI || USE_AUTO) {
     yield io.fork(workerSaga)

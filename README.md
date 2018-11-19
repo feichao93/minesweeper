@@ -71,7 +71,7 @@ In `App#state`, field `btn1`/`btn2` records whether left-button/middle-button is
 
 In `onMouseDown`, if the game is not running, then the mouse down event is ignored, which is equivalent to disabling interactions. We do not add `onClick` event listener. The click actions are dispatched in `onMouseUp` after checking the mouse state. Is this way we implements mouse interactions that allow click behavior and allow mouse movement when the button is pressed.
 
-The mouse interactions will be translated to three kinds of redux actions: `LEFT_CLICK`, `MIDDLE_CLICK` and `RIGHT_CLICK`. The action describes which button is clicked and the corresponding tile array index. There three kinds of actions are processed by saga in *app/sagas.js* which will translate them into more detailed actions like `UNCOVER_MULTIPLE` or `GAME_ON` for reducers.
+The mouse interactions will be translated to three kinds of redux actions: `LEFT_CLICK`, `MIDDLE_CLICK` and `RIGHT_CLICK`. The action describes which button is clicked and the corresponding tile array index. There three kinds of actions are processed by saga in *app/sagas.js* which will translate them into more detailed actions like `REVEAL` or `GAME_ON` for reducers.
 
 Detailed logic could be viewed in *app/App.js* and *app/sagas.js*.
 
@@ -83,7 +83,7 @@ Saga `handleXxxClick` handles click actions and translate them into more detaile
 
 Saga `timerHandler` watches for `GAME_OVER_WIN` / `GAME_OVER_LOSE` / `RESTART` actions and then reset timer. This saga also forks a `tickEmitter` to emit a tick action every second when the game status is `ON`.
 
-Saga `watchUncover` watches for uncover actions. If player clears all tiles then this saga dispatch a `GAME_OVER_WIN` action; If player detonates a mine then this saga dispatch `GAME_OVER_LOSE`.
+Saga `watchReveal` watches for uncover actions. If player clears all tiles then this saga dispatch a `GAME_OVER_WIN` action; If player detonates a mine then this saga dispatch `GAME_OVER_LOSE`.
 
 Saga `handleLeftClick` handles `LEFT_CLICK` actions. A `LEFT_CLICK` action describes that player click one tile and wants to open/uncover it. If we generates mines before player's first click , then the first click may encounter a mine and it is frustrating. So we generates mines after the first click and ensure first click can make a open propagation. When handling click actions in `IDLE` status, the left click must be the first left click; In `ON` status, it is not the first click. 
 
@@ -91,7 +91,7 @@ Since in `IDLE` status mines have not been generated, `defaultMines` is used (in
 
 Saga `handleMiddleClick` handles `MIDDLE_CLICK` actions. It first checks the number at the tile (the tile is uncovered, so it has a number) is equal to the number of neighboring flags. If the two numbers are equals, it means that neighboring covered tiles are supported to be safe, so it will uncover all the safe tiles at once.
 
-Saga `handleRightClick` handles `RIGHT_CLICK` actions and dispatch `MARK` actions.
+Saga `handleRightClick` handles `RIGHT_CLICK` actions and dispatch `CHANGE_MODE` actions.
 
 Most logic is implemented in sagas. Reducers is somewhat light and is not covered here.
 

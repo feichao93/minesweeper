@@ -8,10 +8,9 @@ import {
   GAME_OVER_WIN,
   RESET_TIMER,
   RESTART,
+  REVEAL,
   SET_INDICATORS,
   TICK,
-  UNCOVER,
-  UNCOVER_MULTIPLE,
 } from './actions'
 import { defaultMines } from './common'
 
@@ -34,9 +33,7 @@ export const GameRecord = Record({
 export default function reducer(state, action) {
   if (action.type === GAME_ON) {
     return state.set('status', GAME_STATUS.ON).set('mines', action.mines)
-  } else if (action.type === UNCOVER) {
-    return state.setIn(['modes', action.point], MODES.UNCOVERED)
-  } else if (action.type === UNCOVER_MULTIPLE) {
+  } else if (action.type === REVEAL) {
     return state.update('modes', modes =>
       modes.map((mode, point) => (action.pointSet.has(point) ? MODES.UNCOVERED : mode)),
     )

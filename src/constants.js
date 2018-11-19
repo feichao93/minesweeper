@@ -25,7 +25,7 @@ if (isNaN(cols) || Number(cols) === 0) {
 }
 
 if (isNaN(mines) || Number(mines) === 0) {
-  MINE_COUNT = ROWS * COLS * 0.2
+  MINE_COUNT = ROWS * COLS * 0.20625
 } else {
   MINE_COUNT = Math.floor(clamp(0.05, mines / (ROWS * COLS), 0.3) * ROWS * COLS)
 }

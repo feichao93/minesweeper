@@ -13,20 +13,14 @@ export function rightClick(point) {
   return { type: RIGHT_CLICK, point }
 }
 
-export const UNCOVER = 'UNCOVER'
-export function uncover(point) {
-  return { type: UNCOVER, point }
-}
-
 export const CHANGE_MODE = 'CHANGE_MODE'
 export function changeMode(point, mode) {
   return { type: CHANGE_MODE, point, mode }
 }
 
-// TODO rename to REVEAL
-export const UNCOVER_MULTIPLE = 'UNCOVER_MULTIPLE'
-export function uncoverMultiple(pointSet) {
-  return { type: UNCOVER_MULTIPLE, pointSet }
+export const REVEAL = 'REVEAL'
+export function reveal(pointSet) {
+  return { type: REVEAL, pointSet }
 }
 
 export const RESTART = 'RESTART'

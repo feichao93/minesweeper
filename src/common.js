@@ -34,10 +34,10 @@ export function* neighbors(point) {
   }
 }
 
-// 用来快速生成 game.status 为IDLE时的地雷布局
-export function defaultMines(size, count) {
-  return Repeat(-1, count)
-    .concat(Repeat(0, size - count))
+// 用来快速生成 game.status 为 IDLE 时的地雷布局
+export function defaultMines(size, mineCount) {
+  return Repeat(-1, mineCount)
+    .concat(Repeat(0, size - mineCount))
     .toList()
 }
 
