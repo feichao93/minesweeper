@@ -1,7 +1,6 @@
-import { List } from 'immutable'
 import { delay, io, takeEvery } from 'little-saga'
-import { doesPlayerWin, find, generateMines, neighbors } from './common'
-import { COLS, GAME_STATUS, MINE_COUNT, MODES, ROWS, USE_AI, USE_AUTO } from './constants'
+import { doesPlayerWin, find, generateMines, getNeighborList } from './common'
+import { COLS, GAME_STATUS, MINE, MINE_COUNT, MODES, ROWS, USE_HINT, USE_AUTO } from './constants'
 import workerSaga from './workerSaga'
 import * as actions from './actions'
 import {
@@ -21,7 +20,8 @@ export function* handleLeftClick({ point }) {
   if (modes.get(point) === MODES.COVERED) {
     // 如果目前 game.status 为 IDLE, 那么先生成地雷布局
     if (status === GAME_STATUS.IDLE) {
-      nextMines = generateMines(ROWS * COLS, MINE_COUNT, [point, ...neighbors(point)])
+      const safeArea = getNeighborList(point).push(point)
+      nextMines = generateMines(ROWS * COLS, MINE_COUNT, safeArea)
       // 游戏 status 跳转到 ON, 计时开始
       yield io.put(actions.gameOn(nextMines))
     }
@@ -34,7 +34,7 @@ export function* handleMiddleClick({ point }) {
   const mode = modes.get(point)
   const mine = mines.get(point)
   if (mode === MODES.REVEALED && mine > 0) {
-    const neighborList = List(neighbors(point))
+    const neighborList = getNeighborList(point)
     const flagCount = neighborList.filter(neighbor => modes.get(neighbor) === MODES.FLAG).count()
     if (flagCount === mine) {
       // 周围旗子的数量和该位置上的数字相等 (过多/过少都不能触发点击)
@@ -91,7 +91,7 @@ export function* timerHandler() {
 export function* watchReveal({ pointSet }) {
   const { modes, mines } = yield io.select()
   // 先看看用户是否点击到了地雷, 如果点击到了地雷, 则游戏失败
-  const failedPoints = pointSet.filter(point => mines.get(point) === -1)
+  const failedPoints = pointSet.filter(point => mines.get(point) === MINE)
   if (failedPoints.size > 0) {
     yield io.put(actions.gameOverLose(failedPoints))
   } else if (doesPlayerWin(modes, mines)) {
@@ -105,7 +105,7 @@ export default function* rootSaga() {
   yield takeEvery(RIGHT_CLICK, handleRightClick)
   yield takeEvery(REVEAL, watchReveal)
   yield io.fork(timerHandler)
-  if (USE_AI || USE_AUTO) {
+  if (USE_HINT || USE_AUTO) {
     yield io.fork(workerSaga)
   }
 }

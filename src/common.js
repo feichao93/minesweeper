@@ -1,5 +1,5 @@
-import Immutable, { Seq, Range, Repeat } from 'immutable'
-import { COLS, ROWS, MODES } from './constants'
+import Immutable, { List, Range, Repeat } from 'immutable'
+import { COLS, MINE, MODES, ROWS } from './constants'
 
 export function clamp(min, value, max) {
   return Math.min(max, Math.max(min, value))
@@ -10,33 +10,35 @@ function cmp(x, y) {
 }
 
 // 判断当前玩家是否获胜
+// 当没有地雷的位置均为 REVEALED 的时候, 玩家获胜
 export function doesPlayerWin(modes, mines) {
-  // mine对应>= 0(即没有地雷)的点对应的mode均为UNCOVERED的时候, 玩家获胜
   return mines.every((mine, point) => {
-    if (mine >= 0) {
+    if (mine !== MINE) {
       return modes.get(point) === MODES.REVEALED
     }
     return true
   })
 }
 
-export function* neighbors(point) {
+export function getNeighborList(point) {
   const row = Math.floor(point / COLS)
   const col = point % COLS
+  const array = []
   for (const deltaRow of [-1, 0, 1]) {
     for (const deltaCol of [-1, 0, 1]) {
       const row2 = row + deltaRow
       const col2 = col + deltaCol
       if (row2 >= 0 && row2 < ROWS && col2 >= 0 && col2 < COLS) {
-        yield row2 * COLS + col2
+        array.push(row2 * COLS + col2)
       }
     }
   }
+  return List(array)
 }
 
 // 用来快速生成 game.status 为 IDLE 时的地雷布局
 export function defaultMines(size, mineCount) {
-  return Repeat(-1, mineCount)
+  return Repeat(MINE, mineCount)
     .concat(Repeat(0, size - mineCount))
     .toList()
 }
@@ -69,48 +71,42 @@ export function generateMines(size, count, excluded = []) {
   const pointSet = new Set(array)
 
   // 第3步. 计算周围雷的数量, 生成mines
-  const mines = Range(0, size).map(point => {
-    if (pointSet.has(point)) {
-      return -1
-    } else {
-      return 0
-    }
-  })
-
-  return mines
-    .map((mine, point) =>
-      mine === -1
-        ? -1
-        : Seq(neighbors(point))
-            .filter(neighbor => mines.get(neighbor) === -1)
-            .count(),
-    )
+  const hasMines = Range(0, size)
+    .map(point => pointSet.has(point))
     .toList()
+
+  function countNeighboringMines(point) {
+    return getNeighborList(point)
+      .filter(neighbor => hasMines.get(neighbor))
+      .count()
+  }
+
+  return hasMines.map((has, point) => (has ? MINE : countNeighboringMines(point)))
 }
 
-// 从start位置开始, uncover周围的点(一般为8个), 如果周围的点中存在mine = 0的点P, 则从点P处执行同样的操作.
-// 该函数用于计算 uncover start的时候应当同时uncover的点的集合
+// 从 start 位置开始, reveal 周围的点(一般为8个), 如果周围的点中存在 mine = 0 的点 P, 则从点 P 处执行同样的操作.
+// 返回被揭开的位置的集合
 export function find(modes, mines, start) {
   // 注意这里使用的是原生的Set
   const result = new Set()
-  let visited = new Set([start])
+  let frontier = new Set([start])
 
-  while (visited.size > 0) {
-    const newVisited = new Set()
-    for (const point of visited) {
+  while (frontier.size > 0) {
+    const conquer = new Set()
+    for (const point of frontier) {
       result.add(point)
       if (mines.get(point) === 0) {
-        for (const neighbor of neighbors(point)) {
+        for (const neighbor of getNeighborList(point)) {
           if (
             !result.has(neighbor) &&
             modes.get(neighbor) === MODES.COVERED &&
-            mines.get(neighbor) >= 0
+            mines.get(neighbor) !== MINE
           ) {
-            newVisited.add(neighbor)
+            conquer.add(neighbor)
           }
         }
       }
-      visited = newVisited
+      frontier = conquer
     }
   }
   return Immutable.Set(result)

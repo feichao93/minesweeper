@@ -1,5 +1,5 @@
 import { Range, Map, Record, Repeat } from 'immutable'
-import { COLS, GAME_STATUS, MINE_COUNT, MODES, ROWS } from './constants'
+import { COLS, GAME_STATUS, MINE, MINE_COUNT, MODES, ROWS } from './constants'
 import {
   CHANGE_MODE,
   GAME_ON,
@@ -41,7 +41,7 @@ export default function reducer(state, action) {
   } else if (action.type === GAME_OVER_WIN) {
     // 玩家获胜的时候, 将所有有地雷的点 用棋子标记一下
     const minePointSet = Range(0, ROWS * COLS)
-      .filter(point => state.mines.get(point) === -1)
+      .filter(point => state.mines.get(point) === MINE)
       .toSet()
     const nextModes = state.modes.map((mode, point) =>
       minePointSet.has(point) ? MODES.FLAG : mode,
@@ -55,19 +55,18 @@ export default function reducer(state, action) {
       .set('indicators', Map())
   } else if (action.type === GAME_OVER_LOSE) {
     // 游戏失败的时候需要做以下几件事情:
-    // 1. 先用find展开uncover (这个在失败之前应该已经执行)
-    // 2. 将出错的点标位红地雷 (action.failedPoints <Mine type="exploded" />)
-    // 3. 原来错误的旗子的地方需要显示 <Mine type="cross" />
-    // 4. 原来正确的旗子保持不变
-    // 5. 显示剩余的地雷
-    // 6. 当然, 将 state 设置为 LOSE
+    // 1. 将出错的点标位红地雷 (action.failedPoints <Mine type="exploded" />)
+    // 2. 原来错误的旗子的地方需要显示 <Mine type="cross" />
+    // 3. 原来正确的旗子保持不变
+    // 4. 将 COVERED 地雷的状态变为 REVEALED (让玩家瞅一眼正确的地雷分布)
+    // 5. 当然, 将 state 设置为 LOSE
     const { modes, mines } = state.toObject()
     const nextModes = modes.map((mode, point) => {
       if (action.failedPoints.has(point)) {
         return MODES.EXPLODED
-      } else if (mode === MODES.FLAG && mines.get(point) !== -1) {
+      } else if (mode === MODES.FLAG && mines.get(point) !== MINE) {
         return MODES.CROSS
-      } else if (mines.get(point) === -1 && modes.get(point) === MODES.COVERED) {
+      } else if (mines.get(point) === MINE && modes.get(point) === MODES.COVERED) {
         return MODES.REVEALED
       }
       return mode

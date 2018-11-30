@@ -4,12 +4,12 @@ import Number from './components/Number'
 import { Cover, Face, Flag, LED, Mine, QuestionMark } from './components/elements'
 import { Grid, View } from './components/layouts'
 import Indicators from './components/Indicators'
-import { neighbors } from './common'
 import * as actions from './actions'
-import { CELL, COLS, GAME_STATUS, MODES, ROWS } from './constants'
+import { CELL, COLS, GAME_STATUS, MINE, MODES, ROWS } from './constants'
 import useSaga from '@little-saga/use-saga'
 import rootSaga from './sagas'
 import reducer, { GameRecord } from './reducer'
+import { getNeighborList } from './common'
 
 const LEFT_BUTTON = 0
 const MIDDLE_BUTTON = 1
@@ -26,7 +26,7 @@ function CoverContainer({ modes, btn1, btn2, point }) {
     if (btn1) {
       dontNeedCover = Set([point])
     } else if (btn2) {
-      dontNeedCover = Set(neighbors(point))
+      dontNeedCover = Set(getNeighborList(point))
     }
   }
   const covers = []
@@ -52,10 +52,9 @@ function ElementContainer({ modes, mines }) {
     const col = Math.floor(point % COLS)
     const mode = modes.get(point)
     if (mode === MODES.REVEALED) {
-      if (mines.get(point) === -1) {
+      if (mines.get(point) === MINE) {
         elements.push(<Mine key={point} row={row} col={col} />)
       } else if (mines.get(point) > 0) {
-        // >= 0
         elements.push(<Number key={point} row={row} col={col} number={mines.get(point)} />)
       }
     } else if (mode === MODES.FLAG) {
@@ -86,8 +85,8 @@ export default function App() {
 
   const svgRef = useRef()
 
-  const isgameon = status === GAME_STATUS.IDLE || status === GAME_STATUS.ON
-  const mineCount = mines.filter(mine => mine === -1).count()
+  const isGameOn = status === GAME_STATUS.IDLE || status === GAME_STATUS.ON
+  const mineCount = mines.filter(mine => mine === MINE).count()
   const flagCount = modes.filter(mode => mode === MODES.FLAG).count()
 
   return (
@@ -123,20 +122,20 @@ export default function App() {
     if (event.button === LEFT_BUTTON) {
       if (result.isFace) {
         setFacePressed(true)
-      } else if (isgameon && !leftPressed) {
+      } else if (isGameOn && !leftPressed) {
         setLeftPressed(true)
         setMiddlePressed(false)
         setPoint(result.point)
       }
     } else if (event.button === MIDDLE_BUTTON) {
       event.preventDefault()
-      if (isgameon && !middlePressed) {
+      if (isGameOn && !middlePressed) {
         setLeftPressed(false)
         setMiddlePressed(true)
         setPoint(result.point)
       }
     } else if (event.button === RIGHT_BUTTON) {
-      if (isgameon && result.valid) {
+      if (isGameOn && result.valid) {
         dispatch(actions.rightClick(result.point))
       }
     }
@@ -195,7 +194,7 @@ export default function App() {
 
     const row = Math.floor((y - 51) / CELL)
     const col = Math.floor((x - 8) / CELL)
-    const valid = row >= 0 && row < ROWS && col >= 0 && col <= COLS
+    const valid = row >= 0 && row < ROWS && col >= 0 && col < COLS
     const point = row * COLS + col
     return { row, col, valid, point: valid ? point : -1 }
   }
