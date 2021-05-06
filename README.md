@@ -4,9 +4,9 @@ Minesweeper game built with [React](https://github.com/facebook/react), [little-
 
 Follow the links and start playing the game:
 
-- [Normal Mode](http://shinima.pw/minesweeper/)
-- [Hint Mode](http://shinima.pw/minesweeper/?hint)
-- [Auto Mode](http://shinima.pw/minesweeper/?auto)
+- [Normal Mode](https://shinima.github.io/minesweeper/)
+- [Hint Mode](https://shinima.github.io/minesweeper/?hint)
+- [Auto Mode](https://shinima.github.io/minesweeper/?auto)
 
 As you can see, you could configure the game via URL parameter. Enjoy playing~
 
